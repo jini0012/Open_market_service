@@ -28,3 +28,8 @@ body {
   align-items: center;
   gap: 7rem;
 }
+/* header */
+h1 {
+  width: 23.8rem;
+  height: 7.4rem;
+}
