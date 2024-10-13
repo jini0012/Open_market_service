@@ -7,5 +7,39 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/login.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>
+        <a href="#"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
+      </h1>
+    </header>
+    <main>
+      <article>
+        <h2 class="sr-only">로그인 상태 버튼</h2>
+        <ul>
+          <li><button type="button">구매회원 로그인</button></li>
+          <li><button type="button">판매회원 로그인</button></li>
+        </ul>
+        <!-- 위 버튼 클릭시 각각의 (.buyer/.seller)class를 부여하여  
+         .buyer => 구매회원으로 로그인 / .seller => 판매회원 로그인으로 되도록 설정가능한지 확인-->
+        <section>
+          <h2 class="sr-only">로그인 입력창</h2>
+          <form action="" method="post">
+            <label for="id">아이디</label>
+            <input type="text" id="id" />
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" />
+            <button type="submit">로그인</button>
+            <!-- 버튼 클릭 오류 메세지 JS로 적용확인 -->
+          </form>
+        </section>
+        <!-- a태그 링크 페이지 제작 후 연결되도록 변경-->
+        <ul>
+          <li><a href="#">회원가입</a></li>
+          <!-- 가상요소 | 로 넣어서 구분 -->
+          <li><a href="#">비밀번호 찾기</a></li>
+        </ul>
+      </article>
+    </main>
+  </body>
 </html>
