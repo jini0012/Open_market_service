@@ -114,6 +114,11 @@ button {
   flex-grow: 2;
 }
 
+input:focus {
+  outline: none;
+  border-color: var(--point-color);
+}
+
 .join-form button {
   height: 5.4rem;
   line-height: 2.2rem;
