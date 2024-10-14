@@ -8,6 +8,93 @@
     <link rel="stylesheet" href="./css/signup.css" />
   </head>
   <body>
+    <header>
+      <h1>
+        <a href="#"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
+      </h1>
+    </header>
+    <main>
+      <article>
+        <h2 class="sr-only">회원가입</h2>
+        <ul class="join-btns">
+          <li>
+            <button type="button" class="buyer active">구매회원가입</button>
+          </li>
+          <li>
+            <button type="button" class="seller">판매회원가입</button>
+          </li>
+        </ul>
+
+        <section>
+          <h2 class="sr-only">회원가입 정보 입력</h2>
+          <form action="#" method="post" class="join-form">
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id" autocomplete="username" />
+            <button type="submit">중복확인</button>
+            <!-- 아이디 중복 확인 -->
+            <p class="id-check"></p>
+            <!-- 비밀번호 및 재확인 유효한 값인 경우 체크 이미지 확인되게끔 JS 적용-->
+            <!-- 비밀번호 추후 필요시 정규표현식 적용 -->
+            <label for="password">비밀번호</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              autocomplete="new-password"
+            />
+            <label for="password-recheck">비밀번호 재확인</label>
+            <input
+              type="password"
+              name="password-recheck"
+              id="password-recheck"
+            />
+            <!-- 비밀번호와 재확인 일치 여부 확인 -->
+            <p class="password-check"></p>
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" autocomplete="name" />
+            <label for="phone">휴대폰번호</label>
+            <ul class="phone">
+              <select name="phone1" id="phone">
+                <option value="010">010</option>
+                <option value="011">011</option>
+                <option value="016">016</option>
+                <option value="017">017</option>
+              </select>
+              <li><input type="text" name="phone2" id="phone" /></li>
+              <li><input type="text" name="phone3" id="phone" /></li>
+            </ul>
+
+            <!-- 판매회원가입 전용 input 요소 -->
+            <!-- 정규표현식 적용 -->
+            <label for="business-num">사업자 등록번호</label>
+            <input
+              type="text"
+              name="business-num"
+              id="business-num"
+              class="seller-only"
+            />
+            <button type="submit">중복확인</button>
+
+            <label for="store-name">스토어 이름</label>
+            <input
+              type="text"
+              name="store-name"
+              id="store-name"
+              class="seller-only"
+            />
+
+            <!-- checkbox 디자인 가상요소로 적용 -->
+            <input type="checkbox" />
+            <label for="checkbox"
+              >호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에
+              대한 내용을 확인하였고 동의합니다.</label
+            >
+            <!-- 모든 값이 유효하기 전까지 disabled js로 적용 -->
+            <button type="submit">가입하기</button>
+          </form>
+        </section>
+      </article>
+    </main>
     <script src="./js/signup.js"></script>
   </body>
 </html>
