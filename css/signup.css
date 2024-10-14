@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #ffffff;
+  --border-color: #c4c4c4;
+  --point-color: #21bf48;
+  --font-color: #767676;
+}
+
+html {
+  font-size: 10px;
+}
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* .seller-only : 사업자등록번호, 스토어 이름 input 요소 포함 */
+.seller-only {
+  display: none;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 2.003rem;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+/* header */
+h1 {
+  width: 23.8rem;
+  height: 7.4rem;
+  margin: auto;
+}
+
+/* main */
+article {
+  max-width: 55rem;
+  margin: auto;
+}
+/* ------main 태그 공통------ */
+article ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+button {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  cursor: pointer;
+}
+
+.duplicate-check {
+  flex-grow: 1;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* -------------------------- */
+
+.join-btns li {
+  width: 100%;
+}
+
+.join-btns li button {
+  width: 100%;
+  height: 8rem;
+  border: var(--border-color) 0.1rem solid;
+  background-color: #f2f2f2;
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+.join-btns li .active {
+  background-color: var(--main-color);
+}
+
+.join-form {
+  /*.join-btns 와 위치 조정 */
+  position: relative;
+  top: -1rem;
+  background-color: var(--main-color);
+  padding: 3.5rem;
+  border: var(--border-color) 0.1rem solid;
+  border-radius: 1rem;
+  color: var(--font-color);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.join-form input {
+  height: 5.4rem;
+  font-size: inherit;
+  border: var(--border-color) 0.1rem solid;
+  border-radius: 0.5rem;
+  flex-grow: 2;
+}
+
+.join-form button {
+  height: 5.4rem;
+  line-height: 2.2rem;
+  background-color: var(--point-color);
+  border-radius: 0.5rem;
+  color: var(--main-color);
+  border: none;
+  font-weight: 700;
+}
+
+#password-recheck {
+  margin-bottom: 3rem;
+}
+
+.id-wrap,
+.businessnum-wrap,
+.phone-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* 휴대폰번호 앞자리 디자인 수정 */
+.phone-wrap select {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  position: relative;
+}
+
+.no-wrap {
+  width: 100%;
+  max-width: 48rem;
+  position: absolute;
+  bottom: -7.4rem;
+  display: flex;
+}
+
+/* 체크박스 디자인 적용 예정 */
+#checkbox {
+  transform: translate(0.5rem, 2rem);
+}
+#checkbox span {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.signup-btn {
+  position: absolute;
+  bottom: -7.4rem;
+  width: 100%;
+}
+
+button:disabled {
+  background-color: var(--border-color);
+}
+
+/* 회원가입 오류시 적용되는 css */
+.join-error {
+  margin: 1rem 0 0 0;
+  color: #eb5757;
+}
+.join-check {
+  color: var(--point-color);
+}
