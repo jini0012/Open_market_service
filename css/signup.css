@@ -168,10 +168,12 @@ select:focus {
   max-width: 15rem;
 }
 
-.phone-wrap select {
+.phone-wrap select,
+.phone-wrap input {
   text-indent: 0;
   text-align: center;
 }
+
 /* ------------------------------- */
 
 /* 이용약관 동의 및 가입하기 */
