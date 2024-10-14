@@ -6,9 +6,17 @@
   font-style: normal;
 }
 
+:root {
+  --main-color: #ffffff;
+  --border-color: #c4c4c4;
+  --point-color: #21bf48;
+}
+
 html {
-  font-family: "SpoqaHanSansNeo-Regular";
   font-size: 10px;
+}
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
 }
 
 .sr-only {
@@ -22,6 +30,7 @@ html {
 
 body {
   font-size: 1.6rem;
+  line-height: 2.003rem;
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
@@ -32,4 +41,65 @@ body {
 h1 {
   width: 23.8rem;
   height: 7.4rem;
+}
+
+/* main */
+article {
+  position: relative;
+}
+
+article ul {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+
+.login-btns li button {
+  width: 27.5rem;
+  height: 8rem;
+  border: var(--border-color) 0.1rem solid;
+  background-color: var(--main-color);
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+section form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 3.5rem;
+  border: var(--border-color) 0.1rem solid;
+  border-radius: 1rem;
+}
+
+section form button {
+  margin-top: 3rem;
+  width: 48rem;
+  height: 6rem;
+  line-height: 2.2rem;
+  background-color: var(--point-color);
+  border-radius: 0.5rem;
+  color: var(--main-color);
+  border: none;
+  font-weight: 700;
+}
+
+.find {
+  margin-top: 3rem;
+}
+
+.find li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+
+.find li:first-child::after {
+  content: "|";
+  display: inline;
+  margin: 0 1.4rem;
 }
