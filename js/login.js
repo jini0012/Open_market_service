@@ -16,10 +16,8 @@ loginForm.addEventListener("submit", (e) => {
   // input 태그 내 value 값이 있는지 검사
   if ((!idValue && !pwValue) || (!idValue && pwValue)) {
     msg.innerText = `아이디를 입력해주세요`;
-    console.log(`아이디를 입력해주세요`);
   } else if (!pwValue) {
     msg.innerText = `비밀번호를 입력해주세요`;
-    console.log(`비밀번호를 입력해주세요`);
   } else {
     msg.innerText = ``;
   }
