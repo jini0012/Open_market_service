@@ -172,6 +172,7 @@ section {
 
 button:disabled {
   background-color: var(--border-color);
+  cursor: not-allowed;
 }
 
 /* 회원가입 오류시 적용되는 css */
