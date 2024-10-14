@@ -68,13 +68,13 @@ button {
   width: 100%;
   height: 8rem;
   border: var(--border-color) 0.1rem solid;
-  background-color: var(--main-color);
+  background-color: #f2f2f2;
   border-radius: 1rem;
   font-weight: 500;
 }
 
-.login-btns li .seller {
-  background-color: #f2f2f2;
+.login-btns li .active {
+  background-color: var(--main-color);
 }
 
 section form {
