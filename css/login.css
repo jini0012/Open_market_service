@@ -59,7 +59,7 @@ button {
   line-height: 2.2rem;
   cursor: pointer;
 }
-
+/* 버튼 위치 조정 및 색상 구분 */
 .login-btns li button {
   width: 27.5rem;
   height: 8rem;
