@@ -31,21 +31,26 @@ joinForm.addEventListener("input", (e) => {
   const pwMsg = joinForm.querySelector(".password-check");
 
   // 비밀번호 입력 시 초록색 체크 표시
-  if (password.value !== null) {
+  if (!password.validity.valueMissing) {
     password.classList.add("valid-password");
     password.classList.remove("invalid-password");
   }
 
   // 비밀번호 일치 확인
-  if (password.value !== passwordRecheck.value) {
-    pwMsg.textContent = "비밀번호가 일치하지 않습니다.";
-    pwMsg.classList.add("join-error");
-    passwordRecheck.classList.remove("valid-password");
-    passwordRecheck.classList.add("invalid-password");
-  } else {
-    pwMsg.textContent = "";
-    pwMsg.classList.remove("join-error");
-    passwordRecheck.classList.remove("invalid-password");
-    passwordRecheck.classList.add("valid-password");
+  if (
+    !password.validity.valueMissing &&
+    !passwordRecheck.validity.valueMissing
+  ) {
+    if (password.value !== passwordRecheck.value) {
+      pwMsg.textContent = "비밀번호가 일치하지 않습니다.";
+      pwMsg.classList.add("join-error");
+      passwordRecheck.classList.remove("valid-password");
+      passwordRecheck.classList.add("invalid-password");
+    } else {
+      pwMsg.textContent = "";
+      pwMsg.classList.remove("join-error");
+      passwordRecheck.classList.remove("invalid-password");
+      passwordRecheck.classList.add("valid-password");
+    }
   }
 });
