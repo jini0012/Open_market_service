@@ -57,6 +57,7 @@ article ul {
 button {
   font-size: 1.8rem;
   line-height: 2.2rem;
+  cursor: pointer;
 }
 
 .login-btns li button {
