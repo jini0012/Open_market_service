@@ -140,9 +140,16 @@ select:focus {
 }
 
 /* input 내 이미지 추가 */
-#password,
-#password-recheck {
+
+.invalid-password {
   background-image: url(../assets/icon-check-off.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: 43.6rem;
+}
+
+.valid-password {
+  background-image: url(../assets/icon-check-on.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-position-x: 43.6rem;
@@ -230,8 +237,9 @@ button:disabled {
 
 /* 회원가입 오류시 적용되는 css */
 .join-error {
-  margin: 1rem 0 0 0;
   color: #eb5757;
+  position: relative;
+  top: -2rem;
 }
 .join-check {
   color: var(--point-color);
