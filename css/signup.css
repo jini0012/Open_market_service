@@ -71,7 +71,7 @@ button {
   line-height: inherit;
 }
 
-/* -------------------------- */
+/* main */
 
 .join-btns li {
   width: 100%;
@@ -90,6 +90,8 @@ button {
   background-color: var(--main-color);
 }
 
+/* form */
+
 .join-form {
   /*.join-btns 와 위치 조정 */
   position: relative;
@@ -106,7 +108,9 @@ button {
   gap: 1rem;
 }
 
-.join-form input {
+.join-form input,
+select {
+  max-width: 100%;
   height: 5.4rem;
   font-size: inherit;
   border: var(--border-color) 0.1rem solid;
@@ -114,7 +118,8 @@ button {
   flex-grow: 2;
 }
 
-input:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: var(--point-color);
 }
@@ -142,18 +147,21 @@ input:focus {
   gap: 1.2rem;
 }
 
-/* 휴대폰번호 앞자리 디자인 수정 */
-.phone-wrap select {
-  width: 100%;
-  height: 100%;
+.phone-wrap input {
+  max-width: 15rem;
 }
 
+.phone-wrap select {
+  padding: 0 5rem;
+}
+/* ------------------------------- */
+
+/* 이용약관 동의 및 가입하기 */
 section {
   position: relative;
 }
 
 .no-wrap {
-  width: 100%;
   max-width: 48rem;
   position: absolute;
   bottom: -7.4rem;
@@ -179,6 +187,7 @@ button:disabled {
   background-color: var(--border-color);
   cursor: not-allowed;
 }
+/* ------------------------------- */
 
 /* 회원가입 오류시 적용되는 css */
 .join-error {
