@@ -109,13 +109,14 @@ button {
 }
 
 .join-form input,
-select {
+.phone-wrap select {
   max-width: 100%;
   height: 5.4rem;
   font-size: inherit;
   border: var(--border-color) 0.1rem solid;
   border-radius: 0.5rem;
   flex-grow: 2;
+  text-indent: 1.6rem;
 }
 
 input:focus,
@@ -152,7 +153,8 @@ select:focus {
 }
 
 .phone-wrap select {
-  padding: 0 5rem;
+  text-indent: 0;
+  text-align: center;
 }
 /* ------------------------------- */
 
@@ -162,25 +164,53 @@ section {
 }
 
 .no-wrap {
-  max-width: 48rem;
+  max-width: 46rem;
   position: absolute;
   bottom: -7.4rem;
   display: flex;
 }
 
-/* 체크박스 디자인 적용 예정 */
-#checkbox {
-  transform: translate(0.5rem, 2rem);
+/* checkbox 가상요소 스타일 적용 */
+/* 기본 체크박스 스타일 삭제 */
+.txt-hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
-#checkbox span {
+
+.checkbox {
+  position: relative;
+  left: 2.6rem;
+}
+.checkbox span {
   text-decoration: underline;
   font-weight: 700;
+}
+
+/* 체크 안했을 때 */
+.checkbox::before {
+  content: "";
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  left: -2.5rem;
+  top: 0.3rem;
+  background-image: url(../assets/check-box.svg);
+}
+
+/* 체크 했을 때 */
+#checkbox:checked + .checkbox::before {
+  background-image: url(../assets/check-fill-box.svg);
 }
 
 .signup-btn {
   position: absolute;
   bottom: -7.4rem;
-  width: 100%;
+  width: calc(100% + 2rem);
 }
 
 button:disabled {
