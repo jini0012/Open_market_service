@@ -8,6 +8,7 @@ loginForm.addEventListener("submit", (e) => {
   const iptId = loginForm.id;
   const iptPw = loginForm.password;
   const msg = loginForm.querySelector("p");
+  msg.classList.add("login-error");
 
   const idValue = iptId.value;
   const pwValue = iptPw.value;

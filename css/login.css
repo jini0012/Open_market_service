@@ -95,6 +95,11 @@ section form button {
   font-weight: 700;
 }
 
+.login-error {
+  margin: 2rem 0 -1rem 0;
+  color: #eb5757;
+}
+
 .find {
   margin-top: 3rem;
 }
