@@ -31,18 +31,31 @@ joinBtns.forEach((button) => {
 // 아이디 중복확인
 // 이미 사용중인 아이디인경우 : 이미 사용 중인 아이디 입니다.
 // 사용 가능한 아이디인 경우 : 멋진 아이디네요 :)
-
 idBtn[0].addEventListener("click", (e) => {
   e.preventDefault();
-  // if 중복확인 체크 후 사용중인 아이디인경우
-  idMsg.textContent = "이미 사용 중인 아이디 입니다.";
-  idMsg.classList.add("id-error");
-  idMsg.classList.remove("id-check");
 
-  // if 사용 가능한 아이디인 경우
-  idMsg.textContent = "멋진 아이디네요 :)";
-  idMsg.classList.remove("id-error");
-  idMsg.classList.add("id-check");
+  fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: joinForm.id.value,
+    }),
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.message == "사용 가능한 아이디입니다.") {
+        idMsg.textContent = "멋진 아이디네요 :)";
+        idMsg.classList.remove("id-error");
+        idMsg.classList.add("id-check");
+      } else {
+        idMsg.textContent = "이미 사용 중인 아이디 입니다.";
+        idMsg.classList.remove("id-check");
+        idMsg.classList.add("id-error");
+      }
+    })
+    .catch((error) => console.error(error));
 });
 
 /* form 태그 input 이벤트 발생 시 */
@@ -107,6 +120,6 @@ joinForm.addEventListener("input", (e) => {
 // })
 
 // fetch("https://estapi.openmarket.weniv.co.kr/")
-//   .then((response) => response)
+//   .then((response) => response.json())
 //   .then((json) => console.log(json))
 //   .catch((error) => console.error(error));
