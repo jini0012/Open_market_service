@@ -1,6 +1,13 @@
-// 회원가입 구매회원, 판매회원 버튼 전환
 const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
+
+const joinForm = document.querySelector(".join-form");
+const idMsg = joinForm.querySelector(".id-check");
+const idBtn = joinForm.querySelectorAll(".duplicate-check");
+
+/* 구매회원가입, 판매회원가입 버튼 click 이벤트 발생 시 */
+
+// 회원가입 구매회원, 판매회원 버튼 전환
 joinBtns.forEach((button) => {
   button.addEventListener("click", () => {
     // 버튼 전환 시 id, pw 알림메세지 초기화
@@ -19,12 +26,12 @@ joinBtns.forEach((button) => {
   });
 });
 
+/* 중복확인 버튼 click 이벤트 발생 시 */
+
 // 아이디 중복확인
 // 이미 사용중인 아이디인경우 : 이미 사용 중인 아이디 입니다.
 // 사용 가능한 아이디인 경우 : 멋진 아이디네요 :)
-const joinForm = document.querySelector(".join-form");
-const idMsg = joinForm.querySelector(".id-check");
-const idBtn = joinForm.querySelectorAll(".duplicate-check");
+
 idBtn[0].addEventListener("click", (e) => {
   e.preventDefault();
   // if 중복확인 체크 후 사용중인 아이디인경우
@@ -38,14 +45,17 @@ idBtn[0].addEventListener("click", (e) => {
   idMsg.classList.add("id-check");
 });
 
+/* form 태그 input 이벤트 발생 시 */
+
 // 비밀번호 유효성 검증
 // 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
-const password = joinForm.querySelector("#password");
-const passwordRecheck = joinForm.querySelector("#password-recheck");
-const pwMsg = joinForm.querySelector(".password-check");
-
+// 가입하기 버튼 활성화
 joinForm.addEventListener("input", (e) => {
+  const password = joinForm.password;
+  const passwordRecheck = joinForm.querySelector("#password-recheck");
+  const pwMsg = joinForm.querySelector(".password-check");
+
   // 비밀번호 입력값 유효할 때 초록색 체크 표시
   if (password.validity.valid) {
     password.classList.add("valid-password");
@@ -65,6 +75,19 @@ joinForm.addEventListener("input", (e) => {
       passwordRecheck.classList.remove("invalid-password");
       passwordRecheck.classList.add("valid-password");
     }
+  }
+  const joinBtn = joinForm.querySelector(".signup-btn");
+  const input = joinForm.querySelectorAll("input");
+
+  // 모든 값이 들어가있을 때 가입하기 버튼 사용 가능
+  let count = 0;
+  input.forEach((elem) => {
+    if (elem.validity.valid) {
+      count += 1;
+    }
+  });
+  if (count >= 9) {
+    joinBtn.removeAttribute("disabled");
   }
 });
 
@@ -87,5 +110,3 @@ joinForm.addEventListener("input", (e) => {
 //   .then((response) => response)
 //   .then((json) => console.log(json))
 //   .catch((error) => console.error(error));
-
-console.log(joinForm.querySelector("#id"));
