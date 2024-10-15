@@ -167,6 +167,8 @@ joinForm.addEventListener("submit", (e) => {
     })
     .catch((error) => console.error(error));
 
+  // 가입하고나서 다른 페이지로 넘어가는기능 추가
+
   // 판매회원 계정 생성
   // if문 넣어서 seller이면 적용
 });
