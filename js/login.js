@@ -49,11 +49,14 @@ loginForm.addEventListener("submit", (e) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      localStorage.setItem("token", `${json.access}`);
+      if (!json.error) {
+        localStorage.setItem("accessToken", `${json.access}`);
+        localStorage.setItem("refreshToken", `${json.refresh}`);
+      } else {
+        msg.innerText = `아이디 또는 비밀번호가 일치하지 않습니다.`;
+      }
     })
     .catch((error) => console.error(error));
-});
 
-/* 구현할 기능 */
-//API 적용
+  // 로그인 완료 후 페이지 이동 추가 예정
+});
