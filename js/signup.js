@@ -22,7 +22,7 @@ const joinForm = document.querySelector(".join-form");
 joinForm.addEventListener("submit", (e) => {});
 
 // 비밀번호 유효성 검증
-// 비밀번호가 모두 입력되었으면 체크 표시 -> 초록색 체크 표시
+// 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
 
 joinForm.addEventListener("input", (e) => {
@@ -30,8 +30,8 @@ joinForm.addEventListener("input", (e) => {
   const passwordRecheck = joinForm.querySelector("#password-recheck");
   const pwMsg = joinForm.querySelector(".password-check");
 
-  // 비밀번호 입력 시 초록색 체크 표시
-  if (!password.validity.valueMissing) {
+  // 비밀번호 입력값 유효할 때 초록색 체크 표시
+  if (password.validity.valid) {
     password.classList.add("valid-password");
     password.classList.remove("invalid-password");
   }
