@@ -53,6 +53,7 @@ form {
   height: 4.6rem;
   border-radius: 5rem;
   border: var(--point-color) 0.2rem solid;
+  /* focus 되었을때 border 미적용 */
   outline: none;
   text-indent: 2.2rem;
 }
@@ -83,4 +84,54 @@ form {
 /* main */
 main {
   margin: auto;
+}
+
+/* 배너 css */
+.banner {
+  position: relative;
+  /* 배너 내 circle 표시 추후 구현 */
+}
+
+.leftBtn,
+.rightBtn {
+  position: absolute;
+  top: 18.8rem;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.rightBtn {
+  right: 0;
+}
+
+/* 상품 목록 css */
+.goodsList {
+  padding: 8rem 32rem 0 31.3rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+article img {
+  border-radius: 1rem;
+  max-width: 38rem;
+  border: var(--border-color) solid 0.1rem;
+}
+
+article p:first-of-type {
+  color: var(--font-color);
+}
+article p:last-of-type span {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.005rem;
 }
