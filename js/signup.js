@@ -140,6 +140,9 @@ joinForm.addEventListener("input", (e) => {
 /* 가입하기 버튼 클릭 시 계정 생성 */
 joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  // 구매회원 계정 생성
+  // if 문넣어서 buyer이면 적용
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
     method: "POST",
     headers: {
@@ -163,4 +166,9 @@ joinForm.addEventListener("submit", (e) => {
       }
     })
     .catch((error) => console.error(error));
+
+  // 판매회원 계정 생성
+  // if문 넣어서 seller이면 적용
 });
+
+/* 사업자등록번호 인증 시스템 추가*/
