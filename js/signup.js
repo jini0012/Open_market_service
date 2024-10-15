@@ -8,6 +8,7 @@ const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
+const id = joinForm.id;
 const idMsg = joinForm.querySelector(".id-check");
 const idBtn = joinForm.querySelectorAll(".duplicate-check");
 const pwMsg = joinForm.querySelector(".password-check");
@@ -38,28 +39,40 @@ joinBtns.forEach((button) => {
 // 아이디 중복확인
 // 이미 사용중인 아이디인경우 : 이미 사용 중인 아이디 입니다.
 // 사용 가능한 아이디인 경우 : 멋진 아이디네요 :)
+
 idBtn[0].addEventListener("click", (e) => {
   e.preventDefault();
-
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username: joinForm.id.value,
+      username: id.value,
     }),
   })
     .then((response) => response.json())
     .then((json) => {
-      if (json.message == "사용 가능한 아이디입니다.") {
+      console.log(json);
+      if (
+        json.message == "사용 가능한 아이디입니다." &&
+        id.validity.patternMismatch // 이부분 재확인 필요
+      ) {
         idMsg.textContent = "멋진 아이디네요 :)";
         idMsg.classList.remove("id-error");
         idMsg.classList.add("id-check");
+        id.style["border-color"] = "";
+      } else if (json.error == "username 필드를 추가해주세요.") {
+        idMsg.textContent =
+          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+        idMsg.classList.remove("id-check");
+        idMsg.classList.add("id-error");
+        id.style["border-color"] = "#eb5757";
       } else {
         idMsg.textContent = "이미 사용 중인 아이디 입니다.";
         idMsg.classList.remove("id-check");
         idMsg.classList.add("id-error");
+        id.style["border-color"] = "#eb5757";
       }
     })
     .catch((error) => console.error(error));
@@ -81,15 +94,15 @@ joinForm.addEventListener("input", (e) => {
   // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
   // 다시 확인!!!!!!!!!!!!!!!!!
   // 비밀번호 일치확인 안보이는 오류
-  const p = joinForm.querySelectorAll("p");
-  input.forEach((elem, index) => {
-    if (elem.validity.valueMissing) {
-      p[index].classList.remove("hidden");
-      // console.log(`${index}: ${p[index].classList}`);
-    } else {
-      p[index].classList.add("hidden");
-    }
-  });
+  // const p = joinForm.querySelectorAll("p");
+  // input.forEach((elem, index) => {
+  //   if (elem.validity.valueMissing) {
+  //     p[index].classList.remove("hidden");
+  //     // console.log(`${index}: ${p[index].classList}`);
+  //   } else {
+  //     p[index].classList.add("hidden");
+  //   }
+  // });
 
   // 비밀번호 필수 정보 알림
 
