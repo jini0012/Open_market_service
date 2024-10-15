@@ -60,10 +60,10 @@ idBtn[0].addEventListener("click", (e) => {
 
 /* form 태그 input 이벤트 발생 시 */
 
-// 비밀번호 유효성 검증
+// 비밀번호 유효성 검증 및 가입하기 버튼 활성화
 // 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
-// 가입하기 버튼 활성화
+
 joinForm.addEventListener("input", (e) => {
   const password = joinForm.password;
   const passwordRecheck = joinForm.querySelector("#password-recheck");
