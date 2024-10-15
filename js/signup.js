@@ -52,23 +52,20 @@ idBtn[0].addEventListener("click", (e) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      if (
-        json.message == "사용 가능한 아이디입니다." &&
-        id.validity.patternMismatch // 이부분 재확인 필요
-      ) {
+      // console.log(json);
+      if (json.message == "사용 가능한 아이디입니다." && id.validity.valid) {
         idMsg.textContent = "멋진 아이디네요 :)";
         idMsg.classList.remove("id-error");
         idMsg.classList.add("id-check");
         id.style["border-color"] = "";
-      } else if (json.error == "username 필드를 추가해주세요.") {
-        idMsg.textContent =
-          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+      } else if (json.error == "이미 사용 중인 아이디입니다.") {
+        idMsg.textContent = "이미 사용 중인 아이디 입니다.";
         idMsg.classList.remove("id-check");
         idMsg.classList.add("id-error");
         id.style["border-color"] = "#eb5757";
       } else {
-        idMsg.textContent = "이미 사용 중인 아이디 입니다.";
+        idMsg.textContent =
+          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
         idMsg.classList.remove("id-check");
         idMsg.classList.add("id-error");
         id.style["border-color"] = "#eb5757";
@@ -133,8 +130,11 @@ joinForm.addEventListener("input", (e) => {
       count += 1;
     }
   });
-  if (count >= 9) {
+  // 모든 값이 들어가있고, checkbox가 체크 되어있을 때 가입하기 버튼 활성화
+  if (count >= 9 && joinForm.checkbox.checked) {
     joinBtn.removeAttribute("disabled");
+  } else {
+    joinBtn.setAttribute("disabled", "");
   }
 });
 
