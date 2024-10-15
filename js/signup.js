@@ -1,7 +1,6 @@
 /* 구현되어야 하는 기능 */
 // 필수정보입니다
-// 아이디 유효성 검사 : 20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.
-// 비밀번호 유효성 검사 : 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+// 비밀번호 유효성 검사 : 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요. -> 계정 비밀번호와 달라서 추후 구현
 // 휴대폰번호 이미 가입된 경우 : 해당 사용자 전화번호는 이미 존재합니다.
 
 const joinBtns = document.querySelectorAll(".join-btns li button");
@@ -140,19 +139,6 @@ joinForm.addEventListener("input", (e) => {
 });
 
 // API 기능 구현
-
-// fetch('https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     "username": String,
-// 		"password": String,
-// 		"name": String,
-// 		"phone_number": String,
-//   })
-// })
 
 // fetch("https://estapi.openmarket.weniv.co.kr/")
 //   .then((response) => response.json())
