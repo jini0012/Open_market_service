@@ -1,3 +1,9 @@
+/* 구현되어야 하는 기능 */
+// 필수정보입니다
+// 아이디 유효성 검사 : 20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.
+// 비밀번호 유효성 검사 : 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+// 휴대폰번호 이미 가입된 경우 : 해당 사용자 전화번호는 이미 존재합니다.
+
 const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
