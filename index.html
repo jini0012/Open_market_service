@@ -24,8 +24,8 @@
             <button type="button" class="seller">판매회원 로그인</button>
           </li>
         </ul>
-        <!-- 위 버튼 클릭시 각각의 (.buyer/.seller)class를 부여하여  
-         .buyer => 구매회원으로 로그인 / .seller => 판매회원 로그인으로 되도록 설정가능한지 확인-->
+
+        <!-- form 태그 제출시 이동 JS로 구현 예정 -->
         <section>
           <h2 class="sr-only">로그인 아이디 및 비밀번호 입력</h2>
           <form action="#" method="post" class="login-form">
@@ -45,9 +45,9 @@
               placeholder="비밀번호"
               autocomplete="current-password"
             />
+            <!-- p태그 로그인 오류 메세지 띄우는 역할 -->
             <p></p>
             <button type="submit">로그인</button>
-            <!-- 버튼 클릭 오류 메세지 JS로 적용확인 -->
           </form>
         </section>
         <!-- a태그 링크 페이지 제작 후 연결되도록 변경-->
