@@ -108,7 +108,7 @@ main {
 
 /* 상품 목록 css */
 .goodsList {
-  padding: 8rem 32rem 0 31.3rem;
+  padding: 8rem 32rem 18rem 31.3rem;
   display: flex;
   flex-wrap: wrap;
 
@@ -134,4 +134,51 @@ article p:last-of-type span {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 3.005rem;
+}
+
+/* footer */
+footer {
+  font-family: "SpoqaHanSansNeo-Regular";
+  height: 29.8rem;
+  padding: 6rem 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  box-sizing: border-box;
+
+  background-color: #f2f2f2;
+}
+
+footer nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer nav ul {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.about-wrap li::after {
+  content: "|";
+  position: relative;
+  margin-left: 1.4rem;
+}
+
+.about-wrap li:last-of-type::after {
+  content: "";
+}
+
+hr {
+  width: 128rem;
+  height: 0;
+  margin: 0;
+}
+
+address {
+  color: var(--font-color);
+  line-height: 2.4rem;
+}
+address span {
+  font-weight: 700;
 }
