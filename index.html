@@ -11,32 +11,39 @@
   <body>
     <!-- 상품 목록 페이지 -->
     <header>
-      <nav>
+      <div class="search-wrap">
         <h1>
           <a href="#"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
         </h1>
         <form action="#" method="get">
           <label for="search"></label>
-          <input type="text" id="search" name="search" />
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="상품을 검색해보세요!"
+          />
           <button class="searchBtn">
             <img src="./assets/search.svg" alt="검색" />
           </button>
         </form>
-        <div>
-          <ul>
-            <li>
-              <a href="#"
-                ><img src="./assets/icon-shopping-cart.svg" alt="" />장바구니</a
-              >
-            </li>
-            <li>
-              <a href="./login.html"
-                ><img src="./assets/icon-user.svg" alt="" />로그인</a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
+      </div>
+      <div class="btn-wrap">
+        <ul>
+          <li>
+            <a href="#" class="cartBtn"
+              ><img src="./assets/icon-shopping-cart.svg" alt="" />
+              장바구니
+            </a>
+          </li>
+          <li>
+            <a href="./login.html" class="loginBtn"
+              ><img src="./assets/icon-user.svg" alt="" />
+              마이페이지
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
     <main>
       <section>
