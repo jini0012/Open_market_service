@@ -35,6 +35,24 @@ loginForm.addEventListener("submit", (e) => {
   }
 
   // 아이디, 비밀번호의 유효성 검사
+  fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: idValue,
+      password: pwValue,
+      login_type: "BUYER",
+      // BUYER : 일반 구매자, SELLER : 판매자
+    }),
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      localStorage.setItem("token", `${json.access}`);
+    })
+    .catch((error) => console.error(error));
 });
 
 /* 구현할 기능 */
