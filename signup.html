@@ -41,6 +41,7 @@
               />
               <button type="submit" class="duplicate-check">중복확인</button>
             </div>
+            <p class="id-error hidden">필수 요소 입니다.</p>
             <!-- 아이디 중복 확인 -->
             <p class="id-check"></p>
 
@@ -55,6 +56,8 @@
               pattern="(?=.*\d)(?=.*[a-z]).{8,}"
               minlength="8"
             />
+            <p class="id-error hidden">필수 요소 입니다.</p>
+
             <label for="password-recheck">비밀번호 재확인</label>
             <input
               type="password"
@@ -63,6 +66,8 @@
               class="invalid-password"
               required
             />
+            <p class="id-error hidden">필수 요소 입니다.</p>
+
             <!-- 비밀번호와 재확인 일치 여부 확인 -->
             <p class="password-check"></p>
 
@@ -74,6 +79,8 @@
               autocomplete="name"
               required
             />
+            <p class="id-error hidden">필수 요소 입니다.</p>
+
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
               <select name="phone1" id="phone1" required>
@@ -113,10 +120,12 @@
                 maxlength="10"
                 pattern="\d{10}"
               />
+
               <button type="submit" class="duplicate-check seller-only">
                 인증
               </button>
             </div>
+            <p class="id-error seller-only hidden">필수 요소 입니다.</p>
 
             <label for="store-name" class="seller-only">스토어 이름</label>
             <input
@@ -125,6 +134,7 @@
               id="store-name"
               class="seller-only"
             />
+            <p class="id-error seller-only hidden">필수 요소 입니다.</p>
             <div class="no-wrap">
               <input type="checkbox" id="checkbox" class="txt-hide" />
               <label for="checkbox" class="checkbox"

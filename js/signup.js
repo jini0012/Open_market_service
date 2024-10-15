@@ -4,6 +4,7 @@ const sellerOnly = document.querySelectorAll(".seller-only");
 const joinForm = document.querySelector(".join-form");
 const idMsg = joinForm.querySelector(".id-check");
 const idBtn = joinForm.querySelectorAll(".duplicate-check");
+const pwMsg = joinForm.querySelector(".password-check");
 
 /* 구매회원가입, 판매회원가입 버튼 click 이벤트 발생 시 */
 
@@ -64,10 +65,29 @@ idBtn[0].addEventListener("click", (e) => {
 // 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
 
+const p = joinForm.querySelectorAll("p");
+
 joinForm.addEventListener("input", (e) => {
   const password = joinForm.password;
   const passwordRecheck = joinForm.querySelector("#password-recheck");
-  const pwMsg = joinForm.querySelector(".password-check");
+
+  const joinBtn = joinForm.querySelector(".signup-btn");
+  const input = joinForm.querySelectorAll("input");
+
+  // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
+  // 다시 확인!!!!!!!!!!!!!!!!!
+  input.forEach((elem, index) => {
+    console.log(elem.value);
+    console.log(index);
+    if (elem.validity.valueMissing) {
+      p[index].classList.remove("hidden");
+      // console.log(`${index}: ${p[index].classList}`);
+    } else {
+      p[index].classList.add("hidden");
+    }
+  });
+
+  // 비밀번호 필수 정보 알림
 
   // 비밀번호 입력값 유효할 때 초록색 체크 표시
   if (password.validity.valid) {
@@ -89,8 +109,6 @@ joinForm.addEventListener("input", (e) => {
       passwordRecheck.classList.add("valid-password");
     }
   }
-  const joinBtn = joinForm.querySelector(".signup-btn");
-  const input = joinForm.querySelectorAll("input");
 
   // 모든 값이 들어가있을 때 가입하기 버튼 사용 가능
   let count = 0;
