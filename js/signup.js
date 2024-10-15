@@ -154,9 +154,12 @@ joinForm.addEventListener("submit", (e) => {
   })
     .then((response) => response.json())
     .then((json) => {
+      console.log(json);
       if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
         joinForm.querySelector(".phoneInvalid").textContent =
           "해당 사용자 전화번호는 이미 존재합니다.";
+      } else {
+        joinForm.querySelector(".phoneInvalid").textContent = "";
       }
     })
     .catch((error) => console.error(error));
