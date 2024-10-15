@@ -256,3 +256,14 @@ button:disabled {
 .hidden {
   display: none;
 }
+
+/* 회원가입 구매회원, 판매회원 클릭시 적용 css */
+.login-btns .buyer {
+  border-right: none;
+  border-left: var(--border-color) 0.1rem solid;
+}
+
+.login-btns .seller {
+  border-left: none;
+  border-right: var(--border-color) 0.1rem solid;
+}
