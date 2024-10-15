@@ -30,3 +30,12 @@ html {
   height: 1px;
   overflow: hidden;
 }
+
+body {
+  font-size: 1.6rem;
+  line-height: 2.003rem;
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
