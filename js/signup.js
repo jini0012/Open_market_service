@@ -3,6 +3,10 @@ const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 joinBtns.forEach((button) => {
   button.addEventListener("click", () => {
+    // 버튼 전환 시 id, pw 알림메세지 초기화
+    idMsg.textContent = "";
+    pwMsg.textContent = "";
+
     if (button === joinBtns[0]) {
       joinBtns[0].classList.add("active");
       joinBtns[1].classList.remove("active");
@@ -37,12 +41,11 @@ idBtn[0].addEventListener("click", (e) => {
 // 비밀번호 유효성 검증
 // 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
+const password = joinForm.querySelector("#password");
+const passwordRecheck = joinForm.querySelector("#password-recheck");
+const pwMsg = joinForm.querySelector(".password-check");
 
 joinForm.addEventListener("input", (e) => {
-  const password = joinForm.querySelector("#password");
-  const passwordRecheck = joinForm.querySelector("#password-recheck");
-  const pwMsg = joinForm.querySelector(".password-check");
-
   // 비밀번호 입력값 유효할 때 초록색 체크 표시
   if (password.validity.valid) {
     password.classList.add("valid-password");
