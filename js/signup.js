@@ -164,7 +164,7 @@ joinForm.addEventListener("submit", (e) => {
         joinForm.querySelector(".phoneInvalid").textContent = "";
         // 회원가입 완료시 로그인 페이지로 이동
         window.location.href =
-          "http://127.0.0.1:5501/001_Project%20%EB%B0%8F%20%EC%8B%A4%EC%8A%B5/Project03_Open_market_service/index.html";
+          "http://127.0.0.1:5501/001_Project%20%EB%B0%8F%20%EC%8B%A4%EC%8A%B5/Project03_Open_market_service/login.html";
       }
     })
     .catch((error) => console.error(error));
