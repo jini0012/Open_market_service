@@ -1,4 +1,4 @@
-// 로그인 버튼 클릭시 구매회원, 판매회원 전환
+// 로그인 구매회원, 판매회원 버튼 전환
 const loginBtns = document.querySelectorAll(".login-btns li button");
 loginBtns.forEach((button) => {
   button.addEventListener("click", () => {
