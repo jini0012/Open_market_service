@@ -7,7 +7,7 @@ const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
 const id = joinForm.id;
-const idMsg = joinForm.querySelector(".id-check");
+const idMsg = joinForm.querySelector(".validColor");
 const idBtn = joinForm.querySelectorAll(".duplicate-check");
 const pwMsg = joinForm.querySelector(".password-check");
 
@@ -54,19 +54,19 @@ idBtn[0].addEventListener("click", (e) => {
       // console.log(json);
       if (json.message == "사용 가능한 아이디입니다." && id.validity.valid) {
         idMsg.textContent = "멋진 아이디네요 :)";
-        idMsg.classList.remove("id-error");
-        idMsg.classList.add("id-check");
+        idMsg.classList.remove("invalidColor");
+        idMsg.classList.add("validColor");
         id.style["border-color"] = "";
       } else if (json.error == "이미 사용 중인 아이디입니다.") {
         idMsg.textContent = "이미 사용 중인 아이디 입니다.";
-        idMsg.classList.remove("id-check");
-        idMsg.classList.add("id-error");
+        idMsg.classList.remove("validColor");
+        idMsg.classList.add("invalidColor");
         id.style["border-color"] = "#eb5757";
       } else {
         idMsg.textContent =
           "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
-        idMsg.classList.remove("id-check");
-        idMsg.classList.add("id-error");
+        idMsg.classList.remove("validColor");
+        idMsg.classList.add("invalidColor");
         id.style["border-color"] = "#eb5757";
       }
     })
@@ -111,12 +111,12 @@ joinForm.addEventListener("input", (e) => {
   if (password.validity.valid && !passwordRecheck.validity.valueMissing) {
     if (password.value !== passwordRecheck.value) {
       pwMsg.textContent = "비밀번호가 일치하지 않습니다.";
-      pwMsg.classList.add("join-error");
+      pwMsg.classList.add("passwordInvalid");
       passwordRecheck.classList.remove("valid-password");
       passwordRecheck.classList.add("invalid-password");
     } else {
       pwMsg.textContent = "";
-      pwMsg.classList.remove("join-error");
+      pwMsg.classList.remove("passwordInvalid");
       passwordRecheck.classList.remove("invalid-password");
       passwordRecheck.classList.add("valid-password");
     }
@@ -155,7 +155,7 @@ joinForm.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((json) => {
       if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
-        joinForm.querySelector(".phoneError").textContent =
+        joinForm.querySelector(".phoneInvalid").textContent =
           "해당 사용자 전화번호는 이미 존재합니다.";
       }
     })

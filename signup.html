@@ -46,9 +46,9 @@
               />
               <button type="submit" class="duplicate-check">중복확인</button>
             </div>
-            <p class="id-error hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 요소 입니다.</p>
             <!-- 아이디 중복 확인 -->
-            <p class="id-check"></p>
+            <p class="validColor"></p>
 
             <label for="password">비밀번호</label>
             <input
@@ -61,7 +61,7 @@
               pattern="(?=.*\d)(?=.*[a-z]).{8,}"
               minlength="8"
             />
-            <p class="id-error hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 요소 입니다.</p>
 
             <label for="password-recheck">비밀번호 재확인</label>
             <input
@@ -71,7 +71,7 @@
               class="invalid-password"
               required
             />
-            <p class="id-error hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 요소 입니다.</p>
 
             <!-- 비밀번호와 재확인 일치 여부 확인 -->
             <p class="password-check"></p>
@@ -84,11 +84,11 @@
               autocomplete="name"
               required
             />
-            <p class="id-error hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 요소 입니다.</p>
 
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
-              <select name="phone1" id="phone" required>
+              <select name="phone1" id="phone1" required>
                 <option value="010">010</option>
                 <option value="011">011</option>
                 <option value="016">016</option>
@@ -97,6 +97,7 @@
               <input
                 type="text"
                 name="phone2"
+                id="phone2"
                 pattern="\d{4}"
                 maxlength="4"
                 required
@@ -104,12 +105,13 @@
               <input
                 type="text"
                 name="phone3"
+                id="phone3"
                 pattern="\d{4}"
                 maxlength="4"
                 required
               />
             </div>
-            <p class="phoneError id-error"></p>
+            <p class="phoneInvalid invalidColor"></p>
             <!-- 판매회원가입 전용 input 요소 -->
             <label for="businessNum" class="seller-only">사업자 등록번호</label>
             <div class="businessnum-wrap">
@@ -126,7 +128,7 @@
                 인증
               </button>
             </div>
-            <p class="id-error seller-only hidden">필수 요소 입니다.</p>
+            <p class="invalidColor seller-only hidden">필수 요소 입니다.</p>
 
             <label for="store-name" class="seller-only">스토어 이름</label>
             <input
@@ -135,7 +137,7 @@
               id="storeName"
               class="seller-only"
             />
-            <p class="id-error seller-only hidden">필수 요소 입니다.</p>
+            <p class="invalidColor seller-only hidden">필수 요소 입니다.</p>
             <div class="no-wrap">
               <input type="checkbox" id="checkbox" class="txt-hide" />
               <label for="checkbox" class="checkbox"

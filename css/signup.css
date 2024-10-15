@@ -11,6 +11,7 @@
   --border-color: #c4c4c4;
   --point-color: #21bf48;
   --font-color: #767676;
+  --error-color: #eb5757;
 }
 
 html {
@@ -238,17 +239,17 @@ button:disabled {
 /* ------------------------------- */
 
 /* 회원가입 오류시 적용되는 css */
-.join-error {
-  color: #eb5757;
+.passwordInvalid {
+  color: var(--error-color);
   position: relative;
   top: -2rem;
 }
 
-.id-error {
-  color: #eb5757;
+.invalidColor {
+  color: var(--error-color);
 }
 
-.id-check {
+.validColor {
   color: var(--point-color);
 }
 
