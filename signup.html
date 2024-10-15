@@ -82,8 +82,22 @@
                 <option value="016">016</option>
                 <option value="017">017</option>
               </select>
-              <input type="text" name="phone2" id="phone2" required />
-              <input type="text" name="phone3" id="phone3" required />
+              <input
+                type="text"
+                name="phone2"
+                id="phone2"
+                pattern="\d{4}"
+                maxlength="4"
+                required
+              />
+              <input
+                type="text"
+                name="phone3"
+                id="phone3"
+                pattern="\d{4}"
+                maxlength="4"
+                required
+              />
             </div>
 
             <!-- 판매회원가입 전용 input 요소 -->
