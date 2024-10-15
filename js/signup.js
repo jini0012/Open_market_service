@@ -65,8 +65,6 @@ idBtn[0].addEventListener("click", (e) => {
 // 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
 // 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
 
-const p = joinForm.querySelectorAll("p");
-
 joinForm.addEventListener("input", (e) => {
   const password = joinForm.password;
   const passwordRecheck = joinForm.querySelector("#password-recheck");
@@ -76,9 +74,9 @@ joinForm.addEventListener("input", (e) => {
 
   // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
   // 다시 확인!!!!!!!!!!!!!!!!!
+  // 비밀번호 일치확인 안보이는 오류
+  const p = joinForm.querySelectorAll("p");
   input.forEach((elem, index) => {
-    console.log(elem.value);
-    console.log(index);
     if (elem.validity.valueMissing) {
       p[index].classList.remove("hidden");
       // console.log(`${index}: ${p[index].classList}`);
