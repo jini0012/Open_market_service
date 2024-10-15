@@ -89,15 +89,15 @@ joinForm.addEventListener("input", (e) => {
   // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
   // 다시 확인!!!!!!!!!!!!!!!!!
   // 비밀번호 일치확인 안보이는 오류
-  // const p = joinForm.querySelectorAll("p");
-  // input.forEach((elem, index) => {
-  //   if (elem.validity.valueMissing) {
-  //     p[index].classList.remove("hidden");
-  //     // console.log(`${index}: ${p[index].classList}`);
-  //   } else {
-  //     p[index].classList.add("hidden");
-  //   }
-  // });
+  const p = joinForm.querySelectorAll("p");
+  input.forEach((elem, index) => {
+    if (elem.validity.valueMissing) {
+      p[index].classList.remove("hidden");
+      // console.log(`${index}: ${p[index].classList}`);
+    } else {
+      p[index].classList.add("hidden");
+    }
+  });
 
   // 비밀번호 필수 정보 알림
 
@@ -140,7 +140,6 @@ joinForm.addEventListener("input", (e) => {
 /* 가입하기 버튼 클릭 시 계정 생성 */
 joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
   // 구매회원 계정 생성
   // if 문넣어서 buyer이면 적용
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
@@ -163,11 +162,12 @@ joinForm.addEventListener("submit", (e) => {
           "해당 사용자 전화번호는 이미 존재합니다.";
       } else {
         joinForm.querySelector(".phoneInvalid").textContent = "";
+        // 회원가입 완료시 로그인 페이지로 이동
+        window.location.href =
+          "http://127.0.0.1:5501/001_Project%20%EB%B0%8F%20%EC%8B%A4%EC%8A%B5/Project03_Open_market_service/index.html";
       }
     })
     .catch((error) => console.error(error));
-
-  // 가입하고나서 다른 페이지로 넘어가는기능 추가
 
   // 판매회원 계정 생성
   // if문 넣어서 seller이면 적용

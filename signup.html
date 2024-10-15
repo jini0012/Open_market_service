@@ -29,11 +29,7 @@
 
         <section>
           <h2 class="sr-only">회원가입 정보 입력</h2>
-          <form
-            action="https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/"
-            method="post"
-            class="join-form"
-          >
+          <form action="#" method="post" class="join-form">
             <label for="id">아이디</label>
             <div class="id-wrap">
               <input
@@ -46,7 +42,7 @@
               />
               <button type="submit" class="duplicate-check">중복확인</button>
             </div>
-            <p class="invalidColor hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 정보입니다.</p>
             <!-- 아이디 중복 확인 -->
             <p class="validColor"></p>
 
@@ -61,7 +57,7 @@
               pattern="(?=.*\d)(?=.*[a-z]).{8,}"
               minlength="8"
             />
-            <p class="invalidColor hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 정보입니다.</p>
 
             <label for="password-recheck">비밀번호 재확인</label>
             <input
@@ -71,7 +67,7 @@
               class="invalid-password"
               required
             />
-            <p class="invalidColor hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 정보입니다.</p>
 
             <!-- 비밀번호와 재확인 일치 여부 확인 -->
             <p class="password-check"></p>
@@ -84,7 +80,7 @@
               autocomplete="name"
               required
             />
-            <p class="invalidColor hidden">필수 요소 입니다.</p>
+            <p class="invalidColor hidden">필수 정보입니다.</p>
 
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
@@ -128,7 +124,7 @@
                 인증
               </button>
             </div>
-            <p class="invalidColor seller-only hidden">필수 요소 입니다.</p>
+            <p class="invalidColor seller-only hidden">필수 정보입니다.</p>
 
             <label for="store-name" class="seller-only">스토어 이름</label>
             <input
@@ -137,7 +133,7 @@
               id="storeName"
               class="seller-only"
             />
-            <p class="invalidColor seller-only hidden">필수 요소 입니다.</p>
+            <p class="invalidColor seller-only hidden">필수 정보입니다.</p>
             <div class="no-wrap">
               <input type="checkbox" id="checkbox" class="txt-hide" />
               <label for="checkbox" class="checkbox"
