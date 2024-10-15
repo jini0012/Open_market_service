@@ -49,6 +49,9 @@ button {
 
 .join-btns li .active {
   background-color: var(--main-color);
+  position: relative;
+  z-index: 100;
+  border-bottom: none;
 }
 
 /* form */
@@ -218,12 +221,12 @@ button:disabled {
 }
 
 /* 회원가입 구매회원, 판매회원 클릭시 적용 css */
-.login-btns .buyer {
+.join-btns .buyer {
   border-right: none;
   border-left: var(--border-color) 0.1rem solid;
 }
 
-.login-btns .seller {
+.join-btns .seller {
   border-left: none;
   border-right: var(--border-color) 0.1rem solid;
 }
