@@ -243,6 +243,11 @@ button:disabled {
   position: relative;
   top: -2rem;
 }
-.join-check {
+
+.id-error {
+  color: #eb5757;
+}
+
+.id-check {
   color: var(--point-color);
 }
