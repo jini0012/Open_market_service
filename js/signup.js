@@ -1,7 +1,6 @@
 /* 구현되어야 하는 기능 */
 // 필수정보입니다
 // 비밀번호 유효성 검사 : 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요. -> 계정 비밀번호와 달라서 추후 구현
-// 휴대폰번호 이미 가입된 경우 : 해당 사용자 전화번호는 이미 존재합니다.
 
 const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
@@ -138,9 +137,27 @@ joinForm.addEventListener("input", (e) => {
   }
 });
 
-// API 기능 구현
-
-// fetch("https://estapi.openmarket.weniv.co.kr/")
-//   .then((response) => response.json())
-//   .then((json) => console.log(json))
-//   .catch((error) => console.error(error));
+/* 가입하기 버튼 클릭 시 계정 생성 */
+joinForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: id.value,
+      password: password.value,
+      name: joinForm.name.value,
+      phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
+    }),
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
+        joinForm.querySelector(".phoneError").textContent =
+          "해당 사용자 전화번호는 이미 존재합니다.";
+      }
+    })
+    .catch((error) => console.error(error));
+});

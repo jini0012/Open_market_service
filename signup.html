@@ -29,7 +29,11 @@
 
         <section>
           <h2 class="sr-only">회원가입 정보 입력</h2>
-          <form action="#" method="post" class="join-form">
+          <form
+            action="https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/"
+            method="post"
+            class="join-form"
+          >
             <label for="id">아이디</label>
             <div class="id-wrap">
               <input
@@ -107,7 +111,7 @@
                 required
               />
             </div>
-
+            <p class="phoneError id-error"></p>
             <!-- 판매회원가입 전용 input 요소 -->
             <label for="business-num" class="seller-only"
               >사업자 등록번호</label
