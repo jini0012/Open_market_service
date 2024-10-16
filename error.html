@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 : Not Found</title>
+    <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/error.css" />
   </head>
   <body>
@@ -15,12 +16,17 @@
         <br />
         웹 주소가 올바른지 확인해 주세요.
       </p>
-      <a href="index.html">메인으로</a>
-      <button type="button">이전 페이지</button>
+      <button class="mainBtn">메인으로</button>
+      <button type="button" class="backBtn">이전 페이지</button>
     </main>
     <script>
+      // 메인으로 버튼 클릭시 메인 페이지로 이동
+      document.querySelectorAll("button")[0].addEventListener("click", () => {
+        location.href = "index.html";
+      });
+
       // 이전페이지 버튼 클릭 시 이전 페이지로 이동
-      document.querySelector("button").addEventListener("click", () => {
+      document.querySelectorAll("button")[1].addEventListener("click", () => {
         location.href = history.back();
       });
     </script>

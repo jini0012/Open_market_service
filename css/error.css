@@ -1,0 +1,64 @@
+html {
+  font-size: 10px;
+}
+body {
+  padding-top: 44.2rem;
+  font-size: 1.6rem;
+  line-height: 2.003rem;
+}
+
+main {
+  min-width: 74rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
+    "img h1 h1"
+    "img p p"
+    "img btn1 btn2";
+}
+
+img {
+  grid-area: img;
+  width: 27.6rem;
+  height: 23.6rem;
+  margin-right: 5rem;
+}
+
+h1 {
+  grid-area: h1;
+  font-size: 3.6rem;
+  line-height: 4.4rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  grid-area: p;
+  color: var(--font-color);
+}
+
+button {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  width: 20rem;
+  height: 6rem;
+  margin-right: 1.4rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--border-color);
+  cursor: pointer;
+}
+
+.mainBtn {
+  grid-area: btn1;
+  color: var(--main-color);
+  background-color: var(--point-color);
+  text-decoration: none;
+}
+
+.backBtn {
+  color: var(--font-color);
+  background-color: var(--main-color);
+  grid-area: btn2;
+}
