@@ -159,6 +159,10 @@ footer nav ul {
   display: flex;
   gap: 1.4rem;
 }
+/* 개인정보처리방침 글씨 굵기 조절 */
+footer nav span {
+  font-weight: 700;
+}
 
 .about-wrap li::after {
   content: "|";
