@@ -46,33 +46,36 @@
     </header>
 
     <main>
-      <img src="./assets/상세목록이미지.png" alt="" />
       <section>
-        <div class="goodsInfo">
-          <p>백엔드 글로벌</p>
-          <h2>딥러닝 개발자 무릎 담요</h2>
-          <p class="price"><span>17,500</span>원</p>
-        </div>
+        <h2 class="sr-only">상품 상세 내용</h2>
+        <img src="./assets/상세목록이미지.png" alt="" />
+        <section>
+          <div class="goodsInfo">
+            <p>백엔드 글로벌</p>
+            <h3>딥러닝 개발자 무릎 담요</h3>
+            <p class="price"><span>17,500</span>원</p>
+          </div>
 
-        <p>택배배송/ 무료배송</p>
-        <hr />
-        <form action="#">
-          <button class="minus" type="button">-</button>
-          <input type="number" min="1" value="1" />
-          <button class="plus" type="button">+</button>
+          <p>택배배송/ 무료배송</p>
           <hr />
-          <ul>
-            <li>총 상품 금액</li>
-            <li>
-              <div>
-                <p>총 수량<span class="count">1</span>개</p>
-                <span class="totalPrice">17,500</span>원
-              </div>
-            </li>
-          </ul>
-          <button class="buy">바로 구매</button>
-          <button class="cart">장바구니</button>
-        </form>
+          <form action="#">
+            <button class="minus" type="button">-</button>
+            <input type="number" min="1" value="1" />
+            <button class="plus" type="button">+</button>
+            <hr />
+            <ul>
+              <li>총 상품 금액</li>
+              <li>
+                <div>
+                  <p>총 수량<span class="count">1</span>개</p>
+                  <span class="totalPrice">17,500</span>원
+                </div>
+              </li>
+            </ul>
+            <button class="buy">바로 구매</button>
+            <button class="cart">장바구니</button>
+          </form>
+        </section>
 
         <!-- ---------------modal------------------- -->
         <!-- 바로구매 또는 장바구니 버튼을 눌렀는데 로그인이 되어있지 않으면 로그인 모달창이 뜸 -->

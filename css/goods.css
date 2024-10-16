@@ -87,6 +87,11 @@ hr {
 
 /* main */
 
+main {
+  padding: 8rem 32rem;
+  display: flex;
+}
+
 main img {
   width: 60rem;
   height: 60rem;
