@@ -180,6 +180,7 @@ input::-webkit-inner-spin-button {
   left: 10rem;
 }
 
+/* total 상품 수량, 금액 확인 부분 css */
 .goodsInfo-wrap ul {
   margin-top: 4.6rem;
   display: flex;
@@ -217,6 +218,7 @@ input::-webkit-inner-spin-button {
   line-height: 4.507rem;
 }
 
+/* 바로구매, 장바구니 버튼 */
 .buyBtns {
   display: flex;
   gap: 1.4rem;
@@ -241,6 +243,7 @@ input::-webkit-inner-spin-button {
   background-color: var(--font-color);
 }
 
+/* 메뉴바 */
 .menubar ul {
   display: flex;
 }
@@ -262,3 +265,5 @@ input::-webkit-inner-spin-button {
 .menubar button:focus {
   border-bottom: 0.6rem solid var(--point-color);
 }
+
+/* 모달창 */
