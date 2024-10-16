@@ -240,3 +240,25 @@ input::-webkit-inner-spin-button {
   min-width: 20rem;
   background-color: var(--font-color);
 }
+
+.menubar ul {
+  display: flex;
+}
+.menubar button {
+  width: 32rem;
+  height: 6rem;
+
+  background-color: var(--main-color);
+  border: none;
+  border-bottom: 0.6rem solid #e0e0e0;
+  cursor: pointer;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.254rem;
+  color: var(--font-color);
+}
+
+.menubar button:focus {
+  border-bottom: 0.6rem solid var(--point-color);
+}
