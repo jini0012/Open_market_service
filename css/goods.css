@@ -318,3 +318,26 @@ dialog p {
   color: var(--main-color);
   background-color: var(--point-color);
 }
+
+/* 판매자센터 버튼 */
+.sellerCenter button {
+  width: 16.8rem;
+  height: 5.4rem;
+  font-size: 1.8rem;
+  line-height: 2.254rem;
+
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--main-color);
+  border: none;
+  background-color: var(--point-color);
+}
+
+/* 판매자에게 disabled로 보이는 버튼 색상 */
+.disabled {
+  background-color: var(--border-color);
+}
