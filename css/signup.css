@@ -158,7 +158,11 @@ select {
   background: url("../assets/icon-down-arrow.svg") no-repeat 95% 50%;
 }
 
-/* select:: {
+.selected {
+  background-image: url("../assets/icon-up-arrow.svg");
+}
+
+/* option {
   background-color: #e0e0e0;
 } */
 

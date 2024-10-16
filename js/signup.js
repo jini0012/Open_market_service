@@ -32,6 +32,12 @@ joinBtns.forEach((button) => {
   });
 });
 
+// 셀렉트박스 커스텀
+joinForm.phone1.addEventListener("click", () => {
+  // 셀렉트박스 클릭 시 selected 클래스 추가(css 적용)
+  phone1.classList.add("selected");
+});
+
 /* 중복확인 버튼 click 이벤트 발생 시 */
 
 // 아이디 중복확인
