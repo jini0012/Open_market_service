@@ -139,6 +139,7 @@ article p:last-of-type span {
 
 /* footer */
 footer {
+  font-size: 1.4rem;
   font-family: "SpoqaHanSansNeo-Regular";
   height: 29.8rem;
   padding: 6rem 32rem;
@@ -159,28 +160,33 @@ footer nav ul {
   display: flex;
   gap: 1.4rem;
 }
+
 /* 개인정보처리방침 글씨 굵기 조절 */
 footer nav span {
   font-weight: 700;
 }
 
+/* about-wrap 내 사이 가상 요소 추가 */
 .about-wrap li::after {
   content: "|";
   position: relative;
   margin-left: 1.4rem;
 }
 
+/* 마지막(제휴문의)뒤 가상요소 제거*/
 .about-wrap li:last-of-type::after {
   content: "";
 }
 
 hr {
-  width: 128rem;
+  min-width: 75.5rem;
+  max-width: 128rem;
   height: 0;
   margin: 0;
 }
 
 address {
+  min-width: 32.1rem;
   color: var(--font-color);
   line-height: 2.4rem;
 }
