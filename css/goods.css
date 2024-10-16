@@ -79,20 +79,51 @@ form {
   text-decoration: none;
 }
 
-hr {
-  max-width: 63rem;
-  height: 0.2rem;
-  margin: 0;
-}
-
 /* main */
 
 main {
   padding: 8rem 32rem;
+
+  /* 상세내용, 메뉴바 레이아웃 적용 */
   display: flex;
+  flex-direction: column;
+  gap: 14rem;
 }
 
-main img {
+/* 이미지, 상세내용 레이아웃 적용 */
+.buy-wrap {
+  display: flex;
+  gap: 5rem;
+}
+
+.buy-wrap img {
   width: 60rem;
   height: 60rem;
+}
+
+.goodsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 13.8rem;
+}
+
+.goodsInfo p:first-of-type {
+  color: var(--font-color);
+}
+
+.goodsInfo h3,
+.price span {
+  font-size: 3.6rem;
+  line-height: 4.507rem;
+}
+
+.price span {
+  height: 11.7rem;
+  font-weight: 700;
+}
+
+hr {
+  min-width: 63rem;
+  margin: 0;
 }
