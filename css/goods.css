@@ -84,3 +84,10 @@ hr {
   height: 0.2rem;
   margin: 0;
 }
+
+/* main */
+
+main img {
+  width: 60rem;
+  height: 60rem;
+}
