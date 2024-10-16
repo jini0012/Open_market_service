@@ -113,11 +113,10 @@ main {
   padding: 8rem 32rem 18rem 31.3rem;
   display: flex;
   flex-wrap: wrap;
-
   gap: 7rem;
 }
 
-article {
+article a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
