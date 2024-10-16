@@ -267,3 +267,54 @@ input::-webkit-inner-spin-button {
 }
 
 /* 모달창 */
+dialog {
+  width: 38rem;
+  height: 20rem;
+  padding: 5rem 7.5rem 4rem 7.5rem;
+  box-sizing: border-box;
+  border: solid 0.1rem var(--border-color);
+  text-align: center;
+  overflow: hidden;
+
+  font-size: 1.6rem;
+  line-height: 2.003rem;
+}
+
+dialog p {
+  width: 20.3rem;
+  margin-bottom: 3rem;
+}
+
+.closeModal {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.closeModal img {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.noBtn,
+.yesBtn {
+  font-size: inherit;
+  padding: 0;
+  width: 10rem;
+  height: 4rem;
+  border: solid 0.1rem var(--border-color);
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.noBtn {
+  color: var(--font-color);
+  background-color: var(--main-color);
+}
+
+.yesBtn {
+  color: var(--main-color);
+  background-color: var(--point-color);
+}
