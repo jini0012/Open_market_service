@@ -149,6 +149,19 @@ select:focus {
   text-align: center;
 }
 
+/* 셀렉트박스 수정 */
+select {
+  /* 셀렉트 박스 기본 디자인 제거 */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("../assets/icon-down-arrow.svg") no-repeat 95% 50%;
+}
+
+/* select:: {
+  background-color: #e0e0e0;
+} */
+
 /* ------------------------------- */
 
 /* 이용약관 동의 및 가입하기 */
