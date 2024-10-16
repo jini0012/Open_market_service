@@ -179,9 +179,17 @@ input::-webkit-inner-spin-button {
 .minus {
   border-right: solid 0.1rem var(--border-color);
 }
+
 .plus {
   border-left: solid 0.1rem var(--border-color);
   left: 10rem;
+}
+
+.plusDisabled {
+  width: 5.05rem;
+  height: 5.05rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: #e0e0e0;
 }
 
 /* total 상품 수량, 금액 확인 부분 css */

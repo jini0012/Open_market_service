@@ -34,3 +34,20 @@ yesBtn.addEventListener("click", () => {
 noBtn.addEventListener("click", () => {
   dialog.close();
 });
+
+// 마이페이지 모달 만들기
+
+// - 버튼 또는 + 버튼 클릭 시 input.value 변경 / 총 수량 함께 변경 및 금액 변경
+
+// 판매자 사이트의경우 바로구매와 장바구니를 disabled(클래스 부여 또는 속성 적용)
+
+const form = document.querySelector(".countForm");
+const minus = form.querySelector(".minus");
+const plus = form.querySelector(".plus");
+const num = form.querySelector("input");
+
+// 재고 없는 경우 plus 버튼 disabled
+if (plus.disabled === true) {
+  plus.classList.add("plusDisabled");
+  plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
+}
