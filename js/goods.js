@@ -5,6 +5,8 @@
 
 const dialog = document.querySelector("dialog");
 const closeDialog = dialog.querySelector(".closeModal");
+const yesBtn = dialog.querySelector(".yesBtn");
+const noBtn = dialog.querySelector(".noBtn");
 const buyBtn = document.querySelector(".buy");
 const cartBtn = document.querySelector(".cart");
 
@@ -20,5 +22,15 @@ cartBtn.addEventListener("click", () => {
 
 // 모달창 닫기
 closeDialog.addEventListener("click", () => {
+  dialog.close();
+});
+
+// 예 버튼을 눌렀을 떄 로그인창으로 이동
+yesBtn.addEventListener("click", () => {
+  location.href = "login.html";
+});
+
+// 아니오 버튼을 눌렀을 때 모달창 닫기
+noBtn.addEventListener("click", () => {
   dialog.close();
 });
