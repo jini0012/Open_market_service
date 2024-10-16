@@ -123,7 +123,59 @@ main {
   font-weight: 700;
 }
 
+.goodsInfo-wrap p:not(.goodsInfo p) {
+  font-size: 1.6rem;
+  line-height: 2.003rem;
+  color: var(--font-color);
+}
+
 hr {
   min-width: 63rem;
-  margin: 0;
+  border: 0.2rem solid var(--border-color);
+  margin: 2rem 0;
+}
+
+.goodsInfo-wrap input {
+  width: 15rem;
+  height: 5rem;
+  margin: 1rem 0;
+  padding: 0;
+  text-align: center;
+  border: solid 0.1rem var(--border-color);
+  border-radius: 0.5rem;
+}
+
+/* input태그(number type) 기본 버튼 삭제 */
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* 수량 입력 버튼 (minus, plus) */
+.minus,
+.plus {
+  background-color: #ffffff1a;
+  border: none;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+
+  position: absolute;
+  top: 1rem;
+}
+
+.minus img,
+.plus img {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 1.7rem;
+  left: 1.5rem;
+}
+
+.minus {
+  border-right: solid 0.1rem var(--border-color);
+}
+.plus {
+  border-left: solid 0.1rem var(--border-color);
+  left: 10rem;
 }
