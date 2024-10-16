@@ -67,7 +67,8 @@ form {
   display: flex;
   gap: 4.7rem;
 }
-.btn-wrap a {
+.cartBtn,
+.loginBtn {
   min-width: 6rem;
   display: flex;
   flex-direction: column;
@@ -77,6 +78,8 @@ form {
   line-height: 1.4rem;
   color: var(--font-color);
   text-decoration: none;
+  background: none;
+  border: none;
 }
 
 /* main */
@@ -337,7 +340,7 @@ dialog p {
   background-color: var(--point-color);
 }
 
-/* 판매자에게 disabled로 보이는 버튼 색상 */
+/* 판매자에게 disabled로 보이는 버튼 */
 .disabled {
   background-color: var(--border-color);
 }
