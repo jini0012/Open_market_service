@@ -123,7 +123,7 @@ main {
   font-weight: 700;
 }
 
-.goodsInfo-wrap p:not(.goodsInfo p) {
+.goodsInfo-wrap p:first-of-type {
   font-size: 1.6rem;
   line-height: 2.003rem;
   color: var(--font-color);
@@ -178,4 +178,65 @@ input::-webkit-inner-spin-button {
 .plus {
   border-left: solid 0.1rem var(--border-color);
   left: 10rem;
+}
+
+.goodsInfo-wrap ul {
+  margin-top: 4.6rem;
+  display: flex;
+  gap: 28.9rem;
+}
+
+.priceInfo {
+  display: flex;
+  gap: 1rem;
+}
+
+.priceInfo p:first-of-type {
+  font-size: 1.8rem;
+  line-height: 2.254rem;
+}
+.priceInfo p:first-of-type span,
+.priceInfo p:last-of-type {
+  color: var(--point-color);
+}
+
+.priceInfo p:first-of-type::after {
+  content: "|";
+  margin-left: 1rem;
+  color: var(--border-color);
+}
+
+.priceInfo p:last-of-type {
+  position: relative;
+  top: -1.8rem;
+}
+
+.priceInfo p:last-of-type span {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 4.507rem;
+}
+
+.buyBtns {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.buyBtns button {
+  height: 6rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.buyBtns button:first-of-type {
+  min-width: 41.6rem;
+  background-color: var(--point-color);
+}
+
+.buyBtns button:last-of-type {
+  min-width: 20rem;
+  background-color: var(--font-color);
 }
