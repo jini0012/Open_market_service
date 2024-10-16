@@ -36,12 +36,26 @@
               장바구니
             </a>
           </li>
-          <li>
+          <li class="login">
             <!-- 기본페이지 로그인 -> 로그인 후 마이페이지로 변경 -->
             <a href="./login.html" class="loginBtn"
               ><img src="./assets/icon-user.svg" alt="" />
               로그인
             </a>
+          </li>
+          <!-- 로그인회원에게만 보이는 버튼 (로그인 시 위 로그인 버튼은 사라짐) -->
+          <li class="myPage" hidden>
+            <a href="#" class="loginBtn"
+              ><img src="./assets/icon-user.svg" alt="" />
+              마이페이지
+            </a>
+          </li>
+          <!-- 판매자에게만 보이는 버튼 -->
+          <li class="sellerCenter" hidden>
+            <button type="button">
+              <img src="./assets/icon-shopping-bag.svg" alt="" />
+              판매자 센터
+            </button>
           </li>
         </ul>
       </div>
