@@ -4,9 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HODU</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/goods.css" />
   </head>
   <body>
-    <script>
+    <header>
+      <div class="search-wrap">
+        <h1>
+          <a href="#"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
+        </h1>
+        <form action="#" method="get">
+          <label for="search"></label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="상품을 검색해보세요!"
+          />
+          <button class="searchBtn">
+            <img src="./assets/search.svg" alt="검색" />
+          </button>
+        </form>
+      </div>
+      <div class="btn-wrap">
+        <ul>
+          <li>
+            <a href="#" class="cartBtn"
+              ><img src="./assets/icon-shopping-cart.svg" alt="" />
+              장바구니
+            </a>
+          </li>
+          <li>
+            <a href="./login.html" class="loginBtn"
+              ><img src="./assets/icon-user.svg" alt="" />
+              마이페이지
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <img src="./assets/담요.png" alt="" />
+      <section>
+        <div class="goodsInfo">
+          <p>백엔드 글로벌</p>
+          <h2>딥러닝 개발자 무릎 담요</h2>
+          <p class="price"><span>17,500</span>원</p>
+        </div>
+
+        <p>택배배송/ 무료배송</p>
+        <hr />
+        <form action="#">
+          <button class="minus" type="button">-</button>
+          <input type="number" min="1" value="1" />
+          <button class="plus" type="button">+</button>
+          <hr />
+          <ul>
+            <li>총 상품 금액</li>
+            <li>
+              <div>
+                <p>총 수량<span class="count">1</span>개</p>
+                <span class="totalPrice">17,500</span>원
+              </div>
+            </li>
+          </ul>
+          <button class="buy">바로 구매</button>
+          <button class="cart">장바구니</button>
+        </form>
+
+        <!-- ---------------modal------------------- -->
+        <!-- 바로구매 또는 장바구니 버튼을 눌렀는데 로그인이 되어있지 않으면 로그인 모달창이 뜸 -->
+        <dialog class="loginModal">
+          <button>
+            <img src="./assets/icon-delete.svg" alt="모달창 닫기" />
+          </button>
+          <p>
+            로그인이 필요한 서비스입니다. <br />
+            로그인 하시겠습니까?
+          </p>
+          <button class="noBtn">아니오</button>
+          <button class="yesBtn">예</button>
+        </dialog>
+        <!-- ----------------------------------------- -->
+      </section>
+      <section>
+        <h2 class="sr-only">상품정보 메뉴바</h2>
+        <ul>
+          <li><button class="button">버튼</button></li>
+          <li><button class="button">리뷰</button></li>
+          <li><button class="button">Q&A</button></li>
+          <li><button class="button">반품/교환정보</button></li>
+        </ul>
+      </section>
+    </main>
+    <script src="./js/goods.js">
       // 상품 클릭 시 document.title HODU : 상품 이름으로 변경되게 적용
     </script>
   </body>
