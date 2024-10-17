@@ -20,15 +20,35 @@ myPageBtn.addEventListener("click", () => {
 const login = document.querySelector(".login");
 const myPage = document.querySelector(".myPage");
 
-// 로그인해서 localStorage에 토큰이 있는 경우
-if (localStorage.accessToken) {
+// 로그인 중인 경우 (localStorage에 토큰이 있는) 5분마다 access토큰 갱신
+if (localStorage.accessToken !== "undefined") {
   console.log("로그인 되었습니다!");
   login.hidden = true;
   myPage.hidden = false;
+  setInterval(() => {
+    fetch("https://estapi.openmarket.weniv.co.kr/accounts/token/refresh/", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        refresh: localStorage.refreshToken,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        // 새로 받은 access token으로 로컬스토리지에 저장
+        localStorage.setItem("accessToken", `${json.access}`);
+      })
+      .catch((error) => console.error(error));
+  }, 300000);
 } else {
   login.hidden = false;
   myPage.hidden = true;
 }
+
+// 5분이 지날 때 마다 새로운 access token 값을 저장
 
 //------------------------------------------------------
 
