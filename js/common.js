@@ -20,6 +20,8 @@ myPageBtn.addEventListener("click", () => {
 const login = document.querySelector(".login");
 const myPage = document.querySelector(".myPage");
 
+// 추후 refresh 만료시 로그아웃 되는 기능 추가 예정
+
 if (localStorage.accessToken) {
   login.hidden = true;
   myPage.hidden = false;
@@ -48,8 +50,6 @@ if (localStorage.accessToken) {
   login.hidden = false;
   myPage.hidden = true;
 }
-
-// 5분이 지날 때 마다 새로운 access token 값을 저장
 
 //------------------------------------------------------
 
