@@ -53,25 +53,25 @@
               name="password"
               id="password"
               autocomplete="new-password"
-              class="invalid-password"
+              class="invalid-passwordImg"
               required
               pattern="(?=.*\d)(?=.*[a-z]).{8,}"
               minlength="8"
             />
-            <p class="invalidColor hidden">필수 정보입니다.</p>
+            <p class="passwordMsg invalidColor hidden">필수 정보입니다.</p>
 
             <label for="password-recheck">비밀번호 재확인</label>
             <input
               type="password"
               name="password-recheck"
               id="password-recheck"
-              class="invalid-password"
+              class="invalid-passwordImg"
               required
             />
-            <p class="invalidColor hidden">필수 정보입니다.</p>
+            <p class="password-check invalidColor">필수 정보입니다.</p>
 
             <!-- p태그 비밀번호와 비밀번호 재확인 일치 여부 확인 메세지 알림 -->
-            <p class="password-check"></p>
+            <!-- <p class=""></p> -->
 
             <label for="name">이름</label>
             <input
@@ -127,7 +127,9 @@
                 인증
               </button>
             </div>
-            <p class="invalidColor seller-only hidden">필수 정보입니다.</p>
+            <p class="businessNumMsg invalidColor seller-only hidden">
+              필수 정보입니다.
+            </p>
 
             <label for="store-name" class="seller-only">스토어 이름</label>
             <input
