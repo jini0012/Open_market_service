@@ -37,9 +37,6 @@ logout.addEventListener("click", () => {
   // 로그아웃버튼을 누르면 access값, refresh값을 삭제하고 마이페이지 hidden, 로그인 visible
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
-  localStorage.removeItem("username");
-  localStorage.removeItem("name");
-  localStorage.removeItem("phone");
   localStorage.removeItem("type");
 
   // 페이지를 새로고침한다 -> 로그인 토큰이 사라져서 비로그인회원 창으로 보인다.

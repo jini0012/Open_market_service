@@ -1,9 +1,6 @@
 // 로그인창 실행시 로컬스토리지 초기화
 localStorage.removeItem("accessToken");
 localStorage.removeItem("refreshToken");
-localStorage.removeItem("username");
-localStorage.removeItem("name");
-localStorage.removeItem("phone");
 localStorage.removeItem("type");
 
 // 로그인 구매회원, 판매회원 버튼 전환
