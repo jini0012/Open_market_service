@@ -53,6 +53,9 @@ loginForm.addEventListener("submit", (e) => {
   }
 
   // 아이디, 비밀번호의 유효성 검사
+
+  // 추후 헤더  Authorization에 토큰값 저장하는 형식으로 적용
+
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
     method: "POST",
     headers: {
