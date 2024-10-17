@@ -6,15 +6,6 @@ localStorage.removeItem("name");
 localStorage.removeItem("phone");
 localStorage.removeItem("type");
 
-// 로그인 타입을 지정하는 함수
-function loginType() {
-  if (loginBtns[0].classList.contains("active")) {
-    return "BUYER";
-  } else if (loginBtns[1].classList.contains("active")) {
-    return "SELLER";
-  }
-}
-
 // 로그인 구매회원, 판매회원 버튼 전환
 const loginBtns = document.querySelectorAll(".login-btns li button");
 loginBtns.forEach((button) => {
@@ -26,10 +17,17 @@ loginBtns.forEach((button) => {
       loginBtns[1].classList.add("active");
       loginBtns[0].classList.remove("active");
     }
-
-    console.log(loginType());
   });
 });
+
+// 로그인 타입을 지정하는 함수
+function loginType() {
+  if (loginBtns[0].classList.contains("active")) {
+    return "BUYER";
+  } else {
+    return "SELLER";
+  }
+}
 
 // 로그인 버튼 클릭시 유효성 검사
 // 아이디, 비밀번호 공란 또는 비밀번호만 입력: 아이디를 입력해주세요.
