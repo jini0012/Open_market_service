@@ -14,7 +14,6 @@ const myPageBtn = document.querySelector(".myPageBtn");
 const myPageModal = document.querySelector(".myPageModal");
 const logout = myPageModal.querySelector(".logout");
 
-console.log(myPageModal.open);
 // 마이페이지 버튼 클릭 시 켜지고 꺼지는 모달창
 myPageBtn.addEventListener("click", () => {
   if (!myPageModal.open) {

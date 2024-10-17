@@ -40,7 +40,6 @@ const myPageBtn = document.querySelector(".myPageBtn");
 const myPageModal = document.querySelector(".myPageModal");
 const logout = myPageModal.querySelector(".logout");
 
-console.log(myPageModal.open);
 // 마이페이지 버튼 클릭 시 켜지고 꺼지는 모달창
 myPageBtn.addEventListener("click", () => {
   if (!myPageModal.open) {
@@ -67,9 +66,6 @@ const defaultPrice = totalPrice.textContent
   .split("")
   .filter((elem) => elem >= 0)
   .join("");
-
-console.log(total);
-console.log(defaultPrice);
 
 // 재고 없는 경우 plus 버튼 disabled
 if (plus.disabled === true) {
