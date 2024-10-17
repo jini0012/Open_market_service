@@ -54,8 +54,6 @@ loginForm.addEventListener("submit", (e) => {
 
   // 아이디, 비밀번호의 유효성 검사
 
-  // 추후 헤더  Authorization에 토큰값 저장하는 형식으로 적용
-
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
     method: "POST",
     headers: {
@@ -74,6 +72,7 @@ loginForm.addEventListener("submit", (e) => {
       if (!json.error) {
         localStorage.setItem("type", `${json.user.user_type}`);
         // 1차 로그인 검사해서 값 확인(구매자가 구매회원으로 로그인하거나 판매자가 판매회원으로 로그인 한 경우 token값 부여)
+        // 추후 헤더  Authorization에 토큰값 저장하는 형식으로 적용
         if (loginType() === localStorage.type) {
           localStorage.setItem("accessToken", `${json.access}`);
           localStorage.setItem("refreshToken", `${json.refresh}`);
