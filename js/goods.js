@@ -10,31 +10,33 @@ const noBtn = loginModal.querySelector(".noBtn");
 const buyBtn = document.querySelector(".buy");
 const cartBtn = document.querySelector(".cart");
 
-// 바로 구매 버튼 클릭 시 로그인 모달
-buyBtn.addEventListener("click", () => {
-  loginModal.showModal();
-});
+// 로그인되어있지 않은 경우
+if (!localStorage.accessToken) {
+  // 바로 구매 버튼 모달창 open
+  buyBtn.addEventListener("click", () => {
+    loginModal.showModal();
+  });
 
-// 장바구니 버튼 클릭 시 로그인 모달
-cartBtn.addEventListener("click", () => {
-  loginModal.showModal();
-});
+  // 장바구니 버튼 모달창 open
+  cartBtn.addEventListener("click", () => {
+    loginModal.showModal();
+  });
 
-// 모달창 닫기
-closeloginModal.addEventListener("click", () => {
-  loginModal.close();
-});
+  // 예 버튼을 눌렀을 떄 로그인창으로 이동
+  yesBtn.addEventListener("click", () => {
+    location.href = "login.html";
+  });
 
-// 예 버튼을 눌렀을 떄 로그인창으로 이동
-yesBtn.addEventListener("click", () => {
-  location.href = "login.html";
-});
+  // 모달창 닫기 버튼 (1)
+  closeloginModal.addEventListener("click", () => {
+    loginModal.close();
+  });
 
-// 아니오 버튼을 눌렀을 때 모달창 닫기
-noBtn.addEventListener("click", () => {
-  loginModal.close();
-});
-//------------------------------------------------------------------------
+  // 모달창 닫기 버튼 (2) : 아니오 버튼
+  noBtn.addEventListener("click", () => {
+    loginModal.close();
+  });
+}
 
 // 판매자 사이트의경우 바로구매와 장바구니를 disabled(클래스 부여 또는 속성 적용)
 
