@@ -69,14 +69,19 @@ loginForm.addEventListener("submit", (e) => {
     .then((json) => {
       console.log(json);
       if (!json.error) {
-        localStorage.setItem("accessToken", `${json.access}`);
-        localStorage.setItem("refreshToken", `${json.refresh}`);
         localStorage.setItem("type", `${json.user.user_type}`);
-        // 로그인 완료 후 페이지 이전 페이지로 이동
-        if (document.referrer === "" || document.referrer === location.href) {
-          location.href = "index.html";
+        // 1차 로그인 검사해서 값 확인(구매자가 구매회원으로 로그인하거나 판매자가 판매회원으로 로그인 한 경우 token값 부여)
+        if (loginType() === localStorage.type) {
+          localStorage.setItem("accessToken", `${json.access}`);
+          localStorage.setItem("refreshToken", `${json.refresh}`);
+          // 로그인 완료 후 페이지 이전 페이지로 이동
+          if (document.referrer === "" || document.referrer === location.href) {
+            location.href = "index.html";
+          } else {
+            location.href = `${document.referrer}`;
+          }
         } else {
-          location.href = `${document.referrer}`;
+          msg.innerText = `아이디 또는 비밀번호가 일치하지 않습니다.`;
         }
       } else if (pwValue) {
         // 아이디만 입력했을 때 '비밀번호를 입력해주세요'가 나오지 않는 오류 방지
