@@ -53,6 +53,10 @@ loginForm.addEventListener("submit", (e) => {
       if (!json.error) {
         localStorage.setItem("accessToken", `${json.access}`);
         localStorage.setItem("refreshToken", `${json.refresh}`);
+        localStorage.setItem("username", `${json.user.username}`);
+        localStorage.setItem("name", `${json.user.name}`);
+        localStorage.setItem("phone", `${json.user.phone_number}`);
+        localStorage.setItem("type", `${json.user.user_type}`);
         // 로그인 완료 후 페이지 이동
         location.href = "./index.html";
       } else if (pwValue) {

@@ -11,3 +11,24 @@
 // 마이페이지는 UI로만 구현하고 로그아웃 버튼 누르면 로그아웃
 
 // 1. 로그인이 되어있을 떄 로그인 버튼이 아닌 마이 페이지 버튼이 보이도록 구현하기.
+
+// console.log(localStorage.accessToken);
+// console.log(localStorage.refreshToken);
+
+// 새 access token 요청하기
+// fetch("https://estapi.openmarket.weniv.co.kr/accounts/token/refresh/", {
+//   method: "post",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     refresh: localStorage.refreshToken,
+//   }),
+// })
+//   .then((response) => response.json())
+//   .then((json) => {
+//     console.log(json);
+// 새로 받은 access token으로 로컬스토리지에 저장
+//     localStorage.setItem("accessToken", `${json.access}`);
+//   })
+//   .catch((error) => console.error(error));
