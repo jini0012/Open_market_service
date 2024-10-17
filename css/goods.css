@@ -155,6 +155,10 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input:disabled {
+  background-color: var(--main-color);
+}
+
 /* 수량 입력 버튼 (minus, plus) */
 .minus,
 .plus {
