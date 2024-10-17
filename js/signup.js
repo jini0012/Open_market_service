@@ -246,8 +246,8 @@ joinForm.addEventListener("submit", (e) => {
         password: password.value,
         name: joinForm.name.value,
         phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
-        company_registration_number: "",
-        store_name: "",
+        company_registration_number: `${joinForm.businessNum.value}`,
+        store_name: `${joinForm.storeName.value}`,
       }),
     })
       .then((response) => response.json())
@@ -260,7 +260,6 @@ joinForm.addEventListener("submit", (e) => {
           joinForm.querySelector(".phoneInvalid").textContent = "";
           // 회원가입 완료시 로그인 페이지로 이동
           location.href = "login.html";
-          //"http://127.0.0.1:5501/001_Project%20%EB%B0%8F%20%EC%8B%A4%EC%8A%B5/Project03_Open_market_service/login.html"
         }
       })
       .catch((error) => console.error(error));
