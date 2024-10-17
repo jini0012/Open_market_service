@@ -111,6 +111,9 @@ joinForm.addEventListener("input", (e) => {
   if (password.validity.valid) {
     password.classList.add("valid-password");
     password.classList.remove("invalid-password");
+  } else {
+    password.classList.remove("valid-password");
+    password.classList.add("invalid-password");
   }
 
   // 비밀번호 일치 확인
