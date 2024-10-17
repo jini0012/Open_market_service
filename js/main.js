@@ -19,6 +19,10 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/")
       product.addEventListener("click", (e) => {
         // product id 저장
         localStorage.setItem("productId", `${json.results[index].id}`);
+        // product 가격 저장
+        localStorage.setItem("price", `${json.results[index].price}`);
+        // product 재고수량 저장
+        localStorage.setItem("stock", `${json.results[index].stock}`);
         console.log(localStorage.productId);
         location.href = `goods.html`;
       });
