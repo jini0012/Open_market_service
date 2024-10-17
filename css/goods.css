@@ -68,7 +68,8 @@ form {
   gap: 4.7rem;
 }
 .cartBtn,
-.myPageBtn {
+.myPageBtn,
+.loginBtn {
   min-width: 6rem;
   display: flex;
   flex-direction: column;
