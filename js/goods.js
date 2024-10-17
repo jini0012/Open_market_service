@@ -3,26 +3,26 @@
 // 로그인이 되지 않은 상태일때만 버튼을 눌렀을 때 모달창이 떠야한다.
 // 로그인 예 버튼을 누르면 로그인 창으로 이동, 아니오를 누르면 모달창이 닫힌다.
 
-const dialog = document.querySelector("dialog");
-const closeDialog = dialog.querySelector(".closeModal");
-const yesBtn = dialog.querySelector(".yesBtn");
-const noBtn = dialog.querySelector(".noBtn");
+const loginModal = document.querySelector(".loginModal");
+const closeloginModal = loginModal.querySelector(".closeModal");
+const yesBtn = loginModal.querySelector(".yesBtn");
+const noBtn = loginModal.querySelector(".noBtn");
 const buyBtn = document.querySelector(".buy");
 const cartBtn = document.querySelector(".cart");
 
 // 바로 구매 버튼 클릭 시 로그인 모달
 buyBtn.addEventListener("click", () => {
-  dialog.showModal();
+  loginModal.showModal();
 });
 
 // 장바구니 버튼 클릭 시 로그인 모달
 cartBtn.addEventListener("click", () => {
-  dialog.showModal();
+  loginModal.showModal();
 });
 
 // 모달창 닫기
-closeDialog.addEventListener("click", () => {
-  dialog.close();
+closeloginModal.addEventListener("click", () => {
+  loginModal.close();
 });
 
 // 예 버튼을 눌렀을 떄 로그인창으로 이동
@@ -32,11 +32,30 @@ yesBtn.addEventListener("click", () => {
 
 // 아니오 버튼을 눌렀을 때 모달창 닫기
 noBtn.addEventListener("click", () => {
-  dialog.close();
+  loginModal.close();
+});
+//------------------------------------------------------------------------
+// 마이페이지 모달 만들기
+const myPageBtn = document.querySelector(".myPageBtn");
+const myPageModal = document.querySelector(".myPageModal");
+const logout = myPageModal.querySelector(".logout");
+
+console.log(myPageModal.open);
+// 마이페이지 버튼 클릭 시 켜지고 꺼지는 모달창
+myPageBtn.addEventListener("click", () => {
+  if (!myPageModal.open) {
+    myPageModal.open = true;
+  } else {
+    myPageModal.open = false;
+  }
+});
+// 로그아웃버튼 클릭 시 로그아웃 되는 기능
+logout.addEventListener("click", () => {
+  //   myPageModal.close();
+  // 로그아웃버튼을 누르면 access값, refresh값을 삭제하고 마이페이지 hidden, 로그인 visible
 });
 
-// 마이페이지 모달 만들기
-
+//----------------------------------------------------------------------------
 // 판매자 사이트의경우 바로구매와 장바구니를 disabled(클래스 부여 또는 속성 적용)
 
 const form = document.querySelector(".countForm");
