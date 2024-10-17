@@ -10,21 +10,4 @@
 // 마이페이지 버튼 누르면 모달창 open
 // 마이페이지는 UI로만 구현하고 로그아웃 버튼 누르면 로그아웃
 
-const myPageBtn = document.querySelector(".myPageBtn");
-const myPageModal = document.querySelector(".myPageModal");
-const logout = myPageModal.querySelector(".logout");
-
-// 마이페이지 버튼 클릭 시 켜지고 꺼지는 모달창
-myPageBtn.addEventListener("click", () => {
-  if (!myPageModal.open) {
-    myPageModal.open = true;
-  } else {
-    myPageModal.open = false;
-  }
-});
-
-// 로그아웃버튼 클릭 시 로그아웃 되는 기능
-logout.addEventListener("click", () => {
-  //   myPageModal.close();
-  // 로그아웃버튼을 누르면 access값, refresh값을 삭제하고 마이페이지 hidden, 로그인 visible
-});
+// 1. 로그인이 되어있을 떄 로그인 버튼이 아닌 마이 페이지 버튼이 보이도록 구현하기.
