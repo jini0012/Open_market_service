@@ -1,4 +1,5 @@
-const goodsImg = document.querySelector(".buy-wrap img");
+const buy = document.querySelector(".buy-wrap");
+const goodsImg = buy.querySelector(" img");
 const goodsInfo = document.querySelector(".goodsInfo");
 
 // 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
@@ -9,11 +10,14 @@ fetch(
   .then((json) => {
     // 페이지가 열렸을 때
     // 이미지 -> fetch내 링크의 이미지, 상품명, 가격 적용
-    console.log(json);
     goodsImg.src = `${json.image}`;
-    goodsInfo.querySelector("p").textContent = `${json.name}`;
-    goodsInfo.querySelector("h3").textContent = `${json.info}`;
+    goodsImg.alt = `${json.info}`;
+    goodsInfo.querySelector("h3").textContent = `${json.name}`;
+    goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
     goodsInfo.querySelector("span").textContent = `${json.price}`;
+    buy.querySelector(
+      ".shippingFee"
+    ).textContent = `택배배송/배송비 : ${localStorage.fee}원`;
   })
   .catch((error) => console.error(error));
 
@@ -70,12 +74,12 @@ let totalPrice = form.querySelector(".totalPrice");
 //   .join("");
 
 // 로컬스토리지에 저장(문자열타입)된 가격 불러와서 사용
-const defaultPrice = localStorage.price
-  .split("")
-  .filter((elem) => elem >= 0)
-  .join("");
+const defaultPrice = localStorage.price;
+// .split("")
+// .filter((elem) => elem >= 0)
+// .join("");
 // 가격 초기 값 설정
-totalPrice.textContent = defaultPrice;
+totalPrice.textContent = Number(defaultPrice) + Number(localStorage.fee);
 
 // - 버튼 또는 + 버튼 클릭 시 input.value 변경
 let count = 1;
@@ -93,7 +97,8 @@ Btns.forEach((button) => {
     num.value = count;
     // 총 수량 함께 변경 및 금액 변경
     total.textContent = num.value;
-    totalPrice.textContent = num.value * defaultPrice;
+    totalPrice.textContent =
+      Number(num.value) * Number(defaultPrice) + Number(localStorage.fee);
 
     // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화
     if (Number(localStorage.stock) <= Number(num.value)) {
@@ -103,8 +108,6 @@ Btns.forEach((button) => {
     }
   });
 });
-
-console.log(localStorage.stock);
 
 // 재고 1인경우 +버튼 비활성화
 if (localStorage.stock === "1") {
