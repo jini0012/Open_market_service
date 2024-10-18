@@ -264,6 +264,13 @@ input:disabled {
   background-color: var(--font-color);
 }
 
+/* 판매자는 바로구매, 장바구니 버튼이 disabled  */
+.buyBtns button:first-of-type:disabled,
+.buyBtns button:last-of-type:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+}
+
 /* 메뉴바 */
 .menubar ul {
   display: flex;
@@ -357,11 +364,6 @@ dialog p {
   border: none;
   background-color: var(--point-color);
   cursor: pointer;
-}
-
-/* 판매자에게 disabled로 보이는 버튼 */
-.disabled {
-  background-color: var(--border-color);
 }
 
 /* 마이페이지 버튼 모달 */

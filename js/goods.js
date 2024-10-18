@@ -68,7 +68,11 @@ if (!localStorage.accessToken) {
   });
 }
 
-// 판매자 사이트의경우 바로구매와 장바구니를 disabled(클래스 부여 또는 속성 적용)
+// 판매자 사이트의경우 바로구매와 장바구니 버튼을 disabled 적용
+if (localStorage.type === "SELLER") {
+  buyBtn.disabled = true;
+  cartBtn.disabled = true;
+}
 
 const num = form.num;
 let total = form.querySelector(".count");
