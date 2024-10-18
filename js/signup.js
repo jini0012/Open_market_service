@@ -1,9 +1,3 @@
-// 구현할 기능
-
-// 3. 필수정보 입니다.
-// input이 invalid할때 p에 필수 정보입니다 값을 넣는 방법?
-// 또는 저번처럼 forEach문이나 다른 방법 있는지 확인
-
 const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
@@ -94,6 +88,7 @@ duplicateBtn[0].addEventListener("click", (e) => {
         // 아이디가 입력되지 않은 경우
       } else {
         idMsg.textContent = "필수 정보 입니다.";
+        idMsg.className = "idMsg invalidColor";
       }
     })
     .catch((error) => console.error(error));
@@ -141,16 +136,16 @@ joinForm.addEventListener("input", (e) => {
   const joinBtn = joinForm.querySelector(".signup-btn");
   const input = joinForm.querySelectorAll("input");
 
-  // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
-  // 다시 확인!!!!!!!!!!!!!!!!!
-  // 비밀번호 일치확인 안보이는 오류
-  // input.forEach((elem, index) => {
-  //   if (elem.validity.valueMissing) {
-  //     p[index].hidden = false;
-  //   } else {
-  //     p[index].hidden = true;
-  //   }
-  // });
+  const currentIndex = Array.from(input).indexOf(e.target);
+  // 현재 입력중인 input의 인덱스
+
+  for (const [index, elem] of input.entries()) {
+    // 현재 입력중인 input인덱스보다 작고 input 값이 비었을 때
+    if (index < currentIndex && elem.validity.valueMissing) {
+      Msgs[index].hidden = false;
+      Msgs[index].textContent = "필수 정보 입니다.";
+    }
+  }
 
   /* ------------- 비밀번호 input 초록색 체크 표시 (focus 이벤트 없이 작동) -----------*/
   // 비밀번호 입력값 유효할 때 초록색 체크 표시
