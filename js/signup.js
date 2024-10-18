@@ -66,7 +66,12 @@ duplicateBtn[0].addEventListener("click", (e) => {
       username: id.value,
     }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        location.href = "error.html";
+      }
+      return response.json();
+    })
     .then((json) => {
       if (!json.error) {
         // json 에러가 아닐때
@@ -109,7 +114,12 @@ duplicateBtn[1].addEventListener("click", (e) => {
       }),
     }
   )
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        location.href = "error.html";
+      }
+      return response.json();
+    })
     .then((json) => {
       console.log(json);
       // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
@@ -243,7 +253,12 @@ joinForm.addEventListener("submit", (e) => {
         phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          location.href = "error.html";
+        }
+        return response.json();
+      })
       .then((json) => {
         // 휴대폰 번호가 이미 등록된 회원의 번호인 경우 가입 불가
         if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
@@ -272,7 +287,12 @@ joinForm.addEventListener("submit", (e) => {
         store_name: `${joinForm.storeName.value}`,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          location.href = "error.html";
+        }
+        return response.json();
+      })
       .then((json) => {
         // 휴대폰 번호가 이미 등록된 회원의 번호인 경우 가입 불가
         if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {

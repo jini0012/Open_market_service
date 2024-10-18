@@ -6,7 +6,12 @@ const goodsInfo = document.querySelector(".goodsInfo");
 fetch(
   `https://estapi.openmarket.weniv.co.kr/products/${localStorage.productId}`
 )
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      location.href = "error.html";
+    }
+    return response.json();
+  })
   .then((json) => {
     // 페이지가 열렸을 때
     // 이미지 -> fetch내 링크의 이미지, 상품명, 가격 적용

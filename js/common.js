@@ -37,7 +37,12 @@ if (localStorage.accessToken) {
           refresh: localStorage.refreshToken,
         }),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            location.href = "error.html";
+          }
+          return response.json();
+        })
         .then((json) => {
           console.log(json);
           // 새로 받은 access token으로 로컬스토리지에 저장
