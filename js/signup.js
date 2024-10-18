@@ -10,7 +10,7 @@ const id = joinForm.id;
 const idMsg = joinForm.querySelector(".idMsg");
 const duplicateBtn = joinForm.querySelectorAll(".duplicate-check");
 const pwMsg = joinForm.querySelector(".passwordMsg");
-const pwCheckMsg = joinForm.querySelector(".password-check");
+const pwCheckMsg = joinForm.querySelector(".password-checkMsg");
 
 /* 구매회원가입, 판매회원가입 버튼 click 이벤트 발생 시 */
 
@@ -111,7 +111,7 @@ duplicateBtn[1].addEventListener("click", (e) => {
       console.log(json);
       // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
       if (json.error) {
-        businessNumMsg.classList.remove("hidden");
+        businessNumMsg.hidden = false;
         businessNumMsg.textContent = "사업자등록번호를 다시 입력해주세요.";
       } else {
         businessNumMsg.textContent = "";

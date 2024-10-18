@@ -58,7 +58,7 @@
               pattern="(?=.*\d)(?=.*[a-z]).{8,}"
               minlength="8"
             />
-            <p class="passwordMsg invalidColor hidden">필수 정보입니다.</p>
+            <p class="passwordMsg invalidColor"></p>
 
             <label for="password-recheck">비밀번호 재확인</label>
             <input
@@ -68,7 +68,7 @@
               class="invalid-passwordImg"
               required
             />
-            <p class="password-check invalidColor">필수 정보입니다.</p>
+            <p class="password-checkMsg invalidColor"></p>
 
             <!-- p태그 비밀번호와 비밀번호 재확인 일치 여부 확인 메세지 알림 -->
             <!-- <p class=""></p> -->
@@ -81,7 +81,7 @@
               autocomplete="name"
               required
             />
-            <p class="invalidColor hidden">필수 정보입니다.</p>
+            <p class="invalidColor" hidden>필수 정보입니다.</p>
 
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
@@ -127,7 +127,7 @@
                 인증
               </button>
             </div>
-            <p class="businessNumMsg invalidColor seller-only hidden">
+            <p class="businessNumMsg invalidColor seller-only" hidden>
               필수 정보입니다.
             </p>
 
@@ -138,7 +138,7 @@
               id="storeName"
               class="seller-only"
             />
-            <p class="invalidColor seller-only hidden">필수 정보입니다.</p>
+            <p class="invalidColor seller-only" hidden>필수 정보입니다.</p>
             <div class="no-wrap">
               <input type="checkbox" id="checkbox" class="txt-hide" />
               <label for="checkbox" class="checkbox"
