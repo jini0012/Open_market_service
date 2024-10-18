@@ -119,7 +119,7 @@ Btns.forEach((button) => {
       totalPrice.textContent = "0";
     }
 
-    // 만약 상품 수량이 0이면 +버튼 비활성화, 마이너스 버튼 활성화
+    // 만약 상품 수량이 0이면 +버튼 활성화, 마이너스 버튼 비활성화
     if (num.value === "0") {
       plus.disabled = false;
       plus.classList.remove("plusDisabled");
@@ -127,16 +127,18 @@ Btns.forEach((button) => {
 
       minus.disabled = true;
       minus.classList.add("plusDisabled");
+      // 상품 수량이 0이 아니면 마이너스 버튼 비활성화
     } else if (num.value !== "0") {
       minus.disabled = false;
       minus.classList.remove("plusDisabled");
 
-      // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화, -버튼 활성화
+      // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화
       if (Number(localStorage.stock) <= Number(num.value)) {
         plus.disabled = true;
         plus.classList.add("plusDisabled");
         plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
       } else {
+        // 상품 재고 수량과 선택한 값이 같지 않으면 + 버튼 활성화
         plus.disabled = false;
         plus.classList.remove("plusDisabled");
         plus.querySelector("img").src = "./assets/icon-plus-line.svg";
@@ -145,7 +147,7 @@ Btns.forEach((button) => {
   });
 });
 
-// 재고 1인경우 +버튼 비활성화
+// 재고 1인경우 버튼을 누르지 않아도 +버튼 비활성화
 if (localStorage.stock === "1") {
   plus.disabled = true;
   plus.classList.add("plusDisabled");
