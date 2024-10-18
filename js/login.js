@@ -68,7 +68,6 @@ loginForm.addEventListener("submit", (e) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
       if (!json.error) {
         localStorage.setItem("type", `${json.user.user_type}`);
         // 1차 로그인 검사해서 값 확인(구매자가 구매회원으로 로그인하거나 판매자가 판매회원으로 로그인 한 경우 token값 부여)
@@ -77,7 +76,12 @@ loginForm.addEventListener("submit", (e) => {
           localStorage.setItem("accessToken", `${json.access}`);
           localStorage.setItem("refreshToken", `${json.refresh}`);
           // 로그인 완료 후 페이지 이전 페이지로 이동
-          if (document.referrer === "" || document.referrer === location.href) {
+          if (
+            // 이전페이지가 없거나 회원가입페이지에서 로그인페이지로 이동한 경우
+            document.referrer === "" ||
+            document.referrer === location.href ||
+            document.referrer.includes("signup.html")
+          ) {
             location.href = "index.html";
           } else {
             location.href = `${document.referrer}`;

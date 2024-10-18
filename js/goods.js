@@ -29,12 +29,16 @@ fetch(
 // 로그인이 되지 않은 상태일때만 버튼을 눌렀을 때 모달창이 떠야한다.
 // 로그인 예 버튼을 누르면 로그인 창으로 이동, 아니오를 누르면 모달창이 닫힌다.
 
+const form = document.querySelector(".countForm");
+const Btns = form.querySelectorAll("button");
+
 const loginModal = document.querySelector(".loginModal");
 const closeloginModal = loginModal.querySelector(".closeModal");
 const yesBtn = loginModal.querySelector(".yesBtn");
 const noBtn = loginModal.querySelector(".noBtn");
-const buyBtn = document.querySelector(".buy");
-const cartBtn = document.querySelector(".cart");
+
+const buyBtn = form.querySelector(".buy");
+const cartBtn = form.querySelector(".cart");
 
 // 로그인되어있지 않은 경우
 if (!localStorage.accessToken) {
@@ -66,11 +70,10 @@ if (!localStorage.accessToken) {
 
 // 판매자 사이트의경우 바로구매와 장바구니를 disabled(클래스 부여 또는 속성 적용)
 
-const form = document.querySelector(".countForm");
-const Btns = form.querySelectorAll("button");
 const num = form.num;
 let total = form.querySelector(".count");
 let totalPrice = form.querySelector(".totalPrice");
+
 // const defaultPrice = totalPrice.textContent
 //   .split("")
 //   .filter((elem) => elem >= 0)
