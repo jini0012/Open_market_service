@@ -19,7 +19,9 @@ fetch(
     goodsImg.alt = `${json.info}`;
     goodsInfo.querySelector("h3").textContent = `${json.name}`;
     goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
-    goodsInfo.querySelector("span").textContent = `${json.price}`;
+    goodsInfo.querySelector("span").textContent = new Intl.NumberFormat(
+      "ko-KR"
+    ).format(json.price); // 천 단위 쉼표 포함
 
     // 택배배송, 직접배송인지 정하는 함수
     function shipping() {
@@ -87,7 +89,7 @@ if (!localStorage.accessToken) {
   });
 }
 
-// 판매자 사이트의경우 바로구매와 장바구니 버튼을 disabled 적용
+// 판매자 사이트의 경우 바로구매와 장바구니 버튼을 disabled 적용
 if (localStorage.type === "SELLER") {
   buyBtn.disabled = true;
   cartBtn.disabled = true;
@@ -97,18 +99,13 @@ const num = form.num;
 let total = form.querySelector(".count");
 let totalPrice = form.querySelector(".totalPrice");
 
-// const defaultPrice = totalPrice.textContent
-//   .split("")
-//   .filter((elem) => elem >= 0)
-//   .join("");
-
 // 로컬스토리지에 저장(문자열타입)된 가격 불러와서 사용
 const defaultPrice = localStorage.price;
-// .split("")
-// .filter((elem) => elem >= 0)
-// .join("");
-// 가격 초기 값 설정
-totalPrice.textContent = Number(defaultPrice) + Number(localStorage.fee);
+
+// 가격 초기 값 설정 (천 단위로 쉼표 추가)
+totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
+  Number(defaultPrice) + Number(localStorage.fee)
+);
 
 // - 버튼 또는 + 버튼 클릭 시 input.value 변경
 let count = 1;
@@ -125,11 +122,14 @@ Btns.forEach((button) => {
     }
     num.value = count;
     // 총 수량 함께 변경 및 금액 변경
-
     total.textContent = num.value;
-    totalPrice.textContent =
-      Number(num.value) * Number(defaultPrice) + Number(localStorage.fee);
-    // 만약 총 수량이 0개라면 총 가격도 0
+
+    // 계산된 가격을 쉼표 포함한 형식으로 변경하여 표시
+    totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
+      Number(num.value) * Number(defaultPrice) + Number(localStorage.fee)
+    );
+
+    // 만약 총 수량이 0개라면 총 가격도 0으로 표시
     if (total.textContent === "0") {
       totalPrice.textContent = "0";
     }
@@ -142,7 +142,6 @@ Btns.forEach((button) => {
 
       minus.disabled = true;
       minus.classList.add("plusDisabled");
-      // 상품 수량이 0이 아니면 마이너스 버튼 비활성화
     } else if (num.value !== "0") {
       minus.disabled = false;
       minus.classList.remove("plusDisabled");

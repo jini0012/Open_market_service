@@ -22,9 +22,9 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/")
         "p"
       ).textContent = `${json.results[index].seller.store_name}`;
       product.querySelector("h3").textContent = `${json.results[index].name}`;
-      product.querySelector(
-        "span"
-      ).textContent = `${json.results[index].price}`;
+      product.querySelector("span").textContent = new Intl.NumberFormat(
+        "ko-KR"
+      ).format(json.results[index].price);
 
       // 상품을 눌렀을 때 상세페이지로 이동하기 => 상품 상세 페이지 + 변경된 이미지 + 내용 추가 필요
       product.addEventListener("click", (e) => {
