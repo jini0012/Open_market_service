@@ -95,6 +95,7 @@ duplicateBtn[0].addEventListener("click", (e) => {
           // pattern이 맞지 않으면 > 로그인 불가
           idMsg.textContent =
             "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+          idMsg.className = "idMsg invalidColor";
         }
         // 이미 있는 아이디 > 로그인 불가
       } else if (json.error == "이미 사용 중인 아이디입니다.") {
