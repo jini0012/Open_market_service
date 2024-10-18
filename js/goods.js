@@ -43,12 +43,16 @@ const cartBtn = form.querySelector(".cart");
 // 로그인되어있지 않은 경우
 if (!localStorage.accessToken) {
   // 바로 구매 버튼 모달창 open
-  buyBtn.addEventListener("click", () => {
+  buyBtn.addEventListener("click", (e) => {
+    // reload 방지용 추가
+    e.preventDefault();
     loginModal.showModal();
   });
 
   // 장바구니 버튼 모달창 open
-  cartBtn.addEventListener("click", () => {
+  cartBtn.addEventListener("click", (e) => {
+    // reload 방지용 추가
+    e.preventDefault();
     loginModal.showModal();
   });
 
