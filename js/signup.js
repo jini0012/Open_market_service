@@ -115,13 +115,16 @@ duplicateBtn[1].addEventListener("click", (e) => {
       // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
       if (json.error) {
         businessNumMsg.hidden = false;
+        businessNumMsg.className = "businessNumMsg invalidColor";
+
         if (json.error === "이미 등록된 사업자등록번호입니다.") {
           businessNumMsg.textContent = "해당 사업자등록번호는 이미 존재합니다.";
         } else {
           businessNumMsg.textContent = "사업자등록번호를 다시 입력해주세요.";
         }
       } else {
-        businessNumMsg.textContent = "";
+        businessNumMsg.textContent = "사용 가능한 사업자등록번호 입니다.";
+        businessNumMsg.className = "businessNumMsg validColor";
       }
     })
     .catch((error) => console.error(error));
@@ -144,6 +147,7 @@ joinForm.addEventListener("input", (e) => {
     if (index < currentIndex && elem.validity.valueMissing) {
       Msgs[index].hidden = false;
       Msgs[index].textContent = "필수 정보 입니다.";
+      input[index].style["border-color"] = "#eb5757";
     }
   }
 
