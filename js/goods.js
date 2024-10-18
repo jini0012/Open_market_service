@@ -15,9 +15,12 @@ fetch(
     goodsInfo.querySelector("h3").textContent = `${json.name}`;
     goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
     goodsInfo.querySelector("span").textContent = `${json.price}`;
-    buy.querySelector(
-      ".shippingFee"
-    ).textContent = `택배배송/배송비 : ${localStorage.fee}원`;
+    // 배송비가 0이 아닐 때 배송비 출력
+    if (json.shipping_fee !== 0) {
+      buy.querySelector(
+        ".shippingFee"
+      ).textContent = `택배배송/배송비 : ${localStorage.fee}원`;
+    }
   })
   .catch((error) => console.error(error));
 
