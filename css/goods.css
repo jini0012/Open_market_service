@@ -352,6 +352,7 @@ dialog p {
   color: var(--main-color);
   border: none;
   background-color: var(--point-color);
+  cursor: pointer;
 }
 
 /* 판매자에게 disabled로 보이는 버튼 */

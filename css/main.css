@@ -218,6 +218,7 @@ address span {
   color: var(--main-color);
   border: none;
   background-color: var(--point-color);
+  cursor: pointer;
 }
 
 /* 마이페이지 버튼 모달 */
