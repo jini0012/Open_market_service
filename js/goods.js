@@ -15,11 +15,21 @@ fetch(
     goodsInfo.querySelector("h3").textContent = `${json.name}`;
     goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
     goodsInfo.querySelector("span").textContent = `${json.price}`;
-    // 배송비가 0이 아닐 때 배송비 출력
+
+    // 택배배송, 직접배송인지 정하는 함수
+    function shipping() {
+      if (json.shipping_method === "PARCEL") {
+        return "택배배송";
+      } else if (json.shipping_method === "DELIVERY") {
+        return "화물운송";
+      }
+    }
+
+    // 배송비가 0이 아닐 때 배송비
     if (json.shipping_fee !== 0) {
-      buy.querySelector(
-        ".shippingFee"
-      ).textContent = `택배배송/배송비 : ${localStorage.fee}원`;
+      buy.querySelector(".shippingFee").textContent = `${shipping()}/배송비 : ${
+        localStorage.fee
+      }원`;
     }
   })
   .catch((error) => console.error(error));
