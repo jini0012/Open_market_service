@@ -201,7 +201,7 @@ input:disabled {
 .goodsInfo-wrap ul {
   margin-top: 4.6rem;
   display: flex;
-  gap: 28.9rem;
+  justify-content: space-between;
 }
 
 .priceInfo {
