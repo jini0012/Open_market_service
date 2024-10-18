@@ -105,8 +105,8 @@ select:focus {
   font-weight: 700;
 }
 
-#password-recheck {
-  margin-bottom: 3rem;
+.password-checkMsg {
+  margin: 1.5rem 0;
 }
 
 /* input 내 이미지 추가 */
@@ -225,12 +225,6 @@ button:disabled {
 /* ------------------------------- */
 
 /* 회원가입 오류시 적용되는 css */
-.passwordInvalid {
-  color: var(--error-color);
-  position: relative;
-  top: -2rem;
-}
-
 .invalidColor {
   color: var(--error-color);
 }

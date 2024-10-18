@@ -192,12 +192,12 @@ joinForm.addEventListener("input", (e) => {
   if (password.validity.valid && !passwordRecheck.validity.valueMissing) {
     if (password.value !== passwordRecheck.value) {
       pwCheckMsg.textContent = "비밀번호가 일치하지 않습니다.";
-      pwCheckMsg.classList.add("passwordInvalid");
+      pwCheckMsg.classList.add("invalidColor");
       passwordRecheck.classList.remove("valid-passwordImg");
       passwordRecheck.classList.add("invalid-passwordImg");
     } else {
       pwCheckMsg.textContent = "";
-      pwCheckMsg.classList.remove("passwordInvalid");
+      pwCheckMsg.classList.remove("invalidColor");
       passwordRecheck.classList.remove("invalid-passwordImg");
       passwordRecheck.classList.add("valid-passwordImg");
     }
