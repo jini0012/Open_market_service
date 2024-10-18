@@ -1,5 +1,5 @@
 const buy = document.querySelector(".buy-wrap");
-const goodsImg = buy.querySelector(" img");
+const goodsImg = buy.querySelector("img");
 const goodsInfo = document.querySelector(".goodsInfo");
 
 // 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
