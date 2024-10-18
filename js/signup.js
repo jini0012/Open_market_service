@@ -99,7 +99,7 @@ duplicateBtn[0].addEventListener("click", (e) => {
         }
         // 이미 있는 아이디 > 로그인 불가
       } else if (json.error == "이미 사용 중인 아이디입니다.") {
-        idMsg.textContent = "이미 사용 중인 아이디 입니다.";
+        idMsg.textContent = json.error;
         idMsg.className = "idMsg invalidColor";
         id.style["border-color"] = "#eb5757";
         // 아이디가 입력되지 않은 경우
@@ -111,7 +111,6 @@ duplicateBtn[0].addEventListener("click", (e) => {
 });
 
 // 사업자등록번호 중복확인
-// 이미 사용중인 사업자등록번호인경우 :
 duplicateBtn[1].addEventListener("click", (e) => {
   e.preventDefault();
   fetch(
@@ -132,7 +131,11 @@ duplicateBtn[1].addEventListener("click", (e) => {
       // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
       if (json.error) {
         businessNumMsg.hidden = false;
-        businessNumMsg.textContent = "사업자등록번호를 다시 입력해주세요.";
+        if (json.error === "이미 등록된 사업자등록번호입니다.") {
+          businessNumMsg.textContent = "해당 사업자등록번호는 이미 존재합니다.";
+        } else {
+          businessNumMsg.textContent = "사업자등록번호를 다시 입력해주세요.";
+        }
       } else {
         businessNumMsg.textContent = "";
       }
