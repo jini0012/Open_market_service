@@ -1,6 +1,17 @@
-/* 구현되어야 하는 기능 */
-// 필수정보입니다
-// 비밀번호 유효성 검사 : 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요. -> 계정 비밀번호와 달라서 추후 구현
+// 구현할 기능
+
+// 1. 비밀번호 유효성검사
+// 지정된 형식, 문자 외로 비밀번호를 작성한 경우 : border red / 8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+// 비밀번호가 유효한경우 -> 초록체크 / border-color none
+
+// 2. 비밀번호 재확인 유효성검사
+// 비밀번호가 일치 하지 않을 경우 => border red / 비밀번호가 일치하지 않습니다.
+// 비밀번호 재확인이 유효한경우(비밀번호와 값이 같은 경우) => 초록체크 / border-color none
+// 비밀번호를 입력하지 않고 재확인을 입력한 경우 => border red / 비밀번호가 일치하지 않습니다.
+
+// 3. 필수정보 입니다.
+// input이 invalid할때 p에 필수 정보입니다 값을 넣는 방법?
+// 또는 저번처럼 forEach문이나 다른 방법 있는지 확인
 
 const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
