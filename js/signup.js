@@ -253,12 +253,7 @@ joinForm.addEventListener("submit", (e) => {
         phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
       }),
     })
-      .then((response) => {
-        if (!response.ok) {
-          location.href = "error.html";
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((json) => {
         // 휴대폰 번호가 이미 등록된 회원의 번호인 경우 가입 불가
         if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
@@ -287,12 +282,7 @@ joinForm.addEventListener("submit", (e) => {
         store_name: `${joinForm.storeName.value}`,
       }),
     })
-      .then((response) => {
-        if (!response.ok) {
-          location.href = "error.html";
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((json) => {
         // 휴대폰 번호가 이미 등록된 회원의 번호인 경우 가입 불가
         if (json.phone_number[0] === "이미 등록된 핸드폰 번호입니다.") {
