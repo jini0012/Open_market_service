@@ -27,7 +27,7 @@
 
       // 이전페이지 버튼 클릭 시 이전 페이지로 이동
       document.querySelectorAll("button")[1].addEventListener("click", () => {
-        location.href = history.back();
+        location.href = `${document.referrer}`;
       });
     </script>
   </body>
