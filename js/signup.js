@@ -142,13 +142,10 @@ duplicateBtn[1].addEventListener("click", (e) => {
 /* form 태그 input 이벤트 발생 시 */
 
 // 비밀번호 유효성 검증 및 가입하기 버튼 활성화
-// 비밀번호가 유효하게 입력되었으면 체크 표시 -> 초록색 체크 표시
-// 비밀번호 !== 비밀번호 재확인 : 비밀번호가 일치하지 않습니다.
 
 joinForm.addEventListener("input", (e) => {
   const password = joinForm.password;
   const passwordRecheck = joinForm.querySelector("#password-recheck");
-
   const joinBtn = joinForm.querySelector(".signup-btn");
   const input = joinForm.querySelectorAll("input");
 
@@ -163,8 +160,7 @@ joinForm.addEventListener("input", (e) => {
   //   }
   // });
 
-  // 비밀번호 필수 정보 알림
-
+  // 포커스 이벤트 없어도 바로 작동!!!
   // 비밀번호 입력값 유효할 때 초록색 체크 표시
   if (password.validity.valid) {
     password.classList.add("valid-passwordImg");
@@ -177,26 +173,39 @@ joinForm.addEventListener("input", (e) => {
 
   // 비밀번호를 입력하고 입력창에서 포커스를 잃으면 유효성 검사 진행
   password.addEventListener("focusout", () => {
-    if (!password.validity.valid) {
+    if (password.validity.valueMissing) {
+      // 비밀번호에 값이 없는 경우
+      password.style["border-color"] = "";
+      pwMsg.textContent = "";
+    } else if (!password.validity.valid) {
+      // 비밀번호 값이 유효하지 않은 경우
       password.style["border-color"] = "#eb5757";
-      pwMsg.classList.remove("hidden");
       pwMsg.textContent =
         "8자이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
-    } else {
+    } else if (password.validity.valid) {
+      // 비밀번호 값이 있고 유효한 경우
       password.style["border-color"] = "";
       pwMsg.textContent = "";
     }
   });
 
-  // 비밀번호 일치 확인
-  if (password.validity.valid && !passwordRecheck.validity.valueMissing) {
+  // 비밀번호와 비밀번호 재확인 일치 확인
+  if (
+    (password.validity.valid && !passwordRecheck.validity.valueMissing) ||
+    (!password.validity.valid && !passwordRecheck.validity.valueMissing)
+  ) {
+    // 비밀번호 값이 유효하면서 비밀번호 재확인에 값이 있을 때
+    // 그리고 비밀번호 값이 없는 데 비밀번호 재확인을 입력한 경우
     if (password.value !== passwordRecheck.value) {
+      // 비밀번호 값과 비밀번호 재확인 값이 일치하지 않다면 아래 동작
       pwCheckMsg.textContent = "비밀번호가 일치하지 않습니다.";
       pwCheckMsg.classList.add("invalidColor");
+      passwordRecheck.style["border-color"] = "#eb5757";
       passwordRecheck.classList.remove("valid-passwordImg");
       passwordRecheck.classList.add("invalid-passwordImg");
     } else {
       pwCheckMsg.textContent = "";
+      passwordRecheck.style["border-color"] = "";
       pwCheckMsg.classList.remove("invalidColor");
       passwordRecheck.classList.remove("invalid-passwordImg");
       passwordRecheck.classList.add("valid-passwordImg");
