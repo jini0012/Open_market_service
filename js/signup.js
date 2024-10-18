@@ -7,7 +7,7 @@ const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
 const id = joinForm.id;
-const idMsg = joinForm.querySelector(".validColor");
+const idMsg = joinForm.querySelector(".idMsg");
 const duplicateBtn = joinForm.querySelectorAll(".duplicate-check");
 const pwMsg = joinForm.querySelector(".passwordMsg");
 const pwCheckMsg = joinForm.querySelector(".password-check");
@@ -51,9 +51,6 @@ joinForm.phone1.addEventListener("click", () => {
 /* 중복확인 버튼 click 이벤트 발생 시 */
 
 // 아이디 중복확인
-// 이미 사용중인 아이디인경우 : 이미 사용 중인 아이디 입니다.
-// 사용 가능한 아이디인 경우 : 멋진 아이디네요 :)
-
 duplicateBtn[0].addEventListener("click", (e) => {
   e.preventDefault();
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/", {
@@ -67,22 +64,24 @@ duplicateBtn[0].addEventListener("click", (e) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      if (json.message == "사용 가능한 아이디입니다." && id.validity.valid) {
-        idMsg.textContent = "멋진 아이디네요 :)";
-        idMsg.classList.remove("invalidColor");
-        idMsg.classList.add("validColor");
-        id.style["border-color"] = "";
+      if (!json.error) {
+        // json 에러가 아닐때
+        if (json.message == "사용 가능한 아이디입니다." && id.validity.valid) {
+          // 20자 이내의 영문,소문자, 대문자,숫자일때 > 로그인
+          idMsg.textContent = "멋진 아이디네요 :)";
+          idMsg.className = "idMsg validColor";
+        } else {
+          // pattern이 맞지 않으면 > 로그인 불가
+          idMsg.textContent =
+            "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+        }
+        // 이미 있는 아이디 > 로그인 불가
       } else if (json.error == "이미 사용 중인 아이디입니다.") {
         idMsg.textContent = "이미 사용 중인 아이디 입니다.";
-        idMsg.classList.remove("validColor");
-        idMsg.classList.add("invalidColor");
         id.style["border-color"] = "#eb5757";
+        // 아이디가 입력되지 않은 경우
       } else {
-        idMsg.textContent =
-          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
-        idMsg.classList.remove("validColor");
-        idMsg.classList.add("invalidColor");
-        id.style["border-color"] = "#eb5757";
+        idMsg.textContent = "필수 정보 입니다.";
       }
     })
     .catch((error) => console.error(error));

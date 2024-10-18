@@ -244,8 +244,9 @@ button:disabled {
   color: var(--point-color);
 }
 
-.hidden {
-  display: none;
+/* input태그 내 값이 유효하지 않을 때 border색상 적용 */
+input:user-invalid {
+  border-color: var(--error-color);
 }
 
 /* 회원가입 구매회원, 판매회원 클릭시 적용 css */
