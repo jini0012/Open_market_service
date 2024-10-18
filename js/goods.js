@@ -106,9 +106,14 @@ Btns.forEach((button) => {
     }
     num.value = count;
     // 총 수량 함께 변경 및 금액 변경
+
     total.textContent = num.value;
     totalPrice.textContent =
       Number(num.value) * Number(defaultPrice) + Number(localStorage.fee);
+    // 만약 총 수량이 0개라면 총 가격도 0
+    if (total.textContent === "0") {
+      totalPrice.textContent = "0";
+    }
 
     // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화
     if (Number(localStorage.stock) <= Number(num.value)) {
