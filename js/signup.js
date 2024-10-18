@@ -78,6 +78,7 @@ duplicateBtn[0].addEventListener("click", (e) => {
         // 이미 있는 아이디 > 로그인 불가
       } else if (json.error == "이미 사용 중인 아이디입니다.") {
         idMsg.textContent = "이미 사용 중인 아이디 입니다.";
+        idMsg.className = "idMsg invalidColor";
         id.style["border-color"] = "#eb5757";
         // 아이디가 입력되지 않은 경우
       } else {
