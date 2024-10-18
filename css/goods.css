@@ -379,7 +379,62 @@ dialog p {
   color: var(--main-color);
   background-color: var(--point-color);
 }
+/* footer */
+footer {
+  font-size: 1.4rem;
+  font-family: "SpoqaHanSansNeo-Regular";
+  height: 29.8rem;
+  padding: 6rem 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  box-sizing: border-box;
 
+  background-color: #f2f2f2;
+}
+
+footer nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer nav ul {
+  display: flex;
+  gap: 1.4rem;
+}
+
+/* 개인정보처리방침 글씨 굵기 조절 */
+footer nav span {
+  font-weight: 700;
+}
+
+/* about-wrap 내 사이 가상 요소 추가 */
+.about-wrap li::after {
+  content: "|";
+  position: relative;
+  margin-left: 1.4rem;
+}
+
+/* 마지막(제휴문의)뒤 가상요소 제거*/
+.about-wrap li:last-of-type::after {
+  content: "";
+}
+
+footer hr {
+  min-width: 75.5rem;
+  max-width: 128rem;
+  /* border: 0.2rem solid var(--border-color); */
+  margin: 0;
+}
+
+address {
+  min-width: 32.1rem;
+  color: var(--font-color);
+  line-height: 2.4rem;
+}
+address span {
+  font-weight: 700;
+}
 /* 판매자센터 버튼 */
 .sellerCenter button {
   width: 16.8rem;

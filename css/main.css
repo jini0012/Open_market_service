@@ -8,12 +8,6 @@ body {
   flex-direction: column;
 }
 
-/* 공통속성 */
-a {
-  text-decoration: none;
-  color: #000;
-}
-
 /* header */
 header {
   height: 9rem;

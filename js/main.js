@@ -18,9 +18,6 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/")
     products.forEach((product, index) => {
       product.querySelector("img").src = `${json.results[index].image}`;
       product.querySelector("img").alt = `${json.results[index].info}`;
-      //   product.querySelector(
-      //     "a"
-      //   ).href = `https://estapi.openmarket.weniv.co.kr/products/${[index + 1]}`;
       product.querySelector(
         "p"
       ).textContent = `${json.results[index].seller.store_name}`;

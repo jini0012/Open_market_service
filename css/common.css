@@ -23,6 +23,12 @@ a {
   font-family: "SpoqaHanSansNeo-Regular";
 }
 
+/* 공통속성 */
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 .sr-only {
   position: absolute;
   left: -9999px;
