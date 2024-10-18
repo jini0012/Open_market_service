@@ -18,7 +18,8 @@ html {
   --error-color: #eb5757;
 }
 
-* {
+*,
+a {
   font-family: "SpoqaHanSansNeo-Regular";
 }
 
