@@ -41,11 +41,15 @@ joinBtns.forEach((button) => {
     if (button === joinBtns[0]) {
       joinBtns[0].classList.add("active");
       joinBtns[1].classList.remove("active");
-      sellerOnly.forEach((elem) => elem.classList.add("seller-only"));
+      sellerOnly.forEach((elem) => {
+        elem.hidden = true;
+      });
     } else {
       joinBtns[0].classList.remove("active");
       joinBtns[1].classList.add("active");
-      sellerOnly.forEach((elem) => elem.classList.remove("seller-only"));
+      sellerOnly.forEach((elem) => {
+        elem.hidden = false;
+      });
     }
   });
 });
