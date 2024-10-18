@@ -66,12 +66,7 @@ loginForm.addEventListener("submit", (e) => {
       // BUYER : 일반 구매자, SELLER : 판매자
     }),
   })
-    .then((response) => {
-      if (!response.ok) {
-        location.href = "error.html";
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((json) => {
       if (!json.error) {
         localStorage.setItem("type", `${json.user.user_type}`);
