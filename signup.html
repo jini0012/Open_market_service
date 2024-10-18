@@ -81,7 +81,7 @@
               autocomplete="name"
               required
             />
-            <p class="invalidColor" hidden>필수 정보입니다.</p>
+            <p class="nameMsg invalidColor"></p>
 
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
@@ -110,7 +110,7 @@
                 required
               />
             </div>
-            <p class="phoneInvalid invalidColor"></p>
+            <p class="phoneMsg phoneInvalid invalidColor"></p>
             <!-- 판매회원가입 전용 input 요소 -->
             <label for="businessNum" class="seller-only">사업자 등록번호</label>
             <div class="businessnum-wrap">
@@ -138,7 +138,9 @@
               id="storeName"
               class="seller-only"
             />
-            <p class="invalidColor seller-only" hidden>필수 정보입니다.</p>
+            <p class="storeNameMsg invalidColor seller-only" hidden>
+              필수 정보입니다.
+            </p>
             <div class="no-wrap">
               <input type="checkbox" id="checkbox" class="txt-hide" />
               <label for="checkbox" class="checkbox"

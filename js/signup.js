@@ -17,11 +17,17 @@ const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
+const Msgs = joinForm.querySelectorAll("p[class*=Msg]");
+
 const id = joinForm.id;
-const idMsg = joinForm.querySelector(".idMsg");
 const duplicateBtn = joinForm.querySelectorAll(".duplicate-check");
-const pwMsg = joinForm.querySelector(".passwordMsg");
-const pwCheckMsg = joinForm.querySelector(".password-checkMsg");
+const idMsg = Msgs[0];
+const pwMsg = Msgs[1];
+const pwCheckMsg = Msgs[2];
+const nameMsg = Msgs[3];
+const phoneMsg = Msgs[4];
+const businessNumMsg = Msgs[5];
+const storeNameMsg = Msgs[6];
 
 /* 구매회원가입, 판매회원가입 버튼 click 이벤트 발생 시 */
 
@@ -99,8 +105,6 @@ duplicateBtn[0].addEventListener("click", (e) => {
     .catch((error) => console.error(error));
 });
 
-const businessNumMsg = document.querySelector(".businessNumMsg");
-
 // 사업자등록번호 중복확인
 // 이미 사용중인 사업자등록번호인경우 :
 duplicateBtn[1].addEventListener("click", (e) => {
@@ -146,13 +150,11 @@ joinForm.addEventListener("input", (e) => {
   // 상단 input-box가 채워지지 않은 상태에서 하단 input-box에 입력하는 경우 상단 input-box에 '필수 정보입니다' 라는 오류 메세지 띄움
   // 다시 확인!!!!!!!!!!!!!!!!!
   // 비밀번호 일치확인 안보이는 오류
-  // const p = joinForm.querySelectorAll("p");
   // input.forEach((elem, index) => {
   //   if (elem.validity.valueMissing) {
-  //     p[index].classList.remove("hidden");
-  //     // console.log(`${index}: ${p[index].classList}`);
+  //     p[index].hidden = false;
   //   } else {
-  //     p[index].classList.add("hidden");
+  //     p[index].hidden = true;
   //   }
   // });
 
