@@ -17,7 +17,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32rem;
   box-sizing: border-box;
 
   position: sticky;
@@ -130,6 +129,10 @@ main {
   /* 배너 내 circle 표시 추후 구현 */
 }
 
+.banner a img {
+  max-width: 100%;
+}
+
 .leftBtn,
 .rightBtn {
   position: absolute;
@@ -150,6 +153,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 7rem;
+  justify-content: space-around;
 }
 
 article a {
@@ -200,6 +204,10 @@ footer nav ul {
 /* 개인정보처리방침 글씨 굵기 조절 */
 footer nav span {
   font-weight: 700;
+}
+
+.about-wrap {
+  min-width: 65rem;
 }
 
 /* about-wrap 내 사이 가상 요소 추가 */

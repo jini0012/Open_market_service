@@ -16,7 +16,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32rem;
   box-sizing: border-box;
 
   position: sticky;
@@ -406,6 +405,10 @@ footer nav ul {
 /* 개인정보처리방침 글씨 굵기 조절 */
 footer nav span {
   font-weight: 700;
+}
+
+.about-wrap {
+  min-width: 65rem;
 }
 
 /* about-wrap 내 사이 가상 요소 추가 */
