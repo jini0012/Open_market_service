@@ -14,9 +14,9 @@
 - 비회원은 구매자 또는 판매자로 회원가입 가능
 - 회원은 구매자 또는 판매자로 로그인 가능
 
-## 사용 언어
+## 사용 기술
 
-HTML, CSS, (vanilla)JS
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> </br>
 
 ## 구현 페이지
 
