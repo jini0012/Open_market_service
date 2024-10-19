@@ -1,26 +1,71 @@
 # 📝Project03 : Open_market_service
 
-오픈 마켓 서비스 제작 프로젝트
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=5685F7&repeat=false&width=435&lines=Project03+%3A+Open+Market+Service)](https://git.io/typing-svg)
 
 #### 오픈 마켓 서비스
 
 > 판매자와 구매자를 구별하여 판매자는 상품 등록, 판매를 가능하게 하고 구매자는 구매를 가능하게 하는 서비스이다.
 
-## 기능
-
-💡 서버 API를 이용하여 기능 구현
-
-- 비회원, 로그인(구매자), 로그인(판매자)가 확인할수 있는 상품목록, 상품 상세페이지 UI가 각각 다르게 보인다.
-- 비회원은 구매자 또는 판매자로 회원가입 가능
-- 회원은 구매자 또는 판매자로 로그인 가능
-
 ## 사용 기술
 
 <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> </br>
 
-## 구현 페이지
+## 기능
 
-> 구매자 (필수)
+💡 서버 API를 이용하여 기능 구현
+
+- 비회원, 로그인(구매자), 로그인(판매자)에 맞는 UI확인 가능
+- 비회원은 구매자 또는 판매자로 회원가입 가능
+- 회원은 구매자 또는 판매자로 로그인 가능
+
+<!-- 다이어그램 추가 시 수정 -->
+
+## 배포 URL
+
+- https://jini0012.github.io/Open_market_service/
+
+  > 테스트용 계정 (구매자)
+
+  ```
+  id : test00
+  pw : test1234
+  ```
+
+  > 테스트용 계정 (판매자)
+
+  ```
+  id : test01
+  pw : test12345
+  ```
+
+  |    기능    | HTTP Method |   내용   | 비회원 권한 | 회원 권한 |
+  | :--------: | :---------: | :------: | :---------: | :-------: |
+  |   signup   |    POST     | 회원가입 |     ✅      |           |
+  |   login    |    POST     |  로그인  |             |    ✅     |
+  |   logout   |             | 로그아웃 |             |    ✅     |
+  | goods list |     GET     | 상품목록 |     ✅      |    ✅     |
+  |   goods    |     GET     | 상품상세 |     ✅      |    ✅     |
+
+<!-- JS 수정 시 함께 수정 -->
+
+## 프로젝트
+
+> 프로젝트 구조
+
+- MPA 사용
+
+  |  🖥️  |   로그인   |  회원가입   | 상품 목록  | 상품 상세  | 서버 에러  |
+  | :--: | :--------: | :---------: | :--------: | :--------: | :--------: |
+  | Page | login.html | signup.html | index.html | goods.html | error.html |
+
+<!-- 폴더 트리 -->
+
+- 개발 일정
+<!-- 개발 일정 추가 -->
+
+## 요구사항 & 기능 명세
+
+> 구매자 페이지
 
 ✅ : 진행 완료 / ❓: 진행중 / 빈칸: 미진행
 
@@ -104,3 +149,37 @@
 - 회원가입 페이지
 - 상품 목록 페이지
 - 상품 상세 페이지
+
+## 화면 구현
+
+### 1. 회원가입 및 로그인페이지
+
+|       ⭐       |                      구매회원                       |                      판매회원                       |
+| :------------: | :-------------------------------------------------: | :-------------------------------------------------: |
+| signup<br>기본 |   <img src="./readme/회원가입화면_구매회원.png">    |   <img src="./readme/회원가입화면_판매회원.png">    |
+| signup<br>입력 | <img src="./readme/회원가입화면_구매회원_가입.png"> | <img src="./readme/회원가입화면_판매회원_가입.png"> |
+|     login      |    <img src="./readme/로그인화면_구매회원.png">     |    <img src="./readme/로그인화면_판매회원.png">     |
+
+### 2. 상품 목록 , 상세 페이지 및 모달
+
+|          ⭐          |                            비회원                             |                        구매회원                        |                    판매회원                    |
+| :------------------: | :-----------------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------: |
+|         GNB          |              <img src="./readme/GNB_비회원.png">              |         <img src="./readme/GNB_구매회원.png">          |     <img src="./readme/GNB_판매회원.png">      |
+|    마이<br>페이지    |                              ❌                               | <img src="./readme/회원 마이페이지 로그아웃 모달.png"> |                구매회원과 동일                 |
+|  index<br>상품목록   |         <img src="./readme/상품목록화면_비회원.png">          |     <img src="./readme/상품목록화면_구매회원.png">     | <img src="./readme/상품목록화면_판매회원.png"> |
+|  goods<br>상품상세   |         <img src="./readme/상품상세화면_ 비회원.png">         |     <img src="./readme/상품상세화면_구매회원.png">     | <img src="./readme/상품상세화면_판매회원.png"> |
+|  goods<br>수량버튼   |      <img src="./readme/상품상세 페이지 버튼 클릭.gif">       |                           ❌                           |                       ❌                       |
+| goods<br>로그인 모달 |   <img src="./readme/상품상세화면_ 비회원_로그인모달.png">    |                           ❌                           |                       ❌                       |
+| goods<br>로그인모달  | <img src="./readme/상품상세 페이지 - 비회원 로그인 모달.gif"> |                           ❌                           |                       ❌                       |
+
+## 에러 및 해결
+
+-
+-
+-
+
+## 개발하며 느낀점
+
+-
+-
+-
