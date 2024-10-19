@@ -83,12 +83,7 @@ duplicateBtn[0].addEventListener("click", (e) => {
       username: id.value,
     }),
   })
-    .then((response) => {
-      if (!response.ok) {
-        location.href = "error.html";
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((json) => {
       if (!json.error) {
         // json 에러가 아닐때
@@ -131,12 +126,7 @@ duplicateBtn[1].addEventListener("click", (e) => {
       }),
     }
   )
-    .then((response) => {
-      if (!response.ok) {
-        location.href = "error.html";
-      }
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((json) => {
       console.log(json);
       // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
