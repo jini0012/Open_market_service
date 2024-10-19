@@ -2,6 +2,8 @@ const joinBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
+const selectBtn = joinForm.querySelector(".selectBtn");
+const phone1 = joinForm.querySelectorAll("#phone1 li");
 const Msgs = joinForm.querySelectorAll("p[class*=Msg]");
 
 const id = joinForm.id;
@@ -48,10 +50,25 @@ function joinType() {
   }
 }
 
-// 셀렉트박스 커스텀
-joinForm.phone1.addEventListener("click", () => {
+/* ------------------------------ 셀렉트박스 커스텀 ----------------------------------- */
+
+selectBtn.addEventListener("click", () => {
   // 셀렉트박스 클릭 시 selected 클래스 추가(css 적용)
-  phone1.classList.add("selected");
+  selectBtn.classList.toggle("selected");
+  if (selectBtn.classList.contains("selected")) {
+    joinForm.querySelector(".optionList").style.display = "unset";
+    // option 클릭 시 내용 이동
+
+    phone1.forEach((elem) => {
+      elem.addEventListener("click", () => {
+        selectBtn.textContent = elem.textContent;
+        joinForm.querySelector(".optionList").style.display = "none";
+        selectBtn.classList.remove("selected");
+      });
+    });
+  } else {
+    joinForm.querySelector(".optionList").style.display = "none";
+  }
 });
 
 /* ------------------------------ 아이디 중복 확인 ----------------------------------- */
@@ -250,7 +267,7 @@ joinForm.addEventListener("submit", (e) => {
         username: id.value,
         password: password.value,
         name: joinForm.name.value,
-        phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
+        phone_number: `${selectBtn.textContent}${phone2.value}${phone3.value}`,
       }),
     })
       .then((response) => response.json())
@@ -277,7 +294,7 @@ joinForm.addEventListener("submit", (e) => {
         username: id.value,
         password: password.value,
         name: joinForm.name.value,
-        phone_number: `${phone1.value}${phone2.value}${phone3.value}`,
+        phone_number: `${selectBtn.textContent}${phone2.value}${phone3.value}`,
         company_registration_number: `${joinForm.businessNum.value}`,
         store_name: `${joinForm.storeName.value}`,
       }),

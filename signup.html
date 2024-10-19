@@ -85,14 +85,24 @@
 
             <label for="phone">휴대폰번호</label>
             <div class="phone-wrap">
-              <select name="phone1" id="phone1" required>
+              <button class="selectBtn" type="button">010</button>
+              <ul class="optionList" id="phone1">
+                <li><button type="button">010</button></li>
+                <li><button type="button">011</button></li>
+                <li><button type="button">016</button></li>
+                <li><button type="button">017</button></li>
+                <li><button type="button">018</button></li>
+                <li><button type="button">019</button></li>
+              </ul>
+              <!-- 셀렉트 박스 커스텀으로 변경 -->
+              <!-- <select name="phone1" id="phone1" required>
                 <option value="010">010</option>
                 <option value="011">011</option>
                 <option value="016">016</option>
                 <option value="017">017</option>
                 <option value="018">018</option>
                 <option value="019">019</option>
-              </select>
+              </select> -->
               <input
                 type="text"
                 name="phone2"
