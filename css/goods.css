@@ -327,7 +327,7 @@ input:disabled {
 }
 
 /* 모달창 */
-dialog {
+.loginModal {
   width: 38rem;
   height: 20rem;
   padding: 5rem 7.5rem 4rem 7.5rem;
@@ -340,7 +340,7 @@ dialog {
   line-height: 2.003rem;
 }
 
-dialog p {
+.loginModal p {
   width: 20.3rem;
   margin-bottom: 3rem;
 }
@@ -495,4 +495,18 @@ address span {
 .myPageModal button:hover {
   border: var(--font-color) solid 0.1rem;
   color: #000;
+}
+
+.myPageModal::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-left: 0.8rem solid transparent;
+  border-right: 0.8rem solid transparent;
+  border-bottom: 0.8rem solid var(--main-color);
+
+  filter: drop-shadow(0 -0.2rem 0.2rem rgba(0, 0, 0, 0.1));
 }
