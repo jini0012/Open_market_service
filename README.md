@@ -58,47 +58,32 @@
   | :--: | :--------: | :---------: | :--------: | :--------: | :--------: |
   | Page | login.html | signup.html | index.html | goods.html | error.html |
 
-  <!-- 
-  📦 Open_market_service
-  ┣ 📂assets
-  ┣ 📂css
-  ┃ ┣ 📜common.css
-  ┃ ┣ 📜error.css
-  ┃ ┣ 📜goods.css
-  ┃ ┣ 📜login.css
-  ┃ ┣ 📜main.css
-  ┃ ┣ 📜reset.css
-  ┃ ┗ 📜signup.css
-  ┣ 📂js
-  ┃ ┣ 📜common.js
-  ┃ ┣ 📜goods.js
-  ┃ ┣ 📜login.js
-  ┃ ┣ 📜main.js
-  ┃ ┗ 📜signup.js
-  ┣ 📜error.html
-  ┣ 📜goods.html
-  ┣ 📜index.html
-  ┣ 📜login.html
-  ┣ 📜README.md
-  ┗ 📜signup.html
-
+```bash
+📦 Open_market_service
+┣ 📂assets
+┣ 📂css
+┃ ┣ 📜common.css
+┃ ┣ 📜error.css
+┃ ┣ 📜goods.css
+┃ ┣ 📜login.css
+┃ ┣ 📜main.css
+┃ ┣ 📜reset.css
+┃ ┗ 📜signup.css
+┣ 📂js
+┃ ┣ 📜common.js
+┃ ┣ 📜goods.js
+┃ ┣ 📜login.js
+┃ ┣ 📜main.js
+┃ ┗ 📜signup.js
+┣ 📜error.html
+┣ 📜goods.html
+┣ 📜index.html
+┣ 📜login.html
+┣ 📜README.md
+┗ 📜signup.html
+```
 
 - 개발 일정
-
-````
-  mermaid
-gantt
-    title A Gantt Diagram
-    dateFormat  YYYY-MM-DD
-    section HTML / CSS 작성
-    로그인  : a1, 2024-10-14, 1d
-    회원가입  : b1, 2024-10-14, 1d
-    상품목록 : after a1, 2d
-    상품상세 : after b1, 2d
-    404 error : c1, 2024-10-14, 1d
-
-
-``` -->
 
 ## 요구사항 & 기능 명세
 
@@ -220,4 +205,3 @@ gantt
 -
 -
 -
-````
