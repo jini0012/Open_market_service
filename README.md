@@ -85,6 +85,29 @@
 
 - 개발 일정
 
+```mermaid
+gantt
+    title 프로젝트 일정
+    dateFormat  YYYY-MM-DD
+    section HTML/CSS
+    로그인     :done, 2024-10-14, 1d
+    회원가입       :done, 2024-10-14, 2d
+    상품목록   :done, 2024-10-15, 2d
+    상품상세   :done, 2024-10-16, 1d
+    에러페이지   :done, 2024-10-16, 1d
+    section JS
+    로그인     :done, 2024-10-15, 2d
+    회원가입       :done, 2024-10-15, 2d
+    에러페이지   :done, 2024-10-16, 2d
+    상품목록   :done, 2024-10-17, 2d
+    상품상세   :done, 2024-10-17, 2d
+
+    section Github
+    배포    :done, 2024-10-19, 1d
+    Readme 작성  :r1, 2024-10-16, 1d
+    Readme 수정  : after r1, 2024-10-17, 4d
+```
+
 ## 요구사항 & 기능 명세
 
 > 구매자 페이지
@@ -205,3 +228,7 @@
 -
 -
 -
+
+```
+
+```
