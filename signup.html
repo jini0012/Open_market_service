@@ -30,7 +30,7 @@
         </ul>
 
         <section>
-          <h2 class="sr-only">회원가입 정보 입력</h2>
+          <h3 class="sr-only">회원가입 정보 입력</h3>
           <form action="#" method="post" class="join-form">
             <label for="id">아이디</label>
             <div class="id-wrap">
@@ -44,7 +44,6 @@
               />
               <button type="submit" class="duplicate-check">중복확인</button>
             </div>
-            <!-- p태그 아이디 중복 확인 메세지 알림 -->
             <p class="idMsg invalidColor"></p>
 
             <label for="password">비밀번호</label>
@@ -69,9 +68,6 @@
               required
             />
             <p class="passwordCheckMsg invalidColor"></p>
-
-            <!-- p태그 비밀번호와 비밀번호 재확인 일치 여부 확인 메세지 알림 -->
-            <!-- <p class=""></p> -->
 
             <label for="name">이름</label>
             <input
@@ -121,7 +117,8 @@
               />
             </div>
             <p class="phoneMsg phoneInvalid invalidColor"></p>
-            <!-- 판매회원가입 전용 input 요소 -->
+
+            <!-- seller-only : 판매회원가입 전용 input 요소 -->
             <label for="businessNum" class="seller-only" hidden
               >사업자 등록번호</label
             >
@@ -160,8 +157,7 @@
                 <span>개인정보처리방침</span>에 대한 내용을 확인하였고
                 동의합니다.</label
               >
-              <!-- 모든 값이 유효하기 전까지 disabled => js로 모든 값 유효 + checkbox:checked => disabled 해제 기능 추가-->
-              <!-- form 제출 => 회원가입(가입하기 활성화) => 가입 완료 후 로그인 페이지로 이동 -->
+              <!-- form submit : 로그인 페이지로 이동 -->
               <button type="submit" class="signup-btn" disabled>
                 가입하기
               </button>
