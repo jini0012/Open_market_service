@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./css/goods.css" />
   </head>
   <body>
+    <!-- 상품 상세 페이지 -->
     <header>
       <div class="search-wrap">
-        <!-- 로고 클릭 시 상품 목록 페이지로 연결 -->
         <h1>
           <a href="index.html"
             ><img src="./assets/Logo-hodu.png" alt="HODU"
@@ -36,21 +36,18 @@
             <a href="#" class="cartBtn"> 장바구니 </a>
           </li>
           <li class="login">
-            <!-- 기본페이지 로그인 -> 로그인 후 마이페이지로 변경 -->
+            <!-- login : 비회원에게만 보이는 UI -->
             <a href="./login.html" class="loginBtn"> 로그인 </a>
           </li>
+          <!-- myPage : 회원에게만 보이는 UI -->
           <li class="myPage" hidden>
             <button class="myPageBtn">마이페이지</button>
-            <!-- ---------------modal------------------- -->
-            <!-- 마이페이지 버튼 클릭 시 모달 창이 뜸 -->
             <dialog class="myPageModal">
               <button class="goMyPage">마이페이지</button>
               <button class="logout">로그아웃</button>
             </dialog>
-            <!-- ----------------------------------------- -->
           </li>
-
-          <!-- 판매자에게만 보이는 버튼 -->
+          <!-- sellerCenter : 판매자에게만 보이는 UI -->
           <li class="sellerCenter" hidden>
             <button type="button">
               <img src="./assets/icon-shopping-bag.svg" alt="" />
@@ -70,9 +67,11 @@
             <p></p>
             <h3></h3>
             <p class="price"><span></span>원</p>
-            <!-- <p>백엔드 글로벌</p> -->
-            <!-- <h3>딥러닝 개발자 무릎 담요</h3> -->
-            <!-- <p class="price"><span>17,500</span>원</p> -->
+            <!-- 기존 디자인 시안 주석처리
+            <p>백엔드 글로벌</p>
+            <h3>딥러닝 개발자 무릎 담요</h3>
+            <p class="price"><span>17,500</span>원</p>
+            -->
           </div>
 
           <p class="shippingFee"></p>
@@ -103,8 +102,7 @@
           </form>
         </section>
 
-        <!-- ---------------modal------------------- -->
-        <!-- 바로구매 또는 장바구니 버튼을 눌렀는데 로그인이 되어있지 않으면 로그인 모달창이 뜸 -->
+        <!-- loginModal : 비회원에게만 보이는 UI -->
         <dialog class="loginModal">
           <button class="closeModal" type="button">
             <img src="./assets/icon-delete.svg" alt="모달창 닫기" />
@@ -116,7 +114,6 @@
           <button class="noBtn">아니오</button>
           <button class="yesBtn">예</button>
         </dialog>
-        <!-- ----------------------------------------- -->
       </section>
       <section class="menubar">
         <h2 class="sr-only">상품정보 메뉴바</h2>

@@ -12,7 +12,6 @@
     <!-- 상품 목록 페이지 -->
     <header>
       <div class="search-wrap">
-        <!-- 로고 클릭시 reload -->
         <h1>
           <a href="index.html"
             ><img src="./assets/Logo-hodu.png" alt="HODU"
@@ -36,22 +35,19 @@
           <li class="cart">
             <a href="#" class="cartBtn"> 장바구니 </a>
           </li>
+          <!-- login : 비회원에게만 보이는 UI -->
           <li class="login">
-            <!-- 기본페이지 로그인 -> 로그인 후 마이페이지로 변경 -->
             <a href="./login.html" class="loginBtn"> 로그인 </a>
           </li>
-          <!-- 로그인회원에게만 보이는 버튼 (로그인 시 위 로그인 버튼은 사라짐) -->
+          <!-- myPage : 회원에게만 보이는 UI -->
           <li class="myPage" hidden>
             <button class="myPageBtn">마이페이지</button>
-            <!-- ---------------modal------------------- -->
-            <!-- 마이페이지 버튼 클릭 시 모달 창이 뜸 -->
             <dialog class="myPageModal">
               <button class="goMyPage">마이페이지</button>
               <button class="logout">로그아웃</button>
             </dialog>
-            <!-- ----------------------------------------- -->
           </li>
-          <!-- 판매자에게만 보이는 버튼 -->
+          <!-- sellerCenter : 판매자에게만 보이는 UI -->
           <li class="sellerCenter" hidden>
             <button type="button">
               <img src="./assets/icon-shopping-bag.svg" alt="" />
@@ -68,7 +64,6 @@
         <button class="leftBtn">
           <img src="./assets/icon-swiper-1.svg" alt="left swiper button" />
         </button>
-        <!-- 배너 이동 링크 -->
         <a href="#">
           <img src="http://placeholder.co/1920x500" alt="" />
         </a>
@@ -76,8 +71,7 @@
           <img src="./assets/icon-swiper-2.svg" alt="right swiper button" />
         </button>
       </section>
-      <!-- 상품 목록 리스트 -->
-      <!-- 아티클별 a 태그 적용 (기존 디자인 태그 주석처리)-->
+      <!-- article >  a 적용 (기존 디자인 태그 주석처리)-->
       <section class="goodsList">
         <h2 class="sr-only">호두 상품 목록</h2>
         <article>
@@ -102,7 +96,6 @@
             <p class="price"><span>29,000</span>원</p> -->
           </a>
         </article>
-        <!-- 상품 상세 페이지로 연결 -->
         <article>
           <a href="goods.html">
             <img src="https://via.placeholder.com/382x382" alt="" />
