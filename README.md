@@ -58,32 +58,34 @@
   | :--: | :--------: | :---------: | :--------: | :--------: | :--------: |
   | Page | login.html | signup.html | index.html | goods.html | error.html |
 
-📦 Open_market_service
-┣ 📂assets
-┣ 📂css
-┃ ┣ 📜common.css
-┃ ┣ 📜error.css
-┃ ┣ 📜goods.css
-┃ ┣ 📜login.css
-┃ ┣ 📜main.css
-┃ ┣ 📜reset.css
-┃ ┗ 📜signup.css
-┣ 📂js
-┃ ┣ 📜common.js
-┃ ┣ 📜goods.js
-┃ ┣ 📜login.js
-┃ ┣ 📜main.js
-┃ ┗ 📜signup.js
-┣ 📜error.html
-┣ 📜goods.html
-┣ 📜index.html
-┣ 📜login.html
-┣ 📜README.md
-┗ 📜signup.html
+  <!-- 
+  📦 Open_market_service
+  ┣ 📂assets
+  ┣ 📂css
+  ┃ ┣ 📜common.css
+  ┃ ┣ 📜error.css
+  ┃ ┣ 📜goods.css
+  ┃ ┣ 📜login.css
+  ┃ ┣ 📜main.css
+  ┃ ┣ 📜reset.css
+  ┃ ┗ 📜signup.css
+  ┣ 📂js
+  ┃ ┣ 📜common.js
+  ┃ ┣ 📜goods.js
+  ┃ ┣ 📜login.js
+  ┃ ┣ 📜main.js
+  ┃ ┗ 📜signup.js
+  ┣ 📜error.html
+  ┣ 📜goods.html
+  ┣ 📜index.html
+  ┣ 📜login.html
+  ┣ 📜README.md
+  ┗ 📜signup.html
+
 
 - 개발 일정
 
-```
+````
   mermaid
 gantt
     title A Gantt Diagram
@@ -96,7 +98,7 @@ gantt
     404 error : c1, 2024-10-14, 1d
 
 
-```
+``` -->
 
 ## 요구사항 & 기능 명세
 
@@ -218,3 +220,4 @@ gantt
 -
 -
 -
+````
