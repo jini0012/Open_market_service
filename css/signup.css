@@ -72,7 +72,6 @@ button {
 
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -131,10 +130,8 @@ input:focus {
 }
 
 .phone-wrap input {
+  width: 100%;
   max-width: 15rem;
-}
-
-.phone-wrap input {
   text-indent: 0;
   text-align: center;
 }
