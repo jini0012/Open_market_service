@@ -16,6 +16,7 @@ html {
   --point-color: #21bf48;
   --font-color: #767676;
   --error-color: #eb5757;
+  --input-border: var(--border-color) 0.1rem solid;
 }
 
 *,

@@ -46,7 +46,7 @@ button {
 .join-btns li button {
   width: 100%;
   height: 8rem;
-  border: var(--border-color) 0.1rem solid;
+  border: var(--input-border);
   background-color: #f2f2f2;
   border-radius: 1rem;
   font-weight: 500;
@@ -66,7 +66,7 @@ button {
   top: -1rem;
   background-color: var(--main-color);
   padding: 3.5rem;
-  border: var(--border-color) 0.1rem solid;
+  border: var(--input-border);
   border-radius: 1rem;
   color: var(--font-color);
 
@@ -80,7 +80,7 @@ button {
   max-width: 100%;
   height: 5.4rem;
   font-size: inherit;
-  border: var(--border-color) 0.1rem solid;
+  border: var(--input-border);
   border-radius: 0.5rem;
   flex-grow: 2;
   text-indent: 1.6rem;
@@ -151,7 +151,7 @@ input:focus {
   width: 15.4rem;
   height: 5.8rem;
   font-size: inherit;
-  border: var(--border-color) 0.1rem solid;
+  border: var(--input-border);
   border-radius: 0.5rem;
   background: url("../assets/icon-down-arrow.svg") no-repeat 95% 50%;
   color: #000;
@@ -291,10 +291,10 @@ input:user-invalid {
 /* 회원가입 구매회원, 판매회원 클릭시 적용 css */
 .join-btns .buyer {
   border-right: none;
-  border-left: var(--border-color) 0.1rem solid;
+  border-left: var(--input-border);
 }
 
 .join-btns .seller {
   border-left: none;
-  border-right: var(--border-color) 0.1rem solid;
+  border-right: var(--input-border);
 }
