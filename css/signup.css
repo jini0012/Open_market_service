@@ -109,15 +109,13 @@ input:focus {
 .invalid-passwordImg {
   background-image: url(../assets/icon-check-off.svg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 43.6rem;
+  background-position: center right 1rem;
 }
 
 .valid-passwordImg {
   background-image: url(../assets/icon-check-on.svg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: 43.6rem;
+  background-position: center right 1rem;
 }
 
 .id-wrap,
