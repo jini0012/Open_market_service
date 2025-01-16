@@ -18,9 +18,13 @@ const storeNameMsg = Msgs[6]; // 스토어 이름 에러 메세지
 
 selectAccountTypeBtns.forEach((button) => {
   button.addEventListener("click", () => {
-    // 버튼 전환 시 id, pw 알림메세지 초기화
-    idMsg.textContent = "";
-    pwCheckMsg.textContent = "";
+    joinForm.querySelectorAll("input").forEach((input) => {
+      input.value = "";
+      input.style.borderColor = "#c4c4c4";
+    });
+    Msgs.forEach((errorMsg) => {
+      errorMsg.textContent = "";
+    });
 
     if (button === selectAccountTypeBtns[0]) {
       selectAccountTypeBtns[0].classList.add("active");
