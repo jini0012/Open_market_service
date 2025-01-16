@@ -212,7 +212,7 @@ section {
 
 .checkbox {
   position: relative;
-  left: 2.6rem;
+  margin-left: 2.6rem;
 
   a {
     color: currentColor;
