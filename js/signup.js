@@ -1,4 +1,4 @@
-const joinBtns = document.querySelectorAll(".join-btns li button");
+const selectAccountTypeBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
@@ -16,24 +16,21 @@ const phoneMsg = Msgs[4]; // 휴대폰번호 에러 메세지
 const businessNumMsg = Msgs[5]; // 사업자등록번호 에러 메세지
 const storeNameMsg = Msgs[6]; // 스토어 이름 에러 메세지
 
-/* 구매회원가입, 판매회원가입 버튼 click 이벤트 발생 시 */
-
-// 회원가입 구매회원, 판매회원 버튼 전환
-joinBtns.forEach((button) => {
+selectAccountTypeBtns.forEach((button) => {
   button.addEventListener("click", () => {
     // 버튼 전환 시 id, pw 알림메세지 초기화
     idMsg.textContent = "";
     pwCheckMsg.textContent = "";
 
-    if (button === joinBtns[0]) {
-      joinBtns[0].classList.add("active");
-      joinBtns[1].classList.remove("active");
+    if (button === selectAccountTypeBtns[0]) {
+      selectAccountTypeBtns[0].classList.add("active");
+      selectAccountTypeBtns[1].classList.remove("active");
       sellerOnly.forEach((elem) => {
         elem.hidden = true;
       });
     } else {
-      joinBtns[0].classList.remove("active");
-      joinBtns[1].classList.add("active");
+      selectAccountTypeBtns[0].classList.remove("active");
+      selectAccountTypeBtns[1].classList.add("active");
       sellerOnly.forEach((elem) => {
         elem.hidden = false;
       });
@@ -43,9 +40,9 @@ joinBtns.forEach((button) => {
 
 /* ------------------------------ 회원가입 타입 지정 함수 (SELLER & BUYER) ----------------------------------- */
 function joinType() {
-  if (joinBtns[0].classList.contains("active")) {
+  if (selectAccountTypeBtns[0].classList.contains("active")) {
     return "BUYER";
-  } else if (joinBtns[1].classList.contains("active")) {
+  } else if (selectAccountTypeBtns[1].classList.contains("active")) {
     return "SELLER";
   }
 }
@@ -247,7 +244,7 @@ joinForm.addEventListener("input", (e) => {
 joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // 구매회원가입 버튼을 누른 경우 : 구매회원계정 생성
-  if (joinBtns[0].classList.contains("active")) {
+  if (selectAccountTypeBtns[0].classList.contains("active")) {
     fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
       method: "POST",
       headers: {
@@ -274,7 +271,7 @@ joinForm.addEventListener("submit", (e) => {
       })
       .catch((error) => console.error(error));
     // 판매회원가입 버튼을 누른 경우 : 판매회원계정 생성
-  } else if (joinBtns[1].classList.contains("active")) {
+  } else if (selectAccountTypeBtns[1].classList.contains("active")) {
     fetch("https://estapi.openmarket.weniv.co.kr/accounts/seller/signup/", {
       method: "POST",
       headers: {
