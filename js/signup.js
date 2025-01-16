@@ -2,19 +2,19 @@ const selectAccountTypeBtns = document.querySelectorAll(".join-btns li button");
 const sellerOnly = document.querySelectorAll(".seller-only");
 
 const joinForm = document.querySelector(".join-form");
-const selectBtn = joinForm.querySelector(".selectBtn");
+const phoneSelectBtn = joinForm.querySelector(".selectBtn");
 const phone1 = joinForm.querySelectorAll("#phone1 li");
 const Msgs = joinForm.querySelectorAll("p[class*=Msg]");
 
 const id = joinForm.id;
-const duplicateBtn = joinForm.querySelectorAll(".duplicate-check");
-const idMsg = Msgs[0]; // id 에러 메세지
-const pwMsg = Msgs[1]; // pw 에러 메세지
-const pwCheckMsg = Msgs[2]; // pw-check 에러 메세지
-const nameMsg = Msgs[3]; // 이름 에러 메세지
-const phoneMsg = Msgs[4]; // 휴대폰번호 에러 메세지
-const businessNumMsg = Msgs[5]; // 사업자등록번호 에러 메세지
-const storeNameMsg = Msgs[6]; // 스토어 이름 에러 메세지
+const duplicateBtns = joinForm.querySelectorAll(".duplicate-check");
+const idMsg = Msgs[0];
+const pwMsg = Msgs[1];
+const pwCheckMsg = Msgs[2];
+const nameMsg = Msgs[3];
+const phoneMsg = Msgs[4];
+const businessNumMsg = Msgs[5];
+const storeNameMsg = Msgs[6];
 
 selectAccountTypeBtns.forEach((button) => {
   button.addEventListener("click", () => {
@@ -42,8 +42,7 @@ selectAccountTypeBtns.forEach((button) => {
   });
 });
 
-/* ------------------------------ 회원가입 타입 지정 함수 (SELLER & BUYER) ----------------------------------- */
-function joinType() {
+function selectAccountType() {
   if (selectAccountTypeBtns[0].classList.contains("active")) {
     return "BUYER";
   } else if (selectAccountTypeBtns[1].classList.contains("active")) {
@@ -51,20 +50,15 @@ function joinType() {
   }
 }
 
-/* ------------------------------ 셀렉트박스 커스텀 ----------------------------------- */
-
-selectBtn.addEventListener("click", () => {
-  // 셀렉트박스 클릭 시 selected 클래스 추가(css 적용)
-  selectBtn.classList.toggle("selected");
-  if (selectBtn.classList.contains("selected")) {
+phoneSelectBtn.addEventListener("click", () => {
+  phoneSelectBtn.classList.toggle("selected");
+  if (phoneSelectBtn.classList.contains("selected")) {
     joinForm.querySelector(".optionList").style.display = "unset";
-    // option 클릭 시 내용 이동
-
     phone1.forEach((elem) => {
       elem.addEventListener("click", () => {
-        selectBtn.textContent = elem.textContent;
+        phoneSelectBtn.textContent = elem.textContent;
         joinForm.querySelector(".optionList").style.display = "none";
-        selectBtn.classList.remove("selected");
+        phoneSelectBtn.classList.remove("selected");
       });
     });
   } else {
@@ -72,8 +66,8 @@ selectBtn.addEventListener("click", () => {
   }
 });
 
-/* ------------------------------ 아이디 중복 확인 ----------------------------------- */
-duplicateBtn[0].addEventListener("click", (e) => {
+// 아이디 인증
+duplicateBtns[0].addEventListener("click", (e) => {
   e.preventDefault();
   fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/", {
     method: "POST",
@@ -112,8 +106,8 @@ duplicateBtn[0].addEventListener("click", (e) => {
     .catch((error) => console.error(error));
 });
 
-/* ------------------------------ 사업자등록번호 중복 확인 ----------------------------------- */
-duplicateBtn[1].addEventListener("click", (e) => {
+// 사업자등록번호 인증
+duplicateBtns[1].addEventListener("click", (e) => {
   e.preventDefault();
   fetch(
     "https://estapi.openmarket.weniv.co.kr/accounts/seller/validate-registration-number/",
@@ -129,8 +123,6 @@ duplicateBtn[1].addEventListener("click", (e) => {
   )
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      // 사업자번호가 유효하지 않을 경우 경고 메세지 출력
       if (json.error) {
         businessNumMsg.hidden = false;
         businessNumMsg.className = "businessNumMsg invalidColor";
@@ -147,9 +139,6 @@ duplicateBtn[1].addEventListener("click", (e) => {
     })
     .catch((error) => console.error(error));
 });
-/* form 태그 input 이벤트 발생 시 */
-
-/* ------------------------ 비밀번호 유효성 검사 및 가입하기 버튼 활성화 ----------------------- */
 
 joinForm.addEventListener("input", (e) => {
   const password = joinForm.password;
@@ -172,19 +161,16 @@ joinForm.addEventListener("input", (e) => {
     }
   }
 
-  /* ------------- 비밀번호 input 초록색 체크 표시 (focus 이벤트 없이 작동) -----------*/
-  // 비밀번호 입력값 유효할 때 초록색 체크 표시
+  //비밀번호 input 초록색 체크 표시 (focus 이벤트 없이 작동)
   if (password.validity.valid) {
     password.classList.add("valid-passwordImg");
     password.classList.remove("invalid-passwordImg");
   } else {
-    // 비밀번호 입력값이 유효하지 않을 때
     password.classList.remove("valid-passwordImg");
     password.classList.add("invalid-passwordImg");
   }
 
-  /* ------------- 비밀번호 focusout 이벤트 에러 메세지, input boeder 색상 변경 -----------*/
-  // 비밀번호를 입력하고 입력창에서 포커스를 잃으면 유효성 검사 진행
+  // 비밀번호 focusout 이벤트 에러 메세지, input boeder 색상 변경(입력창에서 포커스를 잃으면 유효성 검사 진행)
   password.addEventListener("focusout", () => {
     if (password.validity.valueMissing) {
       // 비밀번호에 값이 없는 경우
@@ -201,8 +187,6 @@ joinForm.addEventListener("input", (e) => {
       pwMsg.textContent = "";
     }
   });
-
-  /* ------------- 비밀번호 재확인 input 초록색 체크 표시 (focus 이벤트 없이 작동) -----------*/
 
   // 비밀번호와 비밀번호 재확인 일치 확인
   if (
@@ -227,16 +211,14 @@ joinForm.addEventListener("input", (e) => {
     }
   }
 
-  /* ------------- 모든 값이 들어가있을 때 가입하기 버튼 사용 가능 ------------- */
+  // 모든 input 값이 유효한지 확인
   let count = 0;
   input.forEach((elem) => {
-    // input요소 값이 유효할 때 count ++
     if (elem.validity.valid) {
       count += 1;
     }
   });
   if (
-    // input 내 모든 값이 유효하고, checkbox가 체크 되어있을 때, 아이디 중복확인이 완료되었을 경우 가입하기 버튼 활성화
     count >= 9 &&
     joinForm.checkbox.checked &&
     idMsg.textContent === "멋진 아이디네요 :)"
@@ -247,10 +229,9 @@ joinForm.addEventListener("input", (e) => {
   }
 });
 
-/* ---------------------------- 가입하기 버튼 클릭 시 계정 생성 ----------------------------------- */
 joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // 구매회원가입 버튼을 누른 경우 : 구매회원계정 생성
+  // Buyer 계정 생성
   if (selectAccountTypeBtns[0].classList.contains("active")) {
     fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
       method: "POST",
@@ -261,7 +242,7 @@ joinForm.addEventListener("submit", (e) => {
         username: id.value,
         password: password.value,
         name: joinForm.name.value,
-        phone_number: `${selectBtn.textContent}${phone2.value}${phone3.value}`,
+        phone_number: `${phoneSelectBtn.textContent}${phone2.value}${phone3.value}`,
       }),
     })
       .then((response) => response.json())
@@ -277,7 +258,7 @@ joinForm.addEventListener("submit", (e) => {
         }
       })
       .catch((error) => console.error(error));
-    // 판매회원가입 버튼을 누른 경우 : 판매회원계정 생성
+    // Seller 계정 생성
   } else if (selectAccountTypeBtns[1].classList.contains("active")) {
     fetch("https://estapi.openmarket.weniv.co.kr/accounts/seller/signup/", {
       method: "POST",
@@ -288,7 +269,7 @@ joinForm.addEventListener("submit", (e) => {
         username: id.value,
         password: password.value,
         name: joinForm.name.value,
-        phone_number: `${selectBtn.textContent}${phone2.value}${phone3.value}`,
+        phone_number: `${phoneSelectBtn.textContent}${phone2.value}${phone3.value}`,
         company_registration_number: `${joinForm.businessNum.value}`,
         store_name: `${joinForm.storeName.value}`,
       }),
