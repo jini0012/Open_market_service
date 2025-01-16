@@ -164,6 +164,9 @@ joinForm.addEventListener("input", (e) => {
     // 현재 입력중인 input인덱스보다 작고 input 값이 비었을 때
     if (index < currentIndex && elem.validity.valueMissing) {
       Msgs[index].hidden = false;
+      if (selectAccountTypeBtns[0].classList.contains("active")) {
+        businessNumMsg.hidden = true;
+      }
       Msgs[index].textContent = "필수 정보 입니다.";
       input[index].style["border-color"] = "#eb5757";
     }
