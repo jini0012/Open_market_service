@@ -183,7 +183,7 @@ main {
   }
 }
 
-hr {
+hr:not(footer hr) {
   min-width: 63rem;
   border: 0.2rem solid var(--border-color);
   margin: 2rem 0;
@@ -389,21 +389,16 @@ input:disabled {
 footer {
   font-size: 1.4rem;
   font-family: "SpoqaHanSansNeo-Regular";
-  height: 29.8rem;
-  padding: 6rem 32rem;
+  padding: 6rem 0;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  align-items: center;
   box-sizing: border-box;
   background-color: #f2f2f2;
 
-  hr {
-    min-width: 75.5rem;
-    max-width: 128rem;
-    margin: 0;
-  }
-
   nav {
+    width: 100%;
+    max-width: 128rem;
     display: flex;
     justify-content: space-between;
 
@@ -429,7 +424,16 @@ footer {
   }
 }
 
+hr {
+  width: 99%;
+  max-width: 128rem;
+  height: 0;
+  margin: 3rem 0;
+}
+
 address {
+  width: 100%;
+  max-width: 128rem;
   min-width: 32.1rem;
   color: var(--font-color);
   line-height: 2.4rem;
@@ -518,6 +522,18 @@ address {
   }
   .search-wrap {
     gap: 1rem;
+  }
+
+  footer {
+    nav {
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      ul:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
   }
 }
 @media screen and (max-width: 550px) {
