@@ -118,7 +118,6 @@ form {
 .banner {
   position: relative;
   /* 배너 내 circle 표시 추후 구현 */
-
   a img {
     max-width: 100%;
   }
@@ -127,8 +126,8 @@ form {
 .leftBtn,
 .rightBtn {
   position: absolute;
-  top: 18.8rem;
-
+  top: 50%;
+  transform: translateY(-50%);
   border: none;
   background: none;
   cursor: pointer;
@@ -140,11 +139,11 @@ form {
 
 /* 상품 목록 css */
 .goodsList {
-  padding: 8rem 32rem 18rem 31.3rem;
+  padding: 8rem 10rem 18rem 10rem;
   display: flex;
   flex-wrap: wrap;
   gap: 7rem;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 article a {
