@@ -411,22 +411,22 @@ footer {
       display: flex;
       gap: 1.4rem;
       white-space: nowrap;
+    }
 
+    ul:first-of-type {
       li:nth-of-type(3) {
         font-weight: 700;
       }
+      li::after {
+        content: "|";
+        position: relative;
+        margin-left: 1.4rem;
+      }
+      li:last-of-type::after {
+        content: "";
+      }
     }
   }
-}
-
-.about-wrap li::after {
-  content: "|";
-  position: relative;
-  margin-left: 1.4rem;
-}
-
-.about-wrap li:last-of-type::after {
-  content: "";
 }
 
 address {
