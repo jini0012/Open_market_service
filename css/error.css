@@ -1,14 +1,14 @@
-html {
-  font-size: 10px;
-}
 body {
-  padding-top: 44.2rem;
+  height: 90vh;
+  margin: 0;
   font-size: 1.6rem;
   line-height: 2.003rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-  min-width: 74rem;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -61,4 +61,25 @@ button {
   color: var(--font-color);
   background-color: var(--main-color);
   grid-area: btn2;
+}
+
+@media screen and (max-width: 770px) {
+  main {
+    grid-template-areas:
+      "img img"
+      "h1 h1"
+      " p p"
+      " btn1 btn2";
+
+    gap: 2rem;
+    column-gap: 0;
+  }
+  h1 {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+  }
+  button {
+    width: 17rem;
+    margin-right: 0.5rem;
+  }
 }
