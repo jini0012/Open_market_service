@@ -529,7 +529,7 @@ address {
   .buy-wrap {
     flex-direction: column;
     align-items: center;
-    img {
+    img:not(button img) {
       width: 100%;
     }
   }
