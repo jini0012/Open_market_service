@@ -248,9 +248,7 @@ input:disabled {
   }
   p:first-of-type span,
   p:last-of-type {
-     {
-      color: var(--point-color);
-    }
+    color: var(--point-color);
   }
 
   p:first-of-type::after {
@@ -283,7 +281,6 @@ input:disabled {
     border: none;
     color: var(--main-color);
     cursor: pointer;
-
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.2rem;
