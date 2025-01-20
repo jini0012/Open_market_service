@@ -154,6 +154,8 @@ article a {
 
   img {
     border-radius: 1rem;
+    width: 100%;
+    min-width: 30rem;
     max-width: 38rem;
     border: var(--border-color) solid 0.1rem;
   }
