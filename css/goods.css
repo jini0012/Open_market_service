@@ -24,14 +24,15 @@ header {
 
 .search-wrap {
   display: flex;
+  align-items: center;
   gap: 3rem;
   width: 82.4rem;
 }
 
 h1 img {
-  width: 12.4rem;
-  height: 3.8rem;
-  transform: translateY(0.7rem);
+  width: 100%;
+  max-width: 12.4rem;
+  min-width: 8rem;
 }
 
 form {
