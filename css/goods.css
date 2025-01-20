@@ -38,7 +38,6 @@ h1 img {
 form {
   position: relative;
   width: 100%;
-  max-width: 40rem;
   min-width: 10rem;
 }
 
@@ -116,14 +115,11 @@ form {
   background-image: url(../assets/icon-user-2.svg);
 }
 
-/* main */
-
 main {
-  padding: 8rem 32rem;
-
-  /* 상세내용, 메뉴바 레이아웃 적용 */
+  padding: 8rem 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14rem;
 }
 
@@ -131,10 +127,15 @@ main {
 .buy-wrap {
   display: flex;
   gap: 5rem;
+  width: 100%;
+  justify-content: center;
 
   img {
-    width: 60rem;
-    height: 60rem;
+    width: 50%;
+    height: auto;
+    max-width: 60rem;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -161,6 +162,9 @@ main {
 }
 
 .goodsInfo-wrap {
+  width: 100%;
+  max-width: 63rem;
+
   p:first-of-type {
     font-size: 1.6rem;
     line-height: 2.003rem;
@@ -181,11 +185,12 @@ main {
     margin-top: 4.6rem;
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
+    gap: 1rem;
   }
 }
 
 hr:not(footer hr) {
-  min-width: 63rem;
   border: 0.2rem solid var(--border-color);
   margin: 2rem 0;
 }
@@ -199,7 +204,6 @@ input:disabled {
   background-color: var(--main-color);
 }
 
-/* 수량 입력 버튼 (minus, plus) */
 .minus,
 .plus {
   background-color: #ffffff1a;
@@ -237,7 +241,6 @@ input:disabled {
   background-color: #e0e0e0;
 }
 
-/* total 상품 수량, 금액 확인 부분 css */
 .priceInfo {
   display: flex;
   gap: 1rem;
@@ -260,21 +263,20 @@ input:disabled {
   p:last-of-type {
     position: relative;
     top: -1.8rem;
-
-    span {
-      font-size: 3.6rem;
-      font-weight: 700;
-      line-height: 4.507rem;
-    }
   }
 }
 
-/* 바로구매, 장바구니 버튼 */
+.totalPrice {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 4.507rem;
+}
+
 .buyBtns {
   display: flex;
   gap: 1.4rem;
-
   button {
+    width: 100%;
     height: 6rem;
     margin-top: 1rem;
     border-radius: 0.5rem;
@@ -285,14 +287,12 @@ input:disabled {
     font-weight: 700;
     line-height: 2.2rem;
   }
-
   button:first-of-type {
-    min-width: 41.6rem;
+    flex: 41.6;
     background-color: var(--point-color);
   }
-
   button:last-of-type {
-    min-width: 20rem;
+    flex: 20;
     background-color: var(--font-color);
   }
 
@@ -306,44 +306,48 @@ input:disabled {
 
 /* 메뉴바 */
 .menubar {
+  width: 100%;
+  max-width: 128rem;
   ul {
     display: flex;
+    justify-content: center;
   }
-
-  button {
-    width: 32rem;
-    height: 6rem;
-
-    background-color: var(--main-color);
-    border: none;
-    border-bottom: 0.6rem solid #e0e0e0;
-    cursor: pointer;
-
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 2.254rem;
-    color: var(--font-color);
-  }
-
-  button:focus {
-    border-bottom: 0.6rem solid var(--point-color);
+  li {
+    width: 100%;
+    max-width: 32rem;
+    button {
+      width: 100%;
+      height: 6rem;
+      background-color: var(--main-color);
+      border: none;
+      border-bottom: 0.6rem solid #e0e0e0;
+      cursor: pointer;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 2.254rem;
+      color: var(--font-color);
+      white-space: nowrap;
+    }
+    button:focus {
+      border-bottom: 0.6rem solid var(--point-color);
+    }
   }
 }
 
 /* 모달창 */
 .loginModal {
   width: 38rem;
+  min-width: 28rem;
   height: 20rem;
-  padding: 5rem 7.5rem 4rem 7.5rem;
+  padding: 5rem 0;
   box-sizing: border-box;
   border: solid 0.1rem var(--border-color);
   text-align: center;
   overflow: hidden;
-
   font-size: 1.6rem;
   line-height: 2.003rem;
-
   p {
+    margin: auto;
     width: 20.3rem;
     margin-bottom: 3rem;
   }
@@ -522,6 +526,14 @@ address {
     gap: 1rem;
   }
 
+  .buy-wrap {
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 100%;
+    }
+  }
+
   footer {
     nav {
       flex-wrap: wrap;
@@ -548,5 +560,9 @@ address {
     img {
       width: 2.8rem;
     }
+  }
+  .totalPrice {
+    line-height: 5.5rem;
+    font-size: 2.4rem;
   }
 }
