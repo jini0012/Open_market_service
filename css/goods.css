@@ -27,6 +27,9 @@ header {
   align-items: center;
   gap: 3rem;
   width: 82.4rem;
+  form {
+    max-width: 40rem;
+  }
 }
 
 h1 img {
