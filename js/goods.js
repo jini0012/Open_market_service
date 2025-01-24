@@ -50,7 +50,7 @@ const form = document.querySelector(".countForm");
 const Btns = form.querySelectorAll("button");
 
 const loginModal = document.querySelector(".loginModal");
-const closeloginModal = loginModal.querySelector(".closeModal");
+const closeLoginModal = loginModal.querySelector(".closeModal");
 const yesBtn = loginModal.querySelector(".yesBtn");
 const noBtn = loginModal.querySelector(".noBtn");
 
@@ -79,7 +79,7 @@ if (!localStorage.accessToken) {
   });
 
   // 모달창 닫기 버튼 (1)
-  closeloginModal.addEventListener("click", () => {
+  closeLoginModal.addEventListener("click", () => {
     loginModal.close();
   });
 
