@@ -28,15 +28,14 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/")
 
       // 상품을 눌렀을 때 상세페이지로 이동하기 => 상품 상세 페이지 + 변경된 이미지 + 내용 추가 필요
       product.addEventListener("click", (e) => {
-        // product id 저장
-        localStorage.setItem("productId", `${json.results[index].id}`);
         // product 가격 저장
         localStorage.setItem("price", `${json.results[index].price}`);
         // product 배송비 저장
         localStorage.setItem("fee", `${json.results[index].shipping_fee}`);
         // product 재고수량 저장
         localStorage.setItem("stock", `${json.results[index].stock}`);
-        location.href = `goods.html`;
+
+        location.href = `goods.html?id=${json.results[index].id}`;
       });
     });
   })

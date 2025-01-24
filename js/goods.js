@@ -2,10 +2,11 @@ const buy = document.querySelector(".buy-wrap");
 const goodsImg = buy.querySelector("img");
 const goodsInfo = document.querySelector(".goodsInfo");
 
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
 // 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
-fetch(
-  `https://estapi.openmarket.weniv.co.kr/products/${localStorage.productId}`
-)
+fetch(`https://estapi.openmarket.weniv.co.kr/products/${productId}`)
   .then((response) => {
     if (!response.ok) {
       location.href = "error.html";
@@ -35,7 +36,7 @@ fetch(
     // 배송비가 0이 아닐 때 배송비
     if (json.shipping_fee !== 0) {
       buy.querySelector(".shippingFee").textContent = `${shipping()}/배송비 : ${
-        localStorage.fee
+        json.shipping_fee
       }원`;
     }
   })
