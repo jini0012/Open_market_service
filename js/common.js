@@ -36,7 +36,6 @@ if (localStorage.accessToken) {
           return response.json();
         })
         .then((json) => {
-          console.log(json);
           localStorage.setItem("accessToken", `${json.access}`);
         })
         .catch((error) => console.error(error));
