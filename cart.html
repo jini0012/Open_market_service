@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HODU</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
+  </head>
+  <body>
+    <header class="GNB">
+      <div class="search-wrap">
+        <h1>
+          <a href="index.html"
+            ><img src="./assets/Logo-hodu.png" alt="HODU"
+          /></a>
+        </h1>
+        <form action="#" method="get">
+          <label for="search"></label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="상품을 검색해보세요!"
+          />
+          <button class="searchBtn">
+            <img src="./assets/search.svg" alt="검색" />
+          </button>
+        </form>
+      </div>
+      <div class="btn-wrap">
+        <ul>
+          <li class="cart">
+            <a href="#" class="cartBtn"> 장바구니 </a>
+          </li>
+          <li class="login">
+            <a href="./login.html" class="loginBtn"> 로그인 </a>
+          </li>
+          <!-- myPage : 회원에게만 보이는 UI -->
+          <li class="myPage" hidden>
+            <button class="myPageBtn">마이페이지</button>
+            <dialog class="myPageModal">
+              <button class="goMyPage">마이페이지</button>
+              <button class="logout">로그아웃</button>
+            </dialog>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h2>장바구니</h2>
+      <ul class="cart-info">
+        <li><img src="./assets/circle-check-box.svg" alt="" /></li>
+        <li>상품정보</li>
+        <li>수량</li>
+        <li>상품금액</li>
+        <li>
+          <button type="submit" class="all-delete-btn">
+            <img src="./assets/icon-delete.svg" alt="" />
+          </button>
+        </li>
+      </ul>
+      <form action="#">
+        <ul class="cart-item">
+          <li>
+            <input type="checkbox" id="check" />
+            <label for="check">
+              <article>
+                <img src="https://placehold.co/160x160" alt="상품 이미지" />
+                <div>
+                  <p>백엔드 글로벌</p>
+                  <h3>딥러닝 개발자 무릎 담요</h3>
+                  <span>17,500</span>
+                  <p>택배배송 / 무료배송</p>
+                </div>
+                <div>
+                  <button class="minus" type="button" id="minus">
+                    <img src="./assets/icon-minus-line.svg" alt="수량 빼기" />
+                  </button>
+                  <input type="number" min="1" value="1" id="num" disabled />
+                  <button class="plus" type="button" id="plus">
+                    <img src="./assets/icon-plus-line.svg" alt="수량 더하기" />
+                  </button>
+                </div>
+                <div>
+                  <p></p>
+                  <button type="submit" class="buy-btn">주문하기</button>
+                </div>
+                <button type="submit" class="delete-btn">
+                  <img src="./assets/icon-delete.svg" alt="" />
+                </button>
+              </article>
+            </label>
+          </li>
+          <li>
+            <input type="checkbox" id="check" />
+            <label for="check">
+              <article>
+                <img src="https://placehold.co/160x160" alt="상품 이미지" />
+                <div>
+                  <p></p>
+                  <h3></h3>
+                  <p></p>
+                </div>
+                <div>
+                  <button class="minus" type="button" id="minus">
+                    <img src="./assets/icon-minus-line.svg" alt="수량 빼기" />
+                  </button>
+                  <input type="number" min="1" value="1" id="num" disabled />
+                  <button class="plus" type="button" id="plus">
+                    <img src="./assets/icon-plus-line.svg" alt="수량 더하기" />
+                  </button>
+                </div>
+                <div>
+                  <p></p>
+                  <button type="submit" class="buy-btn">주문하기</button>
+                </div>
+                <button type="submit" class="delete-btn">
+                  <img src="./assets/icon-delete.svg" alt="" />
+                </button>
+              </article>
+            </label>
+          </li>
+        </ul>
+        <ul class="cart-calc">
+          <li>
+            <p>총 상품금액</p>
+            <span>0</span>
+          </li>
+          <!-- - 이미지 가상요소로 추가 -->
+          <li>
+            <p>상품 할인</p>
+            <span>0</span>
+          </li>
+          <!-- + 이미지 가상요소로 추가 -->
+          <li>
+            <p>배송비</p>
+            <span>0</span>
+          </li>
+          <li>
+            <p>결제 예정 금액</p>
+            <span>0</span>
+          </li>
+        </ul>
+        <button type="submit" class="buy-btn">주문하기</button>
+      </form>
+    </main>
+    <footer>
+      <nav>
+        <ul class="about-wrap">
+          <li><a href="#">호두샵 소개</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li>
+            <span>
+              <a href="#">개인정보처리방침</a>
+            </span>
+          </li>
+          <li><a href="#">전자금융거래약관</a></li>
+          <li><a href="#">청소년보호정책</a></li>
+          <li><a href="#">제휴문의</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="#"
+              ><img
+                src="./assets/icon-insta.svg"
+                alt="인스타그램 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-fb.svg" alt="페이스북 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-yt.svg" alt="유튜브 페이지 바로가기"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <address>
+        <span>(주)HODU SHOP</span> <br />
+        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
+        사업자 번호 : 000-0000-0000 | 통신판매업 <br />
+        대표 : 김호두
+      </address>
+    </footer>
+    <script src="./js/common.js"></script>
+    <script src="./js/cart.js"></script>
+  </body>
+</html>
