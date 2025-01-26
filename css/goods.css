@@ -96,7 +96,11 @@ input::-webkit-inner-spin-button {
 input:disabled {
   background-color: var(--main-color);
 }
-
+.countForm {
+  position: relative;
+  width: 100%;
+  min-width: 10rem;
+}
 .minus,
 .plus {
   background-color: #ffffff1a;
@@ -104,7 +108,6 @@ input:disabled {
   cursor: pointer;
   width: 5rem;
   height: 5rem;
-
   position: absolute;
   top: 1rem;
 }
