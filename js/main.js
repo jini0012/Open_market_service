@@ -39,3 +39,24 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/")
     });
   })
   .catch((error) => console.error(error));
+
+const banner = document.querySelector(".banner ul");
+const slides = document.querySelectorAll(".banner ul li");
+const leftBtn = document.querySelector(".leftBtn");
+const rightBtn = document.querySelector(".rightBtn");
+const slideWidth = slides[0].offsetWidth;
+let currentIndex = 0;
+
+function moveSlide(index) {
+  banner.style.transform = `translateX(${-index * slideWidth}px)`;
+}
+
+leftBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  moveSlide(currentIndex);
+});
+
+rightBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  moveSlide(currentIndex);
+});

@@ -118,9 +118,17 @@ form {
 
 .banner {
   position: relative;
+  overflow: hidden;
   /* 배너 내 circle 표시 추후 구현 */
   a img {
     max-width: 100%;
+  }
+  ul:first-of-type {
+    display: flex;
+    transition: transform 0.3s ease;
+    li {
+      min-width: 100%;
+    }
   }
 }
 
