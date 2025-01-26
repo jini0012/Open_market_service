@@ -227,7 +227,7 @@ input:disabled {
   }
 }
 
-/* 모달창 */
+/* 비회원 바로구매 버튼 클릭시 팝업되는 모달 */
 .loginModal {
   width: 38rem;
   min-width: 28rem;
