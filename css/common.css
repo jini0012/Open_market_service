@@ -30,6 +30,12 @@ a {
   color: #000;
 }
 
+button {
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+}
+
 .sr-only {
   position: absolute;
   left: -9999px;
