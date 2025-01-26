@@ -4,10 +4,9 @@ const goodsInfo = document.querySelector(".goodsInfo");
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
-
 if (!!productId) {
   // 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
-  fetch(`https://estapi.openmarket.weniv.co.kr/products/${productId}`)
+  fetch(`${fetchUrl}/products/${productId}`)
     .then((response) => {
       if (!response.ok) {
         location.href = "error.html";
@@ -173,7 +172,7 @@ if (localStorage.stock === "1") {
 if (!!localStorage.accessToken && !!productId) {
   cartBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    fetch(`https://estapi.openmarket.weniv.co.kr/cart/`, {
+    fetch(`${fetchUrl}/cart/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

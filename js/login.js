@@ -54,7 +54,7 @@ loginForm.addEventListener("submit", (e) => {
 
   // 아이디, 비밀번호의 유효성 검사
 
-  fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
+  fetch(`${fetchUrl}/accounts/login/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -2,10 +2,9 @@
 localStorage.removeItem("stock");
 localStorage.removeItem("price");
 localStorage.removeItem("fee");
-
 const products = document.querySelectorAll("article");
 // 상품 전체 불러오기
-fetch("https://estapi.openmarket.weniv.co.kr/products/")
+fetch(`${fetchUrl}/products/`)
   .then((response) => {
     if (!response.ok) {
       location.href = "error.html";

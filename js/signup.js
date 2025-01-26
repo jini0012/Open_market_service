@@ -69,7 +69,7 @@ phoneSelectBtn.addEventListener("click", () => {
 // 아이디 인증
 duplicateBtns[0].addEventListener("click", (e) => {
   e.preventDefault();
-  fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/", {
+  fetch(`${fetchUrl}/accounts/validate-username/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -109,18 +109,15 @@ duplicateBtns[0].addEventListener("click", (e) => {
 // 사업자등록번호 인증
 duplicateBtns[1].addEventListener("click", (e) => {
   e.preventDefault();
-  fetch(
-    "https://estapi.openmarket.weniv.co.kr/accounts/seller/validate-registration-number/",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        company_registration_number: `${joinForm.businessNum.value}`,
-      }),
-    }
-  )
+  fetch(`${fetchUrl}/accounts/seller/validate-registration-number/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      company_registration_number: `${joinForm.businessNum.value}`,
+    }),
+  })
     .then((response) => response.json())
     .then((json) => {
       if (json.error) {
@@ -233,7 +230,7 @@ joinForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // Buyer 계정 생성
   if (selectAccountTypeBtns[0].classList.contains("active")) {
-    fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
+    fetch(`${fetchUrl}/accounts/buyer/signup/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -260,7 +257,7 @@ joinForm.addEventListener("submit", (e) => {
       .catch((error) => console.error(error));
     // Seller 계정 생성
   } else if (selectAccountTypeBtns[1].classList.contains("active")) {
-    fetch("https://estapi.openmarket.weniv.co.kr/accounts/seller/signup/", {
+    fetch(`${fetchUrl}/accounts/seller/signup/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

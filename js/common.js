@@ -1,3 +1,5 @@
+const fetchUrl = "https://estapi.openmarket.weniv.co.kr";
+
 const myPageBtn = document.querySelector(".myPageBtn");
 const myPageModal = document.querySelector(".myPageModal");
 const logout = myPageModal.querySelector(".logout");
@@ -20,7 +22,7 @@ const sellerCenter = document.querySelector(".sellerCenter");
 if (localStorage.accessToken) {
   if (localStorage.accessToken !== "undefined") {
     setInterval(() => {
-      fetch("https://estapi.openmarket.weniv.co.kr/accounts/token/refresh/", {
+      fetch(`${fetchUrl}/accounts/token/refresh/`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
