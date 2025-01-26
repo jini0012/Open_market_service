@@ -169,3 +169,28 @@ if (localStorage.stock === "1") {
   plus.classList.add("plusDisabled");
   plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
 }
+
+if (!!localStorage.accessToken && !!productId) {
+  cartBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    fetch(`https://estapi.openmarket.weniv.co.kr/cart/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.accessToken}`,
+      },
+      body: JSON.stringify({
+        product_id: parseInt(productId),
+        quantity: parseInt(total.textContent),
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          location.href = "error.html";
+        }
+        return response.json();
+      })
+      .then((json) => alert(json.detail))
+      .catch((error) => console.error("error : ", error));
+  });
+}
