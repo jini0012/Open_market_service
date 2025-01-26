@@ -5,42 +5,44 @@ const goodsInfo = document.querySelector(".goodsInfo");
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
-// 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
-fetch(`https://estapi.openmarket.weniv.co.kr/products/${productId}`)
-  .then((response) => {
-    if (!response.ok) {
-      location.href = "error.html";
-    }
-    return response.json();
-  })
-  .then((json) => {
-    // 페이지가 열렸을 때
-    // 이미지 -> fetch내 링크의 이미지, 상품명, 가격 적용
-    goodsImg.src = `${json.image}`;
-    goodsImg.alt = `${json.info}`;
-    goodsInfo.querySelector("h3").textContent = `${json.name}`;
-    goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
-    goodsInfo.querySelector("span").textContent = new Intl.NumberFormat(
-      "ko-KR"
-    ).format(json.price); // 천 단위 쉼표 포함
-
-    // 택배배송, 직접배송인지 정하는 함수
-    function shipping() {
-      if (json.shipping_method === "PARCEL") {
-        return "택배배송";
-      } else if (json.shipping_method === "DELIVERY") {
-        return "화물운송";
+if (!!productId) {
+  // 페이지를 열었을 때 이미지, 상품명, 가격 등이 변경되어 보이도록 설정한다.
+  fetch(`https://estapi.openmarket.weniv.co.kr/products/${productId}`)
+    .then((response) => {
+      if (!response.ok) {
+        location.href = "error.html";
       }
-    }
+      return response.json();
+    })
+    .then((json) => {
+      // 페이지가 열렸을 때
+      // 이미지 -> fetch내 링크의 이미지, 상품명, 가격 적용
+      goodsImg.src = `${json.image}`;
+      goodsImg.alt = `${json.info}`;
+      goodsInfo.querySelector("h3").textContent = `${json.name}`;
+      goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
+      goodsInfo.querySelector("span").textContent = new Intl.NumberFormat(
+        "ko-KR"
+      ).format(json.price); // 천 단위 쉼표 포함
 
-    // 배송비가 0이 아닐 때 배송비
-    if (json.shipping_fee !== 0) {
-      buy.querySelector(".shippingFee").textContent = `${shipping()}/배송비 : ${
-        json.shipping_fee
-      }원`;
-    }
-  })
-  .catch((error) => console.error(error));
+      // 택배배송, 직접배송인지 정하는 함수
+      function shipping() {
+        if (json.shipping_method === "PARCEL") {
+          return "택배배송";
+        } else if (json.shipping_method === "DELIVERY") {
+          return "화물운송";
+        }
+      }
+
+      // 배송비가 0이 아닐 때 배송비
+      if (json.shipping_fee !== 0) {
+        buy.querySelector(
+          ".shippingFee"
+        ).textContent = `${shipping()}/배송비 : ${json.shipping_fee}원`;
+      }
+    })
+    .catch((error) => console.error(error));
+}
 
 // 상품 클릭 시 document.title HODU : 상품 이름으로 변경되게 적용
 // 모달창 임시 스크립트
@@ -89,16 +91,15 @@ if (!localStorage.accessToken) {
     loginModal.close();
   });
 }
+const num = form.num;
+let total = form.querySelector(".count");
+let totalPrice = form.querySelector(".totalPrice");
 
 // 판매자 사이트의 경우 바로구매와 장바구니 버튼을 disabled 적용
 if (localStorage.type === "SELLER") {
   buyBtn.disabled = true;
   cartBtn.disabled = true;
 }
-
-const num = form.num;
-let total = form.querySelector(".count");
-let totalPrice = form.querySelector(".totalPrice");
 
 // 로컬스토리지에 저장(문자열타입)된 가격 불러와서 사용
 const defaultPrice = localStorage.price;
