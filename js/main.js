@@ -1,5 +1,4 @@
 // 상품 목록창 실행 시 상품관련 로컬스토리지 초기화
-localStorage.removeItem("productId");
 localStorage.removeItem("stock");
 localStorage.removeItem("price");
 localStorage.removeItem("fee");
