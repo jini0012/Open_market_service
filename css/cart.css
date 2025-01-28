@@ -279,4 +279,13 @@ main {
       }
     }
   }
+
+  .empty-cart {
+    font-weight: bold;
+    margin: 20rem auto 1.7rem auto;
+  }
+  .empty-cart + span {
+    color: var(--font-color);
+    margin-bottom: 44.2rem;
+  }
 }
