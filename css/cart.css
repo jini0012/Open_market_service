@@ -217,12 +217,6 @@ main {
       align-items: center;
       justify-content: center;
       gap: 1.2rem;
-      li:first-of-type::after {
-        content: url(../assets/icon-minus-line.svg);
-        content: "💓";
-        width: 3.4rem;
-        height: 3.4rem;
-      }
       p {
         font-size: 1.6rem;
       }
@@ -235,6 +229,49 @@ main {
         font-size: 1.6rem;
         font-weight: normal;
       }
+    }
+    li:first-of-type {
+      position: relative;
+    }
+
+    li:first-of-type::after {
+      content: "";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      background-color: var(--main-color);
+      background-image: url(../assets/icon-minus-line.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+    li:nth-of-type(2) {
+      position: relative;
+    }
+
+    li:nth-of-type(2)::after {
+      content: "";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      background-color: var(--main-color);
+      background-image: url(../assets/icon-plus-line.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
     }
   }
 }
