@@ -113,7 +113,7 @@ function loadCart() {
       } else {
         cartForm.innerHTML = `<p class = "empty-cart">장바구니에 담긴 상품이 없습니다.</p>
         <span>원하는 상품을 장바구니에 담아보세요!</span>`;
-        document.querySelector(".cart-info button").style.display = "none";
+        allDeleteBtn.style.display = "none";
       }
     });
 }
