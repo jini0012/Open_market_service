@@ -89,6 +89,18 @@ main {
         input {
           margin: auto 3rem;
         }
+
+        input[type="checkbox"] {
+          appearance: none;
+          width: 2rem;
+          height: 2rem;
+          background: url("../assets/circle-check-box.svg") no-repeat center
+            center;
+          background-size: contain;
+        }
+        input[type="checkbox"]:checked {
+          background-image: url(../assets/circle-check--fill-box.svg);
+        }
         label {
           width: 100%;
           display: flex;
