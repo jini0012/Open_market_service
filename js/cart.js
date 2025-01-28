@@ -125,3 +125,19 @@ allCheckBtn.addEventListener("click", () => {
     checkbox.checked = "true";
   });
 });
+
+const allDeleteBtn = cartInfo.querySelector(".all-delete-btn");
+allDeleteBtn.addEventListener("click", () => {
+  fetch(`https://estapi.openmarket.weniv.co.kr/cart/`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error:", response);
+    }
+    return loadCart();
+  });
+});
