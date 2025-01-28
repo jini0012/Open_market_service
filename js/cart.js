@@ -21,11 +21,27 @@ function loadCart() {
     .then((json) => {
       const cartForm = document.querySelector("main form");
       const cartList = cartForm.querySelector(".cart-item");
+      let totalShippingFee = 0;
+      let totalPrice = 0;
+      let paymentPrice = 0;
+      const cartCalc = document.querySelector(".cart-calc");
+      const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
+      const totalPriceEl = cartCalc.querySelector(".total-price ");
+      const paymentPriceEl = cartCalc.querySelector(".payment-amount");
+
       if (json.count > 1) {
         const cartResults = json.results;
 
         cartList.innerHTML = cartResults.map((result, idx) => {
           let quantity = result.quantity;
+          totalShippingFee += result.product.shipping_fee;
+          totalShippingFeeEl.textContent =
+            totalShippingFee.toLocaleString("ko-KR");
+          totalPrice += result.product.price * quantity;
+          totalPriceEl.textContent = totalPrice.toLocaleString("ko-KR");
+          paymentPrice = totalPrice + totalShippingFee;
+          paymentPriceEl.textContent = paymentPrice.toLocaleString("ko-KR");
+
           return `<li>
             <article>
               <input type="checkbox" id="check${idx}" />
