@@ -273,5 +273,10 @@ main {
       left: 100%;
       transform: translate(-50%, -50%);
     }
+    li:nth-of-type(4) {
+      span {
+        color: var(--error-color);
+      }
+    }
   }
 }
