@@ -1,32 +1,39 @@
-fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + localStorage.getItem("accessToken"),
-  },
-})
-  .then((response) => {
-    if (!response.ok) {
-      console.error("Error:", response);
-    }
-    return response.json();
-  })
-  .then((json) => {
-    const cartForm = document.querySelector("main form");
-    const cartList = cartForm.querySelector(".cart-item");
-    if (json.count > 1) {
-      const cartResults = json.results;
+if (localStorage.getItem("type") === "SELLER") {
+  location.href = "error.html";
+} else {
+  loadCart();
+}
 
-      cartList.innerHTML = cartResults.map((result, idx) => {
-        let quantity = result.quantity;
-        return `<li>
+function loadCart() {
+  fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.error("Error:", response);
+      }
+      return response.json();
+    })
+    .then((json) => {
+      const cartForm = document.querySelector("main form");
+      const cartList = cartForm.querySelector(".cart-item");
+      if (json.count > 1) {
+        const cartResults = json.results;
+
+        cartList.innerHTML = cartResults.map((result, idx) => {
+          let quantity = result.quantity;
+          return `<li>
             <article>
               <input type="checkbox" id="check${idx}" />
               <label for="check${idx}">
                 <div class="goods-details">
                   <img src="${result.product.image}" alt="${
-          result.product.info
-        }" />
+            result.product.info
+          }" />
                   <p>${result.product.seller.store_name}</p>
                   <h3>${result.product.name}</h3>
                   <span>${result.product.price.toLocaleString("ko-KR")}</span>
@@ -35,12 +42,12 @@ fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
                       ? "화물운송"
                       : "택배배송"
                   } / ${
-          result.product.shipping_fee === 0
-            ? "무료배송"
-            : "배송비 : " +
-              result.product.shipping_fee.toLocaleString("ko-KR") +
-              "원"
-        }</p>
+            result.product.shipping_fee === 0
+              ? "무료배송"
+              : "배송비 : " +
+                result.product.shipping_fee.toLocaleString("ko-KR") +
+                "원"
+          }</p>
                 </div>
                 <div class="goods-quantity">
                   <button class="minus" type="button" id="minus">
@@ -64,10 +71,11 @@ fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
               </label>
             </article>
           </li>`;
-      });
-    } else {
-      cartForm.innerHTML = `<p class = "empty-cart">장바구니에 담긴 상품이 없습니다.</p>
+        });
+      } else {
+        cartForm.innerHTML = `<p class = "empty-cart">장바구니에 담긴 상품이 없습니다.</p>
         <span>원하는 상품을 장바구니에 담아보세요!</ㄴ>`;
-      document.querySelector(".cart-info button").style.display = "none";
-    }
-  });
+        document.querySelector(".cart-info button").style.display = "none";
+      }
+    });
+}
