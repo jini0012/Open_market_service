@@ -3,9 +3,26 @@ if (localStorage.getItem("type") === "SELLER") {
 } else {
   loadCart();
 }
+
+const cartInfo = document.querySelector(".cart-info");
 const cartForm = document.querySelector("main form");
 const cartItems = cartForm.querySelector(".cart-item");
 const cartCalc = document.querySelector(".cart-calc");
+
+function deleteCart(id) {
+  fetch(`https://estapi.openmarket.weniv.co.kr/cart/${id}/`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error:", response);
+    }
+    return loadCart();
+  });
+}
 
 function loadCart() {
   fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
@@ -30,7 +47,7 @@ function loadCart() {
       const totalPriceEl = cartCalc.querySelector(".total-price ");
       const paymentPriceEl = cartCalc.querySelector(".payment-amount");
 
-      if (json.count > 1) {
+      if (json.count >= 1) {
         const cartResults = json.results;
 
         cartItems.innerHTML = cartResults
@@ -83,7 +100,9 @@ function loadCart() {
                   ).toLocaleString("ko-KR")}원</p>
                   <button type="submit" class="buy-btn">주문하기</button>
                 </div>
-                <button type="submit" class="delete-btn">
+                <button type="submit" class="delete-btn" id="delete-btn-${idx}" onClick="deleteCart(${
+              result.id
+            })">
                   <img src="./assets/icon-delete.svg" alt="상품 제거하기 버튼" />
                 </button>
               </label>
@@ -99,7 +118,7 @@ function loadCart() {
     });
 }
 
-const allCheckBtn = document.querySelector(".all-check");
+const allCheckBtn = cartInfo.querySelector(".all-check");
 allCheckBtn.addEventListener("click", () => {
   const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
   allCheckbox.forEach((checkbox) => {
