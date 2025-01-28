@@ -15,6 +15,7 @@ function loadCart() {
     .then((response) => {
       if (!response.ok) {
         console.error("Error:", response);
+        location.href = "error.html";
       }
       return response.json();
     })
@@ -32,24 +33,26 @@ function loadCart() {
       if (json.count > 1) {
         const cartResults = json.results;
 
-        cartList.innerHTML = cartResults.map((result, idx) => {
-          let quantity = result.quantity;
-          totalShippingFee += result.product.shipping_fee;
-          totalShippingFeeEl.textContent =
-            totalShippingFee.toLocaleString("ko-KR");
-          totalPrice += result.product.price * quantity;
-          totalPriceEl.textContent = totalPrice.toLocaleString("ko-KR");
-          paymentPrice = totalPrice + totalShippingFee;
-          paymentPriceEl.textContent = paymentPrice.toLocaleString("ko-KR");
+        cartList.innerHTML = cartResults
+          .map((result, idx) => {
 
-          return `<li>
+            let quantity = result.quantity;
+            totalShippingFee += result.product.shipping_fee;
+            totalShippingFeeEl.textContent =
+              totalShippingFee.toLocaleString("ko-KR");
+            totalPrice += result.product.price * quantity;
+            totalPriceEl.textContent = totalPrice.toLocaleString("ko-KR");
+            paymentPrice = totalPrice + totalShippingFee;
+            paymentPriceEl.textContent = paymentPrice.toLocaleString("ko-KR");
+
+            return `<li>
             <article>
               <input type="checkbox" id="check${idx}" />
               <label for="check${idx}">
                 <div class="goods-details">
                   <img src="${result.product.image}" alt="${
-            result.product.info
-          }" />
+              result.product.info
+            }" />
                   <p>${result.product.seller.store_name}</p>
                   <h3>${result.product.name}</h3>
                   <span>${result.product.price.toLocaleString("ko-KR")}</span>
@@ -58,12 +61,12 @@ function loadCart() {
                       ? "화물운송"
                       : "택배배송"
                   } / ${
-            result.product.shipping_fee === 0
-              ? "무료배송"
-              : "배송비 : " +
-                result.product.shipping_fee.toLocaleString("ko-KR") +
-                "원"
-          }</p>
+              result.product.shipping_fee === 0
+                ? "무료배송"
+                : "배송비 : " +
+                  result.product.shipping_fee.toLocaleString("ko-KR") +
+                  "원"
+            }</p>
                 </div>
                 <div class="goods-quantity">
                   <button class="minus" type="button" id="minus">
@@ -82,15 +85,16 @@ function loadCart() {
                   <button type="submit" class="buy-btn">주문하기</button>
                 </div>
                 <button type="submit" class="delete-btn">
-                  <img src="./assets/icon-delete.svg" alt="" />
+                  <img src="./assets/icon-delete.svg" alt="상품 제거하기 버튼" />
                 </button>
               </label>
             </article>
           </li>`;
-        });
+          })
+          .join("");
       } else {
         cartForm.innerHTML = `<p class = "empty-cart">장바구니에 담긴 상품이 없습니다.</p>
-        <span>원하는 상품을 장바구니에 담아보세요!</ㄴ>`;
+        <span>원하는 상품을 장바구니에 담아보세요!</span>`;
         document.querySelector(".cart-info button").style.display = "none";
       }
     });
