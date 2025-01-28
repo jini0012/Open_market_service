@@ -228,6 +228,7 @@ main {
         content: "원";
         font-size: 1.6rem;
         font-weight: normal;
+        margin-left: 0.2rem;
       }
     }
     li:first-of-type {
