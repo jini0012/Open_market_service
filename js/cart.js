@@ -98,3 +98,11 @@ function loadCart() {
       }
     });
 }
+
+const allCheckBtn = document.querySelector(".all-check");
+allCheckBtn.addEventListener("click", () => {
+  const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
+  allCheckbox.forEach((checkbox) => {
+    checkbox.checked = "true";
+  });
+});
