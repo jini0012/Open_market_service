@@ -3,6 +3,9 @@ if (localStorage.getItem("type") === "SELLER") {
 } else {
   loadCart();
 }
+const cartForm = document.querySelector("main form");
+const cartItems = cartForm.querySelector(".cart-item");
+const cartCalc = document.querySelector(".cart-calc");
 
 function loadCart() {
   fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
@@ -20,12 +23,9 @@ function loadCart() {
       return response.json();
     })
     .then((json) => {
-      const cartForm = document.querySelector("main form");
-      const cartList = cartForm.querySelector(".cart-item");
       let totalShippingFee = 0;
       let totalPrice = 0;
       let paymentPrice = 0;
-      const cartCalc = document.querySelector(".cart-calc");
       const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
       const totalPriceEl = cartCalc.querySelector(".total-price ");
       const paymentPriceEl = cartCalc.querySelector(".payment-amount");
@@ -33,9 +33,8 @@ function loadCart() {
       if (json.count > 1) {
         const cartResults = json.results;
 
-        cartList.innerHTML = cartResults
+        cartItems.innerHTML = cartResults
           .map((result, idx) => {
-
             let quantity = result.quantity;
             totalShippingFee += result.product.shipping_fee;
             totalShippingFeeEl.textContent =
