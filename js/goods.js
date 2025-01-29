@@ -108,10 +108,40 @@ totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
   Number(defaultPrice) + Number(localStorage.fee)
 );
 
+const minusBtn = form.querySelector(".minus");
+const plusBtn = form.querySelector(".plus");
+function plusBtnEnabled() {
+  plusBtn.disabled = false;
   plus.classList.remove("countBtnDisabled");
+  plus.querySelector("img").src = "./assets/icon-plus-line.svg";
+}
+function plusBtnDisabled() {
+  plusBtn.disabled = true;
   plus.classList.add("countBtnDisabled");
+  plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
+}
+function minusBtnEnabled() {
+  minusBtn.disabled = false;
   minusBtn.classList.remove("countBtnDisabled");
+  minusBtn.querySelector("img").src = "./assets/icon-minus-line.svg";
+}
+function minusBtnDisabled() {
+  minusBtn.disabled = true;
   minusBtn.classList.add("countBtnDisabled");
+  minusBtn.querySelector("img").src = "./assets/icon-minus-line-disabled.svg";
+}
+
+if (localStorage.stock === "0") {
+  num.value = 0;
+  minusBtnDisabled();
+  plusBtnDisabled();
+  buyBtn.disabled = true;
+  cartBtn.disabled = true;
+  total.textContent = 0;
+  totalPrice.textContent = 0;
+} else if (localStorage.stock === "1") {
+  plusBtnDisabled();
+}
 // - 버튼 또는 + 버튼 클릭 시 input.value 변경
 let count = 1;
 Btns.forEach((button) => {
@@ -141,41 +171,25 @@ Btns.forEach((button) => {
 
     // 만약 상품 수량이 0이면 +버튼 활성화, 마이너스 버튼 비활성화
     if (num.value === "0") {
-      plus.disabled = false;
-      plus.classList.remove("plusDisabled");
-      plus.querySelector("img").src = "./assets/icon-plus-line.svg";
+      plusBtnEnabled();
+      minusBtnDisabled();
       buyBtn.disabled = true;
       cartBtn.disabled = true;
-
-      minus.disabled = true;
-      minus.classList.add("plusDisabled");
     } else if (num.value !== "0") {
-      minus.disabled = false;
-      minus.classList.remove("plusDisabled");
+      minusBtnEnabled();
       buyBtn.disabled = false;
       cartBtn.disabled = false;
 
       // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화
       if (Number(localStorage.stock) <= Number(num.value)) {
-        plus.disabled = true;
-        plus.classList.add("plusDisabled");
-        plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
+        plusBtnDisabled();
       } else {
         // 상품 재고 수량과 선택한 값이 같지 않으면 + 버튼 활성화
-        plus.disabled = false;
-        plus.classList.remove("plusDisabled");
-        plus.querySelector("img").src = "./assets/icon-plus-line.svg";
+        plusBtnEnabled();
       }
     }
   });
 });
-
-// 재고 1인경우 버튼을 누르지 않아도 +버튼 비활성화
-if (localStorage.stock === "1") {
-  plus.disabled = true;
-  plus.classList.add("plusDisabled");
-  plus.querySelector("img").src = "./assets/icon-plus-line-disabled.svg";
-}
 
 if (!!localStorage.accessToken && !!productId) {
   cartBtn.addEventListener("click", (e) => {
