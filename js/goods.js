@@ -193,7 +193,14 @@ if (!!localStorage.accessToken && !!productId) {
         }
         return response.json();
       })
-      .then((json) => alert(json.detail))
+      .then((json) => {
+        const goCartPage = confirm(
+          `${json.detail}\n장바구니로 이동하시겠습니까?`
+        );
+        if (goCartPage) {
+          location.href = "cart.html";
+        }
+      })
       .catch((error) => console.error("error : ", error));
   });
 }
