@@ -108,6 +108,10 @@ totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
   Number(defaultPrice) + Number(localStorage.fee)
 );
 
+  plus.classList.remove("countBtnDisabled");
+  plus.classList.add("countBtnDisabled");
+  minusBtn.classList.remove("countBtnDisabled");
+  minusBtn.classList.add("countBtnDisabled");
 // - 버튼 또는 + 버튼 클릭 시 input.value 변경
 let count = 1;
 Btns.forEach((button) => {

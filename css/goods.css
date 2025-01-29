@@ -130,7 +130,7 @@ input:disabled {
   left: 10rem;
 }
 
-.plusDisabled {
+.countBtnDisabled {
   width: 5.05rem;
   height: 5.05rem;
   border-radius: 0 0.5rem 0.5rem 0;
