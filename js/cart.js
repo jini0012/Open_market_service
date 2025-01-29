@@ -121,9 +121,17 @@ function loadCart() {
 const allCheckBtn = cartInfo.querySelector(".all-check-btn");
 allCheckBtn.addEventListener("click", () => {
   const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
-  allCheckbox.forEach((checkbox) => {
-    checkbox.checked = "true";
-  });
+
+  allCheckBtn.classList.toggle("active");
+  if (!allCheckBtn.classList.contains("active")) {
+    allCheckbox.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  } else {
+    allCheckbox.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+  }
 });
 
 const allDeleteBtn = cartInfo.querySelector(".all-delete-btn");
