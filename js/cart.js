@@ -10,7 +10,7 @@ const cartItems = cartForm.querySelector(".cart-item");
 const cartCalc = document.querySelector(".cart-calc");
 
 function deleteCart(id) {
-  fetch(`https://estapi.openmarket.weniv.co.kr/cart/${id}/`, {
+  fetch(`${fetchUrl}/cart/${id}/`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function deleteCart(id) {
 }
 
 function loadCart() {
-  fetch("https://estapi.openmarket.weniv.co.kr/cart/", {
+  fetch(`${fetchUrl}/cart/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -136,7 +136,7 @@ allCheckBtn.addEventListener("click", () => {
 
 const allDeleteBtn = cartInfo.querySelector(".all-delete-btn");
 allDeleteBtn.addEventListener("click", () => {
-  fetch(`https://estapi.openmarket.weniv.co.kr/cart/`, {
+  fetch(`${fetchUrl}/cart/`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
