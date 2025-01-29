@@ -146,6 +146,7 @@ allDeleteBtn.addEventListener("click", () => {
     if (!response.ok) {
       console.error("Error:", response);
     }
+    allCheckBtn.classList.remove("active");
     return loadCart();
   });
 });
