@@ -140,12 +140,16 @@ Btns.forEach((button) => {
       plus.disabled = false;
       plus.classList.remove("plusDisabled");
       plus.querySelector("img").src = "./assets/icon-plus-line.svg";
+      buyBtn.disabled = true;
+      cartBtn.disabled = true;
 
       minus.disabled = true;
       minus.classList.add("plusDisabled");
     } else if (num.value !== "0") {
       minus.disabled = false;
       minus.classList.remove("plusDisabled");
+      buyBtn.disabled = false;
+      cartBtn.disabled = false;
 
       // +버튼을 누르다가 상품 재고 수량과 값이 같으면 +버튼 비활성화
       if (Number(localStorage.stock) <= Number(num.value)) {
