@@ -2,7 +2,7 @@ const fetchUrl = "https://estapi.openmarket.weniv.co.kr";
 
 const myPageBtn = document.querySelector(".myPageBtn");
 const myPageModal = document.querySelector(".myPageModal");
-const logout = myPageModal.querySelector(".logout");
+const logoutBtn = myPageModal.querySelector(".logout");
 
 myPageBtn.addEventListener("click", () => {
   if (!myPageModal.open) {
@@ -17,7 +17,12 @@ const login = document.querySelector(".login");
 const myPage = document.querySelector(".myPage");
 const sellerCenter = document.querySelector(".sellerCenter");
 
-// 추후 refresh 만료시 로그아웃 되는 기능 추가 예정
+function logout() {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  localStorage.removeItem("type");
+  location.reload(true);
+}
 
 if (localStorage.accessToken) {
   if (localStorage.accessToken !== "undefined") {
@@ -33,7 +38,10 @@ if (localStorage.accessToken) {
       })
         .then((response) => {
           if (!response.ok) {
-            location.href = "error.html";
+            alert(
+              "로그인 세션이 만료되어 로그아웃되었습니다. 재로그인을 진행해주세요."
+            );
+            logout();
           }
           return response.json();
         })
@@ -55,9 +63,6 @@ if (localStorage.accessToken) {
   }
 }
 
-logout.addEventListener("click", () => {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-  localStorage.removeItem("type");
-  location.reload(true);
+logoutBtn.addEventListener("click", () => {
+  logout();
 });

@@ -35,6 +35,10 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+input[type="checkbox"],
+input[type="checkbox"] + label {
+  cursor: pointer;
+}
 
 .sr-only {
   position: absolute;
