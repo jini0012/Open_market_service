@@ -1,6 +1,6 @@
 const myPageBtn = document.querySelector(".myPageBtn");
 const myPageModal = document.querySelector(".myPageModal");
-const logout = myPageModal.querySelector(".logout");
+const logoutBtn = myPageModal.querySelector(".logout");
 
 myPageBtn.addEventListener("click", () => {
   if (!myPageModal.open) {
@@ -16,6 +16,12 @@ const myPage = document.querySelector(".myPage");
 const sellerCenter = document.querySelector(".sellerCenter");
 
 // 추후 refresh 만료시 로그아웃 되는 기능 추가 예정
+function logout() {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  localStorage.removeItem("type");
+  location.reload(true);
+}
 
 if (localStorage.accessToken) {
   if (localStorage.accessToken !== "undefined") {
@@ -53,9 +59,6 @@ if (localStorage.accessToken) {
   }
 }
 
-logout.addEventListener("click", () => {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-  localStorage.removeItem("type");
-  location.reload(true);
+logoutBtn.addEventListener("click", () => {
+  logout();
 });
