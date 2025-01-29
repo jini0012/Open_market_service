@@ -90,17 +90,6 @@ main {
           margin: auto 3rem;
         }
 
-        input[type="checkbox"] {
-          appearance: none;
-          width: 2rem;
-          height: 2rem;
-          background: url("../assets/circle-check-box.svg") no-repeat center
-            center;
-          background-size: contain;
-        }
-        input[type="checkbox"]:checked {
-          background-image: url(../assets/circle-check--fill-box.svg);
-        }
         label {
           width: 100%;
           display: flex;
@@ -301,4 +290,17 @@ main {
     color: var(--font-color);
     margin-bottom: 44.2rem;
   }
+}
+
+input[type="checkbox"],
+.all-check-btn {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background: url("../assets/circle-check-box.svg") no-repeat center center;
+  background-size: contain;
+}
+input[type="checkbox"]:checked,
+.all-check-btn.active {
+  background-image: url(../assets/circle-check--fill-box.svg);
 }
