@@ -94,6 +94,9 @@ function loadCart() {
         cartItems.innerHTML = cartResults
           .map((result, idx) => {
             let quantity = result.quantity;
+            if (quantity >= result.product.stock) {
+              quantity = result.product.stock;
+            }
             totalShippingFee += result.product.shipping_fee;
             totalShippingFeeEl.textContent =
               totalShippingFee.toLocaleString("ko-KR");
