@@ -1,7 +1,8 @@
-if (localStorage.getItem("type") === "SELLER") {
-  location.href = "error.html";
-} else {
+if (localStorage.getItem("type") === "BUYER") {
   loadCart();
+} else {
+  alert("비정상적인 접속 경로 입니다. 메인페이지로 이동합니다.");
+  location.href = "index.html";
 }
 
 const cartInfo = document.querySelector(".cart-info");
