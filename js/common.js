@@ -54,11 +54,14 @@ if (localStorage.accessToken) {
     setInterval(() => {
       getAccessToken();
     }, 300000);
-
-    setTimeout(() => {
-      logout();
-    }, 86400000);
   }
+
+  setTimeout(() => {
+    alert(
+      "로그인 세션이 만료되어 로그아웃되었습니다. 재로그인을 진행해주세요."
+    );
+    logout();
+  }, 86400000);
 
   if (localStorage.type === "BUYER") {
     login.hidden = true;
