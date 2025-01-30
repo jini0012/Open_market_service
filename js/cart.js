@@ -24,6 +24,47 @@ function deleteCart(id) {
   });
 }
 
+function changeQuantity(e, id, quantity, stock) {
+  const isPlusBtn =
+    e.target.classList.contains("plus") ||
+    e.target.parentElement.classList.contains("plus");
+
+  function fetchChangeQuantity(id, quantity) {
+    fetch(`${fetchUrl}/cart/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+      body: JSON.stringify({
+        quantity: quantity,
+      }),
+    }).then((response) => {
+      if (!response.ok) {
+        console.error("Error:", response);
+        location.href = "error.html";
+      }
+      return loadCart();
+    });
+  }
+  if (isPlusBtn && quantity >= stock) {
+    quantity = stock;
+    return alert("재고 수량을 초과 하여 상품 수량을 추가할 수 없습니다.");
+  }
+  if (!isPlusBtn && quantity <= 1) {
+    quantity = 1;
+    return;
+  }
+
+  if (isPlusBtn) {
+    quantity += 1;
+    fetchChangeQuantity(id, quantity);
+  } else {
+    quantity -= 1;
+    fetchChangeQuantity(id, quantity);
+  }
+}
+
 function loadCart() {
   fetch(`${fetchUrl}/cart/`, {
     method: "GET",
@@ -85,11 +126,16 @@ function loadCart() {
             }</p>
                 </div>
                 <div class="goods-quantity">
-                  <button class="minus" type="button" id="minus">
+                  <button class="minus" type="button" id="minus" onClick="changeQuantity(event, ${
+                    result.id
+                  },${quantity},${result.product.stock})">
                     <img src="./assets/icon-minus-line.svg" alt="수량 빼기" />
                   </button>
                   <input type="number" min="1" value="${quantity}" id="num" disabled />
-                  <button class="plus" type="button" id="plus">
+                  <button class="plus" type="button" id="plus" onClick="changeQuantity(event, ${
+                    result.id
+                  },${quantity},${result.product.stock})">
+                    
                     <img src="./assets/icon-plus-line.svg" alt="수량 더하기" />
                   </button>
                 </div>
