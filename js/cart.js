@@ -35,7 +35,10 @@ function loadCart() {
     .then((response) => {
       if (!response.ok) {
         console.error("Error:", response);
-        location.href = "error.html";
+        alert(
+          "에러가 발생하여 로그아웃 되었습니다. 다시 로그인을 진행해주세요."
+        );
+        logout();
       }
       return response.json();
     })
