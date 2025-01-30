@@ -54,6 +54,10 @@ if (localStorage.accessToken) {
     setInterval(() => {
       getAccessToken();
     }, 300000);
+
+    setTimeout(() => {
+      logout();
+    }, 86400000);
   }
 
   if (localStorage.type === "BUYER") {
