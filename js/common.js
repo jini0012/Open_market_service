@@ -53,7 +53,7 @@ if (localStorage.accessToken) {
   if (localStorage.accessToken !== "undefined") {
     setInterval(() => {
       getAccessToken();
-    }, 300000);
+    }, 299000);
   }
 
   setTimeout(() => {
