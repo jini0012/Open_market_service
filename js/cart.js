@@ -22,10 +22,12 @@ allCheckBtn.addEventListener("click", () => {
     allCheckbox.forEach((checkbox) => {
       checkbox.checked = false;
     });
+    changeTotalPrice();
   } else {
     allCheckbox.forEach((checkbox) => {
       checkbox.checked = true;
     });
+    changeTotalPrice();
   }
 });
 
@@ -102,6 +104,47 @@ function changeQuantity(e, id, quantity, stock) {
   }
 }
 
+function changeTotalPrice() {
+  let totalShippingFee = 0;
+  let totalPrice = 0;
+  let totalPaymentPrice = 0;
+  const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
+  const totalPriceEl = cartCalc.querySelector(".total-price ");
+  const paymentPriceEl = cartCalc.querySelector(".payment-amount");
+
+  cartItems.querySelectorAll("li article").forEach((article) => {
+    const isCheckboxChecked = article.querySelector("input").checked === true;
+    const goodsPrice = parseInt(
+      article
+        .querySelector(".goods-details span")
+        .textContent.replaceAll(",", "")
+    );
+    const shippingFeeText = article.querySelector(
+      ".goods-details p:last-of-type"
+    ).textContent;
+    const shippingFee =
+      shippingFeeText.split(":")[1] !== undefined
+        ? parseInt(shippingFeeText.split(":")[1].replaceAll(",", ""))
+        : 0;
+    const paymentPrice = parseInt(
+      article.querySelector(".goods-price p").textContent.replaceAll(",", "")
+    );
+    const totalQuantity = parseInt(
+      article.querySelector(".goods-quantity input").value
+    );
+
+    if (isCheckboxChecked) {
+      totalPrice += goodsPrice * totalQuantity;
+      totalShippingFee += shippingFee;
+      totalPaymentPrice += paymentPrice;
+    }
+
+    totalShippingFeeEl.textContent = totalShippingFee.toLocaleString("ko-KR");
+    totalPriceEl.textContent = totalPrice.toLocaleString("ko-KR");
+    paymentPriceEl.textContent = totalPaymentPrice.toLocaleString("ko-KR");
+  });
+}
+
 function loadCart() {
   fetch(`${fetchUrl}/cart/`, {
     method: "GET",
@@ -118,13 +161,6 @@ function loadCart() {
       return response.json();
     })
     .then((json) => {
-      let totalShippingFee = 0;
-      let totalPrice = 0;
-      let paymentPrice = 0;
-      const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
-      const totalPriceEl = cartCalc.querySelector(".total-price ");
-      const paymentPriceEl = cartCalc.querySelector(".payment-amount");
-
       if (json.count >= 1) {
         const cartResults = json.results;
 
@@ -134,18 +170,10 @@ function loadCart() {
             if (quantity >= result.product.stock) {
               quantity = result.product.stock;
             }
-            totalShippingFee += result.product.shipping_fee;
-            totalShippingFeeEl.textContent =
-              totalShippingFee.toLocaleString("ko-KR");
-            totalPrice += result.product.price * quantity;
-            totalPriceEl.textContent = totalPrice.toLocaleString("ko-KR");
-            paymentPrice = totalPrice + totalShippingFee;
-            paymentPriceEl.textContent = paymentPrice.toLocaleString("ko-KR");
 
-            allCheckBtn.classList.add("active");
             return `<li>
             <article>
-              <input type="checkbox" id="check${idx}" checked />
+              <input type="checkbox" id="check${idx}" checked onClick = "changeTotalPrice()"/>
               <label for="check${idx}">
                 <div class="goods-details">
                   <img src="${result.product.image}" alt="${
@@ -197,6 +225,7 @@ function loadCart() {
           </li>`;
           })
           .join("");
+        changeTotalPrice();
       } else {
         cartForm.innerHTML = `<p class = "empty-cart">장바구니에 담긴 상품이 없습니다.</p>
         <span>원하는 상품을 장바구니에 담아보세요!</span>`;
