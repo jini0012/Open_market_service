@@ -1,10 +1,11 @@
 const buy = document.querySelector(".buy-wrap");
 const goodsImg = buy.querySelector("img");
 const goodsInfo = document.querySelector(".goodsInfo");
-let productData;
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
+const product = JSON.parse(localStorage.product_info);
+
 if (!!productId) {
   fetch(`${fetchUrl}/products/${productId}`)
     .then((response) => {
@@ -14,8 +15,6 @@ if (!!productId) {
       return response.json();
     })
     .then((json) => {
-      productData = encodeURIComponent(JSON.stringify(json));
-
       document.title = "HODU : " + json.name;
       goodsImg.src = `${json.image}`;
       goodsImg.alt = `${json.info}`;
@@ -88,10 +87,10 @@ if (localStorage.type === "SELLER") {
   cartBtn.disabled = true;
 }
 
-const defaultPrice = localStorage.price;
+const defaultPrice = product.price;
 // 가격 초기 값 설정
 totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
-  Number(defaultPrice) + Number(localStorage.fee)
+  product.price + product.shipping_fee
 );
 
 const minusBtn = form.querySelector(".minus");
@@ -117,7 +116,7 @@ function minusBtnDisabled() {
   minusBtn.querySelector("img").src = "./assets/icon-minus-line-disabled.svg";
 }
 
-if (localStorage.stock === "0") {
+if (product.stock === 0) {
   num.value = 0;
   minusBtnDisabled();
   plusBtnDisabled();
@@ -125,7 +124,7 @@ if (localStorage.stock === "0") {
   cartBtn.disabled = true;
   total.textContent = 0;
   totalPrice.textContent = 0;
-} else if (localStorage.stock === "1") {
+} else if (product.stock === 1) {
   plusBtnDisabled();
 }
 
@@ -145,7 +144,7 @@ Btns.forEach((button) => {
     total.textContent = num.value;
 
     totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
-      Number(num.value) * Number(defaultPrice) + Number(localStorage.fee)
+      Number(num.value) * product.price + product.shipping_fee
     );
 
     if (total.textContent === "0") {
@@ -162,7 +161,7 @@ Btns.forEach((button) => {
       buyBtn.disabled = false;
       cartBtn.disabled = false;
 
-      if (Number(localStorage.stock) <= Number(num.value)) {
+      if (product.stock <= num.value) {
         plusBtnDisabled();
       } else {
         plusBtnEnabled();
@@ -204,7 +203,6 @@ if (!!localStorage.accessToken && !!productId) {
 
   buyBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const product = JSON.parse(decodeURIComponent(productData));
 
     localStorage.setItem(
       "orderItem",
@@ -213,7 +211,7 @@ if (!!localStorage.accessToken && !!productId) {
         product: product.id,
         quantity: parseInt(num.value),
         name: product.name,
-        seller: product.seller.store_name,
+        seller: product.seller,
         price: product.price,
         shipping_fee: product.shipping_fee,
         image: product.image,
