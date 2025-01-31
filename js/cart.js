@@ -13,6 +13,38 @@ const cartForm = document.querySelector("main form");
 const cartItems = cartForm.querySelector(".cart-item");
 const cartCalc = document.querySelector(".cart-calc");
 
+const allCheckBtn = cartInfo.querySelector(".all-check-btn");
+allCheckBtn.addEventListener("click", () => {
+  const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
+  allCheckBtn.classList.toggle("active");
+  if (!allCheckBtn.classList.contains("active")) {
+    allCheckbox.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+  } else {
+    allCheckbox.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+  }
+});
+
+const allDeleteBtn = cartInfo.querySelector(".all-delete-btn");
+allDeleteBtn.addEventListener("click", () => {
+  fetch(`${fetchUrl}/cart/`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error:", response);
+    }
+    allCheckBtn.classList.remove("active");
+    return loadCart();
+  });
+});
+
 function deleteCart(id) {
   fetch(`${fetchUrl}/cart/${id}/`, {
     method: "DELETE",
@@ -109,9 +141,10 @@ function loadCart() {
             paymentPrice = totalPrice + totalShippingFee;
             paymentPriceEl.textContent = paymentPrice.toLocaleString("ko-KR");
 
+            allCheckBtn.classList.add("active");
             return `<li>
             <article>
-              <input type="checkbox" id="check${idx}" />
+              <input type="checkbox" id="check${idx}" checked />
               <label for="check${idx}">
                 <div class="goods-details">
                   <img src="${result.product.image}" alt="${
@@ -170,36 +203,3 @@ function loadCart() {
       }
     });
 }
-
-const allCheckBtn = cartInfo.querySelector(".all-check-btn");
-allCheckBtn.addEventListener("click", () => {
-  const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
-
-  allCheckBtn.classList.toggle("active");
-  if (!allCheckBtn.classList.contains("active")) {
-    allCheckbox.forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-  } else {
-    allCheckbox.forEach((checkbox) => {
-      checkbox.checked = true;
-    });
-  }
-});
-
-const allDeleteBtn = cartInfo.querySelector(".all-delete-btn");
-allDeleteBtn.addEventListener("click", () => {
-  fetch(`${fetchUrl}/cart/`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + localStorage.getItem("accessToken"),
-    },
-  }).then((response) => {
-    if (!response.ok) {
-      console.error("Error:", response);
-    }
-    allCheckBtn.classList.remove("active");
-    return loadCart();
-  });
-});
