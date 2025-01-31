@@ -17,93 +17,353 @@ main {
     display: flex;
     align-items: center;
   }
+}
+.order-info {
+  height: 6rem;
+  position: relative;
+  border-radius: 1rem;
+  background-color: #f2f2f2;
+  li {
+    width: 100%;
+    text-align: center;
+  }
+  li:first-of-type {
+    flex: 2;
+  }
+  li:nth-of-type(2) {
+    flex: 1;
+  }
+  li:nth-of-type(3) {
+    flex: 1;
+  }
+  li:nth-of-type(4) {
+    flex: 1;
+  }
+}
 
-  .order-info {
-    height: 6rem;
-    position: relative;
-    border-radius: 1rem;
-    background-color: #f2f2f2;
+.order-list {
+  margin-bottom: 3rem;
+  ul {
+    display: flex;
+    flex-direction: column;
     li {
       width: 100%;
-      text-align: center;
-    }
-    li:first-of-type {
-      flex: 2;
-    }
-    li:nth-of-type(2) {
-      flex: 1;
-    }
-    li:nth-of-type(3) {
-      flex: 1;
-    }
-    li:nth-of-type(4) {
-      flex: 1;
     }
   }
 
-  .order-list {
-    margin-bottom: 3rem;
-    ul {
+  article {
+    border-bottom: 0.1rem solid var(--border-color);
+    padding: 1.7rem 0;
+    padding-left: 0.8rem;
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+
+    img {
+      flex: 1;
+      max-width: 10.4rem;
+      height: 10.4rem;
+      border-radius: 1rem;
+      margin-right: 3.6rem;
+    }
+    .order-details {
+      flex: 1.4;
       display: flex;
       flex-direction: column;
-      li {
-        width: 100%;
+      gap: 0.6rem;
+      p {
+        font-size: 1.4rem;
+        span {
+          color: var(--point-color);
+        }
+      }
+      h3 {
+        color: #000;
       }
     }
 
-    article {
-      border-bottom: 0.1rem solid var(--border-color);
-      padding: 1.7rem 0;
-      padding-left: 0.8rem;
-      display: flex;
-      align-items: center;
-      color: var(--font-color);
-
-      img {
-        flex: 1;
-        max-width: 10.4rem;
-        height: 10.4rem;
-        border-radius: 1rem;
-        margin-right: 3.6rem;
-      }
-      .order-details {
-        flex: 1.4;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        p {
-          font-size: 1.4rem;
-          span {
-            color: var(--point-color);
-          }
-        }
-        h3 {
-          color: #000;
-        }
-      }
-
-      .discount,
-      .fee,
-      .price {
-        flex: 1;
-        text-align: center;
-      }
-      .price {
-        color: #000;
-        font-weight: bold;
-      }
+    .discount,
+    .fee,
+    .price {
+      flex: 1;
+      text-align: center;
+    }
+    .price {
+      color: #000;
+      font-weight: bold;
     }
   }
 }
+
 .total-price {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-bottom: 9.8rem;
+  margin-bottom: 2.8rem;
   span {
     margin-left: 1rem;
     font-size: 2.4rem;
     font-weight: bold;
     color: var(--error-color);
+  }
+}
+
+.delivery-info {
+  min-width: 26rem;
+  h3 {
+    border-bottom: 0.2rem solid var(--border-color);
+    margin-top: 7rem;
+    padding-bottom: 1.8rem;
+    font-size: 2.4rem;
+  }
+  h4 {
+    border-bottom: 0.2rem solid var(--border-color);
+    padding-bottom: 0.8rem;
+    margin-top: 4rem;
+  }
+}
+
+.buyer-info,
+.address-info {
+  label {
+    display: inline-block;
+    width: 100%;
+    height: 5.6rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    border-bottom: 0.1rem solid var(--border-color);
+  }
+  span {
+    width: 100%;
+    max-width: 17rem;
+    white-space: nowrap;
+  }
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 33.4rem;
+    height: 4rem;
+    border: solid 0.1rem var(--border-color);
+  }
+  .phone {
+    input:first-of-type {
+      max-width: 8rem;
+      margin-right: 1rem;
+    }
+    input:nth-of-type(2),
+    input:last-of-type {
+      max-width: 10rem;
+      margin: 0 1rem;
+    }
+  }
+}
+.address-info .address {
+  height: 15.2rem;
+  div {
+    width: 85%;
+    display: grid;
+    grid-template-areas:
+      "address "
+      "detail-address1 "
+      "detail-address2 ";
+    row-gap: 0.8rem;
+    position: relative;
+
+    button {
+      width: 100%;
+      max-width: 15.4rem;
+      height: 4rem;
+      border-radius: 0.5rem;
+      color: var(--main-color);
+      background-color: var(--point-color);
+      position: absolute;
+      left: 18rem;
+    }
+    #address {
+      width: 100%;
+      max-width: 17rem;
+      grid-area: address;
+    }
+    #detail-address1 {
+      grid-area: detail-address1;
+      width: 100%;
+      max-width: 80rem;
+    }
+    #detail-address2 {
+      width: 100%;
+      max-width: 80rem;
+      grid-area: detail-address2;
+    }
+  }
+}
+
+.payment {
+  float: left;
+  margin-right: 4rem;
+  margin-bottom: 69.8rem;
+  h3 {
+    width: 100%;
+    max-width: 76rem;
+    border: none;
+  }
+  div {
+    padding: 1.8rem 0 1.8rem 1.2rem;
+    border-top: 0.2rem solid var(--border-color);
+    border-bottom: 0.2rem solid var(--border-color);
+    label {
+      margin: 0 2rem 0 1rem;
+    }
+    input[type="radio"] {
+      appearance: none;
+      width: 2rem;
+      height: 2rem;
+      background: url("../assets/circle-radio-box.svg") no-repeat center center;
+      background-size: contain;
+      position: relative;
+      top: 0.3rem;
+      cursor: pointer;
+    }
+    input[type="radio"]:checked {
+      background-image: url(../assets/circle-check--fill-box.svg);
+    }
+  }
+}
+.total-payment-info {
+  width: 100%;
+
+  h3 {
+    border: none;
+  }
+  ul {
+    padding: 3.4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 0.2rem solid var(--point-color);
+    border-radius: 1rem;
+    position: relative;
+    height: 33.2rem;
+
+    li {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 1.6rem;
+        white-space: nowrap;
+      }
+      p::before {
+        content: "- ";
+      }
+      span {
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      span::after {
+        content: "원";
+        color: var(--font-color);
+        font-weight: initial;
+        font-size: 1.4rem;
+        margin-left: 0.4rem;
+      }
+    }
+    li:nth-of-type(3) {
+      border-bottom: 0.1rem solid var(--border-color);
+      padding-bottom: 1.9rem;
+      margin-bottom: 1.4rem;
+    }
+    li:nth-of-type(4) span,
+    li:nth-of-type(4) span::after {
+      color: var(--error-color);
+      font-weight: bold;
+      font-size: 2.4rem;
+      margin-left: 0;
+    }
+    li:nth-of-type(5) {
+      position: absolute;
+      bottom: 0;
+      background-color: #f2f2f2;
+      width: 100%;
+      height: 18.2rem;
+      border-radius: 0 0 1rem 1rem;
+    }
+    div {
+      margin: auto;
+      text-align: center;
+
+      button {
+        width: 100%;
+        max-width: 22rem;
+        height: 6.8rem;
+        border-radius: 0.5rem;
+        font-size: 2.4rem;
+        font-weight: bold;
+        bottom: 3.4rem;
+        background-color: var(--point-color);
+        color: var(--main-color);
+        margin-top: 3rem;
+      }
+      button:disabled {
+        background-color: var(--border-color);
+      }
+    }
+  }
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../assets/check-box.svg);
+  position: relative;
+  left: 0rem;
+  top: 0.35rem;
+}
+input[type="checkbox"]:checked {
+  background-image: url(../assets/check-fill-box.svg);
+}
+@media screen and (max-width: 1300px) {
+  .payment {
+    float: none;
+    margin-bottom: 3rem;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 770px) {
+  .order-list article {
+    img {
+      margin-right: 0.5rem;
+      max-width: 5rem;
+      height: auto;
+    }
+    .price,
+    .fee,
+    h3 {
+      font-size: 1.6rem;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .address-info .address {
+    height: 20rem;
+    div {
+      grid-template-areas:
+        "address "
+        "button "
+        "detail-address1 "
+        "detail-address2 ";
+      button {
+        position: initial;
+        grid-area: button;
+      }
+    }
+  }
+  .order-list article {
+    .price,
+    .fee,
+    h3 {
+      font-size: 1.4rem;
+    }
   }
 }
