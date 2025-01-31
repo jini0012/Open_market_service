@@ -1,7 +1,5 @@
 // 상품 목록창 실행 시 로컬스토리지 초기화
-localStorage.removeItem("stock");
-localStorage.removeItem("price");
-localStorage.removeItem("fee");
+localStorage.removeItem("product_info");
 
 // 상품 전체 불러오기
 function loadGoodsList() {
@@ -27,9 +25,11 @@ function loadGoodsList() {
 
         // 상세페이지로 이동
         product.addEventListener("click", (e) => {
-          localStorage.setItem("price", `${json.results[index].price}`); // product 가격
-          localStorage.setItem("fee", `${json.results[index].shipping_fee}`); // product 배송비
-          localStorage.setItem("stock", `${json.results[index].stock}`); // product 재고수량
+          localStorage.setItem(
+            "product_info",
+            `${JSON.stringify(json.results[index])}`
+          );
+
           location.href = `goods.html?id=${json.results[index].id}`;
         });
       });
