@@ -1,6 +1,7 @@
 const buy = document.querySelector(".buy-wrap");
 const goodsImg = buy.querySelector("img");
 const goodsInfo = document.querySelector(".goodsInfo");
+let productData;
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
@@ -13,6 +14,8 @@ if (!!productId) {
       return response.json();
     })
     .then((json) => {
+      productData = encodeURIComponent(JSON.stringify(json));
+
       document.title = "HODU : " + json.name;
       goodsImg.src = `${json.image}`;
       goodsImg.alt = `${json.info}`;
@@ -197,5 +200,26 @@ if (!!localStorage.accessToken && !!productId) {
         }
       })
       .catch((error) => console.error("error : ", error));
+  });
+
+  buyBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const product = JSON.parse(decodeURIComponent(productData));
+
+    localStorage.setItem(
+      "orderItem",
+      JSON.stringify({
+        order_kind: "direct_order",
+        product: product.id,
+        quantity: parseInt(num.value),
+        name: product.name,
+        seller: product.seller.store_name,
+        price: product.price,
+        shipping_fee: product.shipping_fee,
+        image: product.image,
+        info: product.info,
+      })
+    );
+    location.href = "order.html";
   });
 }

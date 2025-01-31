@@ -103,6 +103,27 @@ function changeQuantity(e, id, quantity, stock) {
     fetchChangeQuantity(id, quantity);
   }
 }
+function directOrder(e, orderInfo) {
+  e.preventDefault();
+
+  const product = JSON.parse(decodeURIComponent(orderInfo));
+  const productInfo = product.product;
+  localStorage.setItem(
+    "orderItem",
+    JSON.stringify({
+      order_kind: "direct_order",
+      product: product.id,
+      quantity: product.quantity,
+      name: productInfo.name,
+      seller: productInfo.seller.store_name,
+      price: productInfo.price,
+      shipping_fee: productInfo.shipping_fee,
+      image: productInfo.image,
+      info: productInfo.info,
+    })
+  );
+  location.href = "order.html";
+}
 
 function changeTotalPrice() {
   let totalShippingFee = 0;
@@ -213,7 +234,9 @@ function loadCart() {
                     quantity * result.product.price +
                     result.product.shipping_fee
                   ).toLocaleString("ko-KR")}원</p>
-                  <button type="submit" class="buy-btn">주문하기</button>
+                  <button type="submit" class="buy-btn" onClick="directOrder(event, '${encodeURIComponent(
+                    JSON.stringify(result)
+                  )}')">주문하기</button>
                 </div>
                 <button type="submit" class="delete-btn" id="delete-btn-${idx}" onClick="deleteCart(${
               result.id
