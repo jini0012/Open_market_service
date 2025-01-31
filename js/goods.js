@@ -13,6 +13,7 @@ if (!!productId) {
       return response.json();
     })
     .then((json) => {
+      document.title = "HODU : " + json.name;
       goodsImg.src = `${json.image}`;
       goodsImg.alt = `${json.info}`;
       goodsInfo.querySelector("h3").textContent = `${json.name}`;
@@ -38,8 +39,6 @@ if (!!productId) {
     })
     .catch((error) => console.error(error));
 }
-
-// 상품 클릭 시 document.title HODU : 상품 이름으로 변경되게 적용
 
 const form = document.querySelector(".countForm");
 const Btns = form.querySelectorAll("button");
