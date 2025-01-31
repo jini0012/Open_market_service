@@ -19,7 +19,7 @@ if (orderItem.order_kind === "direct_order") {
               <p class="discount">-</p>
               <p class="fee">${
                 orderItem.shipping_fee > 0
-                  ? orderItem.shipping_fee + "원"
+                  ? orderItem.shipping_fee.toLocaleString("ko-KR") + "원"
                   : "무료배송"
               }</p>
               <p class="price">${(
