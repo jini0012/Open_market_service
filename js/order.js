@@ -1,3 +1,4 @@
+localStorage.removeItem("product_info");
 if (!localStorage.getItem("type") || localStorage.getItem("type") !== "BUYER") {
   alert("비정상적인 접속 경로 입니다. 메인페이지로 이동합니다.");
   location.href = "index.html";
@@ -6,7 +7,6 @@ if (!localStorage.getItem("type") || localStorage.getItem("type") !== "BUYER") {
 const orderItem = JSON.parse(localStorage.getItem("orderItem"));
 const orderList = document.querySelector(".order-list");
 const totalPrice = document.querySelector(".total-price");
-
 if (orderItem.order_kind === "direct_order") {
   orderList.querySelector("ul").innerHTML = `<li>
             <article>
