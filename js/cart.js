@@ -14,6 +14,7 @@ const cartItems = cartForm.querySelector(".cart-item");
 const cartCalc = document.querySelector(".cart-calc");
 
 const allCheckBtn = cartInfo.querySelector(".all-check-btn");
+allCheckBtn.classList.add("active");
 allCheckBtn.addEventListener("click", () => {
   const allCheckbox = cartItems.querySelectorAll("input[type=checkbox]");
   allCheckBtn.classList.toggle("active");
