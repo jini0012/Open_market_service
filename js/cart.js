@@ -1,5 +1,8 @@
 if (localStorage.getItem("type") === "BUYER") {
   loadCart();
+} else if (!localStorage.getItem("type")) {
+  alert("구매회원 전용 페이지 입니다. 로그인 페이지로 이동합니다.");
+  location.href = "login.html";
 } else {
   alert("비정상적인 접속 경로 입니다. 메인페이지로 이동합니다.");
   location.href = "index.html";
