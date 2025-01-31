@@ -167,7 +167,7 @@ joinForm.addEventListener("input", (e) => {
     password.classList.add("invalid-passwordImg");
   }
 
-  // 비밀번호 focusout 이벤트 에러 메세지, input boeder 색상 변경(입력창에서 포커스를 잃으면 유효성 검사 진행)
+  // 비밀번호 focusout 이벤트 에러 메세지, input border 색상 변경(입력창에서 포커스를 잃으면 유효성 검사 진행)
   password.addEventListener("focusout", () => {
     if (password.validity.valueMissing) {
       // 비밀번호에 값이 없는 경우
