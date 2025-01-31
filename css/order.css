@@ -14,7 +14,6 @@ main {
   }
 
   ul {
-    width: 100%;
     display: flex;
     align-items: center;
   }
@@ -44,63 +43,63 @@ main {
 
   .order-list {
     margin-bottom: 3rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        width: 100%;
+      }
+    }
+
     article {
       border-bottom: 0.1rem solid var(--border-color);
       padding: 1.7rem 0;
       padding-left: 0.8rem;
-      ul li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--font-color);
+      display: flex;
+      align-items: center;
+      color: var(--font-color);
 
-        img {
-          width: 10.4rem;
-          height: 10.4rem;
-          border-radius: 1rem;
-        }
-        .order-details {
-          display: flex;
-          flex-direction: column;
-          gap: 0.6rem;
-          p {
-            font-size: 1.4rem;
-            span {
-              color: var(--point-color);
-            }
+      img {
+        flex: 1;
+        max-width: 10.4rem;
+        height: 10.4rem;
+        border-radius: 1rem;
+        margin-right: 3.6rem;
+      }
+      .order-details {
+        flex: 1.4;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        p {
+          font-size: 1.4rem;
+          span {
+            color: var(--point-color);
           }
-          h3 {
-            color: #000;
-          }
+        }
+        h3 {
+          color: #000;
         }
       }
-      li:first-of-type {
-        flex: 2;
-        justify-content: flex-start;
-        gap: 3.6rem;
-      }
-      li:nth-of-type(2) {
+
+      .discount,
+      .fee,
+      .price {
         flex: 1;
-      }
-      li:nth-of-type(3) {
-        flex: 1;
-      }
-      li:nth-of-type(4) {
-        color: #000;
-        flex: 1;
+        text-align: center;
       }
     }
   }
-  .total-price {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-    margin-bottom: 9.8rem;
-    span {
-      margin-left: 1rem;
-      font-size: 2.4rem;
-      font-weight: bold;
-      color: var(--error-color);
-    }
+}
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 9.8rem;
+  span {
+    margin-left: 1rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: var(--error-color);
   }
 }
