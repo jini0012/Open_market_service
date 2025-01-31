@@ -27,7 +27,16 @@ function loadGoodsList() {
         product.addEventListener("click", (e) => {
           localStorage.setItem(
             "product_info",
-            `${JSON.stringify(json.results[index])}`
+            `${JSON.stringify({
+              id: json.results[index].id,
+              name: json.results[index].name,
+              seller: json.results[index].seller.store_name,
+              price: json.results[index].price,
+              shipping_fee: json.results[index].shipping_fee,
+              image: json.results[index].image,
+              info: json.results[index].info,
+              stock: json.results[index].stock,
+            })}`
           );
 
           location.href = `goods.html?id=${json.results[index].id}`;
