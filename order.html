@@ -80,40 +80,48 @@
       <section class="delivery-info">
         <h3>배송 정보</h3>
         <form action="#">
-          <section>
+          <section class="buyer-info">
             <h4>주문자 정보</h4>
-            <label for="name">이름</label>
-            <input type="text" id="name" />
-            <div>
-              <label for="phone">휴대폰</label>
-              <input type="text" id="phone" /> -
-              <input type="text" id="phone" /> -
+            <label for="name"
+              ><span>이름</span><input type="text" id="name"
+            /></label>
+            <label for="phone" class="phone"
+              ><span>휴대폰</span><input type="text" id="phone" />-<input
+                type="text"
+                id="phone"
+              />-
               <input type="text" id="phone" />
-            </div>
-            <label for="email">이메일</label>
-            <input type="email" id="email" />
+            </label>
+            <label for="email"
+              ><span>이메일</span><input type="email" id="email"
+            /></label>
           </section>
-          <section>
+          <section class="address-info">
             <h4>배송지 정보</h4>
-            <label for="addressee">수령인</label>
-            <input type="text" id="addressee" />
-            <div>
-              <label for="phone2">휴대폰</label>
-              <input type="text" id="phone2" /> -
-              <input type="text" id="phone2" /> -
-              <input type="text" id="phone2" />
-            </div>
-            <div>
-              <label for="address">배송주소</label>
-              <input type="address" id="address" />
-              <button type="button">우편번호 조회</button>
-              <input type="text" id="address" />
-              <input type="text" id="detail-address" />
-            </div>
-            <label for="msg">배송 메시지</label>
-            <input type="text" id="msg" />
+            <label for="addressee"
+              ><span>수령인</span><input type="text" id="addressee"
+            /></label>
+
+            <label for="phone2" class="phone"
+              ><span>휴대폰</span><input type="text" id="phone2" />-
+              <input type="text" id="phone2" />- <input type="text" id="phone2"
+            /></label>
+
+            <label for="address" class="address"
+              ><span>배송주소</span>
+              <div>
+                <input type="address" id="address" />
+                <button type="button">우편번호 조회</button>
+                <input type="text" id="detail-address1" />
+                <input type="text" id="detail-address2" />
+              </div>
+            </label>
+
+            <label for="msg"
+              ><span>배송 메시지</span><input type="text" id="msg"
+            /></label>
           </section>
-          <section>
+          <section class="payment">
             <h3>결제 수단</h3>
             <div>
               <input type="radio" id="card" name="payment" />
@@ -128,45 +136,35 @@
               <label for="kakaopay">카카오페이</label>
             </div>
           </section>
-          <section>
+          <section class="total-payment-info">
             <h3>최종 결제 정보</h3>
             <ul>
               <li>
-                <p>
-                  - 상품금액
-                  <span>46,500</span>
-                  원
-                </p>
+                <p>상품금액</p>
+                <span>46,500</span>
               </li>
               <li>
-                <p>
-                  - 할인금액
-                  <span>0</span>
-                  원
-                </p>
+                <p>할인금액</p>
+                <span>0</span>
               </li>
               <li>
-                <p>
-                  - 배송비
-                  <span>0</span>
-                  원
-                </p>
+                <p>배송비</p>
+                <span>0</span>
               </li>
               <li>
-                <p>
-                  - 결제금액
-                  <span>46,500</span>
-                  원
-                </p>
+                <p>결제금액</p>
+                <span>46,500</span>
+              </li>
+              <li>
+                <div>
+                  <input type="checkbox" id="check" />
+                  <label for="check"
+                    >주문 내용을 확인하였으며, 정보 제공 등에 동의합니다</label
+                  >
+                  <button type="submit" disabled>결제하기</button>
+                </div>
               </li>
             </ul>
-            <div>
-              <input type="checkbox" id="check" />
-              <label for="check"
-                >주문 내용을 확인하였으며, 정보 제공 등에 동의합니다</label
-              >
-              <button type="submit">결제하기</button>
-            </div>
           </section>
         </form>
       </section>
