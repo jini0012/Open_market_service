@@ -17,7 +17,9 @@ gnbMyPageBtn.addEventListener("click", () => {
 });
 
 function logout() {
-  localStorage.clear();
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  localStorage.removeItem("type");
   location.reload(true);
 }
 
