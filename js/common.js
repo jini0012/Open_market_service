@@ -1,7 +1,11 @@
 const fetchUrl = "https://estapi.openmarket.weniv.co.kr";
 
-const myPageBtn = document.querySelector(".myPageBtn");
-const myPageModal = document.querySelector(".myPageModal");
+const gnb = document.querySelector(".GNB");
+const cartBtn = gnb.querySelector(".cart");
+const loginBtn = gnb.querySelector(".login");
+const myPageBtn = gnb.querySelector(".myPage");
+const sellerCenterBtn = gnb.querySelector(".sellerCenter");
+const myPageModal = gnb.querySelector(".myPageModal");
 const logoutBtn = myPageModal.querySelector(".logout");
 
 myPageBtn.addEventListener("click", () => {
@@ -11,11 +15,6 @@ myPageBtn.addEventListener("click", () => {
     myPageModal.open = false;
   }
 });
-
-const cart = document.querySelector(".cart");
-const login = document.querySelector(".login");
-const myPage = document.querySelector(".myPage");
-const sellerCenter = document.querySelector(".sellerCenter");
 
 function logout() {
   localStorage.removeItem("accessToken");
@@ -64,13 +63,13 @@ if (localStorage.accessToken) {
   }, 86400000);
 
   if (localStorage.type === "BUYER") {
-    login.hidden = true;
-    myPage.hidden = false;
+    loginBtn.hidden = true;
+    myPageBtn.hidden = false;
   } else if (localStorage.type === "SELLER") {
-    login.hidden = true;
-    cart.hidden = true;
-    myPage.hidden = false;
-    sellerCenter.hidden = false;
+    loginBtn.hidden = true;
+    cartBtn.hidden = true;
+    myPageBtn.hidden = false;
+    sellerCenterBtn.hidden = false;
   }
 }
 
