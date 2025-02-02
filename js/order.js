@@ -68,3 +68,54 @@ deliveryForm.addEventListener("input", () => {
     payButton.disabled = true;
   }
 });
+
+deliveryForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const receiverData = deliveryForm.querySelector(".address-info");
+  const receiver = receiverData.querySelector("#addressee");
+  const receiverPhoneNum = receiverData.querySelectorAll("#phone2");
+  const receiverAddress = receiverData.querySelectorAll(".address input");
+  const receiverMsg = receiverData.querySelector("#msg");
+  const selectedPayment = deliveryForm.querySelector(
+    `input[type="radio"]:checked`
+  );
+
+  function directOrder() {
+    fetch(`${fetchUrl}/order`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.accessToken}`,
+      },
+      body: JSON.stringify({
+        order_kind: orderData.order_kind,
+        product: orderData.product,
+        quantity: orderData.quantity,
+        total_price:
+          orderData.quantity * orderData.price + orderData.shipping_fee,
+        reciever: receiver.value,
+        reciever_phone_number:
+          receiverPhoneNum[0].value +
+          receiverPhoneNum[1].value +
+          receiverPhoneNum[2].value,
+        address: receiverAddress[1].value + receiverAddress[2].value,
+        address_message:
+          receiverMsg.value.trim() === "" ? null : receiverMsg.value.trim(),
+        payment_method: selectedPayment.value,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.error("Error : ", error);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        alert("주문이 완료되었습니다. 메인페이지로 이동합니다.");
+        location.href = "index.html";
+        localStorage.removeItem("orderItem");
+      });
+  }
+
+  directOrder();
+});
