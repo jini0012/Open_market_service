@@ -34,3 +34,25 @@ if (orderData.order_kind === "direct_order") {
   ).toLocaleString("ko-KR")}원`;
 }
 
+const deliveryForm = document.querySelector(".delivery-info form");
+
+deliveryForm.addEventListener("input", () => {
+  const requiredInputs = deliveryForm.querySelectorAll(
+    "input:not(input[type='radio'])"
+  );
+  const requiredCheckbox = deliveryForm.querySelector('input[type="checkbox"]');
+  const payButton = deliveryForm.querySelector('button[type="submit"]');
+
+  let inputValid = 0;
+  requiredInputs.forEach((input) => {
+    if (input.value !== "") {
+      inputValid += 1;
+    }
+  });
+
+  if (inputValid >= 13 && requiredCheckbox.checked === true) {
+    payButton.disabled = false;
+  } else {
+    payButton.disabled = true;
+  }
+});
