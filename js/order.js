@@ -4,33 +4,33 @@ if (!localStorage.getItem("type") || localStorage.getItem("type") !== "BUYER") {
   location.href = "index.html";
 }
 
-const orderItem = JSON.parse(localStorage.getItem("orderItem"));
+const orderData = JSON.parse(localStorage.getItem("orderItem"));
 const orderList = document.querySelector(".order-list");
 const totalPrice = document.querySelector(".total-price");
-if (orderItem.order_kind === "direct_order") {
+if (orderData.order_kind === "direct_order") {
   orderList.querySelector("ul").innerHTML = `<li>
             <article>
-              <img src="${orderItem.image}" alt="${orderItem.info}" />
+              <img src="${orderData.image}" alt="${orderData.info}" />
               <div class="order-details">
-                <p>${orderItem.seller}</p>
-                <h3>${orderItem.name}</h3>
-                <p>수량 : <span>${orderItem.quantity}</span>개</p>
+                <p>${orderData.seller}</p>
+                <h3>${orderData.name}</h3>
+                <p>수량 : <span>${orderData.quantity}</span>개</p>
               </div>
               <p class="discount">-</p>
               <p class="fee">${
-                orderItem.shipping_fee > 0
-                  ? orderItem.shipping_fee.toLocaleString("ko-KR") + "원"
+                orderData.shipping_fee > 0
+                  ? orderData.shipping_fee.toLocaleString("ko-KR") + "원"
                   : "무료배송"
               }</p>
               <p class="price">${(
-                orderItem.quantity * orderItem.price
+                orderData.quantity * orderData.price
               ).toLocaleString("ko-KR")}원</p>
             </article>
           </li>`;
 
   totalPrice.querySelector("span").textContent = `${(
-    orderItem.quantity * orderItem.price +
-    orderItem.shipping_fee
+    orderData.quantity * orderData.price +
+    orderData.shipping_fee
   ).toLocaleString("ko-KR")}원`;
 }
 
