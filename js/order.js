@@ -7,6 +7,9 @@ if (!localStorage.getItem("type") || localStorage.getItem("type") !== "BUYER") {
 const orderData = JSON.parse(localStorage.getItem("orderItem"));
 const orderList = document.querySelector(".order-list");
 const totalPrice = document.querySelector(".total-price");
+const paymentInfo = document.querySelectorAll(".total-payment-info li span");
+console.log(paymentInfo);
+
 if (orderData.order_kind === "direct_order") {
   orderList.querySelector("ul").innerHTML = `<li>
             <article>
@@ -32,6 +35,15 @@ if (orderData.order_kind === "direct_order") {
     orderData.quantity * orderData.price +
     orderData.shipping_fee
   ).toLocaleString("ko-KR")}원`;
+
+  paymentInfo[0].textContent = (
+    orderData.quantity * orderData.price
+  ).toLocaleString("ko-KR");
+  paymentInfo[2].textContent = orderData.shipping_fee.toLocaleString("ko-KR");
+  paymentInfo[3].textContent = (
+    orderData.quantity * orderData.price +
+    orderData.shipping_fee
+  ).toLocaleString("ko-KR");
 }
 
 const deliveryForm = document.querySelector(".delivery-info form");
