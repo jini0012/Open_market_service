@@ -125,14 +125,14 @@ function directOrder(e, orderInfo) {
   );
   location.href = "order.html";
 }
+const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
+const totalPriceEl = cartCalc.querySelector(".total-price ");
+const paymentPriceEl = cartCalc.querySelector(".payment-amount");
 
 function changeTotalPrice() {
   let totalShippingFee = 0;
   let totalPrice = 0;
   let totalPaymentPrice = 0;
-  const totalShippingFeeEl = cartCalc.querySelector(".total-shipping-fee");
-  const totalPriceEl = cartCalc.querySelector(".total-price ");
-  const paymentPriceEl = cartCalc.querySelector(".payment-amount");
 
   cartItems.querySelectorAll("li article").forEach((article) => {
     const isCheckboxChecked = article.querySelector("input").checked === true;
@@ -167,6 +167,26 @@ function changeTotalPrice() {
   });
 }
 
+function cartOrder(e, orderList) {
+  e.preventDefault();
+
+  const products = JSON.parse(decodeURIComponent(orderList)).results;
+
+  localStorage.setItem(
+    "orderItem",
+    JSON.stringify({
+      order_kind: "cart_order",
+      productList: products,
+      totalPrice: parseInt(totalPriceEl.textContent.replaceAll(",", "")),
+      totalFee: parseInt(totalShippingFeeEl.textContent.replaceAll(",", "")),
+      totalPaymentPrice: parseInt(
+        paymentPriceEl.textContent.replaceAll(",", "")
+      ),
+    })
+  );
+  location.href = "order.html";
+}
+
 function loadCart() {
   fetch(`${fetchUrl}/cart/`, {
     method: "GET",
@@ -183,6 +203,11 @@ function loadCart() {
       return response.json();
     })
     .then((json) => {
+      const cartOrderBtn = cartForm.querySelector(".buy-btn");
+      cartOrderBtn.addEventListener("click", (e) =>
+        cartOrder(e, encodeURIComponent(JSON.stringify(json)))
+      );
+
       if (json.count >= 1) {
         const cartResults = json.results;
 
