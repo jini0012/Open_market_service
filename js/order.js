@@ -8,7 +8,6 @@ const orderData = JSON.parse(localStorage.getItem("orderItem"));
 const orderList = document.querySelector(".order-list");
 const totalPrice = document.querySelector(".total-price");
 const paymentInfo = document.querySelectorAll(".total-payment-info li span");
-console.log(paymentInfo);
 
 if (orderData.order_kind === "direct_order") {
   orderList.querySelector("ul").innerHTML = `<li>
@@ -81,20 +80,20 @@ deliveryForm.addEventListener("submit", (e) => {
   );
 
   function directOrder() {
-    fetch(`${fetchUrl}/order`, {
+    fetch(`${fetchUrl}/order/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.accessToken}`,
       },
       body: JSON.stringify({
-        order_kind: orderData.order_kind,
+        order_type: orderData.order_kind,
         product: orderData.product,
         quantity: orderData.quantity,
         total_price:
           orderData.quantity * orderData.price + orderData.shipping_fee,
-        reciever: receiver.value,
-        reciever_phone_number:
+        receiver: receiver.value,
+        receiver_phone_number:
           receiverPhoneNum[0].value +
           receiverPhoneNum[1].value +
           receiverPhoneNum[2].value,
