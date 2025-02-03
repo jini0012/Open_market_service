@@ -1,10 +1,13 @@
 body {
-  max-width: 192rem;
   margin: auto;
   font-size: 1.6rem;
   line-height: 2.003rem;
   display: flex;
   flex-direction: column;
+  main {
+    max-width: 192rem;
+    margin: auto;
+  }
 }
 
 .banner {
@@ -58,6 +61,8 @@ article a {
     min-width: 30rem;
     max-width: 38rem;
     border: var(--border-color) solid 0.1rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   p:first-of-type {

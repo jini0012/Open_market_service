@@ -1,11 +1,13 @@
 body {
-  max-width: 192rem;
   margin: auto;
-
   font-size: 1.8rem;
   line-height: 2.254rem;
   display: flex;
   flex-direction: column;
+  main {
+    max-width: 192rem;
+    margin: auto;
+  }
 }
 
 main {
