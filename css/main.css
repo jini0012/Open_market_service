@@ -75,3 +75,9 @@ article a {
     line-height: 3.005rem;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .goodsList {
+    padding: 8rem 2rem 18rem 2rem;
+  }
+}
