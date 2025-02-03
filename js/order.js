@@ -5,12 +5,12 @@ if (!localStorage.getItem("type") || localStorage.getItem("type") !== "BUYER") {
 }
 
 const orderData = JSON.parse(localStorage.getItem("orderItem"));
-const orderList = document.querySelector(".order-list");
+const orderList = document.querySelector(".order-list ul");
 const totalPrice = document.querySelector(".total-price");
 const paymentInfo = document.querySelectorAll(".total-payment-info li span");
 
 if (orderData.order_kind === "direct_order") {
-  orderList.querySelector("ul").innerHTML = `<li>
+  orderList.innerHTML = `<li>
             <article>
               <img src="${orderData.image}" alt="${orderData.info}" />
               <div class="order-details">
@@ -43,6 +43,40 @@ if (orderData.order_kind === "direct_order") {
     orderData.quantity * orderData.price +
     orderData.shipping_fee
   ).toLocaleString("ko-KR");
+} else if (orderData.order_kind === "cart_order") {
+  orderList.innerHTML = orderData.productList
+    .map((product) => {
+      const productInfo = product.product;
+      return `<li>
+<article>
+  <img src="${productInfo.image}" alt="${productInfo.info}" />
+  <div class="order-details">
+    <p>${productInfo.seller.store_name}</p>
+    <h3>${productInfo.name}</h3>
+    <p>수량 : <span>${product.quantity}</span>개</p>
+  </div>
+  <p class="discount">-</p>
+  <p class="fee">${
+    productInfo.shipping_fee > 0
+      ? productInfo.shipping_fee.toLocaleString("ko-KR") + "원"
+      : "무료배송"
+  }</p>
+  <p class="price">${(product.quantity * productInfo.price).toLocaleString(
+    "ko-KR"
+  )}원</p>
+</article>
+</li>`;
+    })
+    .join("");
+
+  totalPrice.querySelector(
+    "span"
+  ).textContent = `${orderData.totalPaymentPrice.toLocaleString("ko-KR")}원`;
+
+  paymentInfo[0].textContent = orderData.totalPrice.toLocaleString("ko-KR");
+  paymentInfo[2].textContent = orderData.totalFee.toLocaleString("ko-KR");
+  paymentInfo[3].textContent =
+    orderData.totalPaymentPrice.toLocaleString("ko-KR");
 }
 
 const deliveryForm = document.querySelector(".delivery-info form");
@@ -116,5 +150,44 @@ deliveryForm.addEventListener("submit", (e) => {
       });
   }
 
-  directOrder();
+  function cartOrder() {
+    fetch(`${fetchUrl}/order/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.accessToken}`,
+      },
+      body: JSON.stringify({
+        order_type: orderData.order_kind,
+        cart_items: orderData.productList.map((product) => product.product.id),
+        total_price: orderData.totalPaymentPrice,
+        receiver: receiver.value,
+        receiver_phone_number:
+          receiverPhoneNum[0].value +
+          receiverPhoneNum[1].value +
+          receiverPhoneNum[2].value,
+        address: receiverAddress[1].value + receiverAddress[2].value,
+        address_message:
+          receiverMsg.value.trim() === "" ? null : receiverMsg.value.trim(),
+        payment_method: selectedPayment.value,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.error("Error : ", error);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        alert("주문이 완료되었습니다. 메인페이지로 이동합니다.");
+        location.href = "index.html";
+        localStorage.removeItem("orderItem");
+      });
+  }
+
+  if (orderData.order_kind === "direct_order") {
+    directOrder();
+  } else {
+    cartOrder();
+  }
 });
