@@ -108,11 +108,12 @@ function directOrder(e, orderInfo) {
 
   const product = JSON.parse(decodeURIComponent(orderInfo));
   const productInfo = product.product;
+
   localStorage.setItem(
     "orderItem",
     JSON.stringify({
       order_kind: "direct_order",
-      product: product.id,
+      product: productInfo.id,
       quantity: product.quantity,
       name: productInfo.name,
       seller: productInfo.seller.store_name,
