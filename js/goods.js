@@ -191,6 +191,12 @@ if (!!localStorage.accessToken && !!productId) {
         return response.json();
       })
       .then((json) => {
+        if (json.detail === "Given token not valid for any token type") {
+          alert(
+            "로그인 세션이 만료되어 로그아웃되었습니다. 재로그인을 진행해주세요."
+          );
+          return logout();
+        }
         const goCartPage = confirm(
           `${json.detail}\n장바구니로 이동하시겠습니까?`
         );
