@@ -6,8 +6,10 @@
   font-style: normal;
 }
 
-html {
+html,
+* {
   font-size: 10px;
+  font-family: "SpoqaHanSansNeo-Regular";
 }
 
 :root {
@@ -17,11 +19,6 @@ html {
   --font-color: #767676;
   --error-color: #eb5757;
   --input-border: var(--border-color) 0.1rem solid;
-}
-
-*,
-a {
-  font-family: "SpoqaHanSansNeo-Regular";
 }
 
 /* 공통속성 */
@@ -62,6 +59,24 @@ input[type="checkbox"] + label {
   z-index: 100;
   background-color: var(--main-color);
   box-shadow: 0 0.4rem 0.5rem 0 #0000001a;
+
+  h1 img {
+    width: 100%;
+    max-width: 12.4rem;
+    min-width: 8rem;
+  }
+}
+
+.GNB.seller {
+  justify-content: flex-start;
+  padding: 3.3rem 0 3.3rem 10rem;
+  gap: 1.6rem;
+  h1 img {
+    max-width: 8rem;
+  }
+  p {
+    font-size: 3rem;
+  }
 }
 
 .search-wrap {
@@ -69,12 +84,6 @@ input[type="checkbox"] + label {
   align-items: center;
   gap: 3rem;
   width: 82.4rem;
-
-  h1 img {
-    width: 100%;
-    max-width: 12.4rem;
-    min-width: 8rem;
-  }
 
   form {
     position: relative;
@@ -284,6 +293,15 @@ address {
   }
 }
 @media screen and (max-width: 780px) {
+  .GNB.seller {
+    padding: 3.3rem 0 3.3rem 5rem;
+    gap: 1.4rem;
+
+    p {
+      font-size: 2.4rem;
+    }
+  }
+
   .btn-wrap ul {
     gap: 0rem;
   }
@@ -304,6 +322,11 @@ address {
   }
 }
 @media screen and (max-width: 550px) {
+  .GNB.seller {
+    padding: 3.3rem 0 3.3rem 2rem;
+    gap: 1.4rem;
+  }
+
   #search::placeholder {
     color: #fff;
   }
