@@ -119,7 +119,7 @@ section:last-of-type {
 
   .goods {
     height: 88.4rem;
-    overflow: scroll;
+    overflow-y: auto;
     background-color: var(--border-color);
     article {
       background-color: var(--main-color);
