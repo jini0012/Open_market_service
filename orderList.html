@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HODU</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/orderList.css" />
+  </head>
+  <body>
+    <header class="GNB buyer">
+      <h1>
+        <a href="index.html"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
+      </h1>
+      <p>마이페이지</p>
+    </header>
+    <main>
+      <section>
+        <h2>주문내역 <span>dummy</span></h2>
+        <p class="order-quantity">주문수량<span>3</span></p>
+      </section>
+
+      <section>
+        <h2 class="sr-only">판매중인 상품</h2>
+        <ul class="order-list">
+          <li>주문정보</li>
+          <li>총 금액</li>
+          <li>상세보기</li>
+          <li>삭제</li>
+        </ul>
+        <ul class="goods">
+          <li>
+            <article>
+              <img src="./assets/담요.png" alt="" />
+              <div class="goods-details">
+                <h3>딥러닝 개발자 무릎 담요</h3>
+                <p>구매수량 : <span>370</span> 개</p>
+              </div>
+              <p class="price">17,500원</p>
+              <div>
+                <button>상세보기</button>
+                <button class="deleteBtn">삭제</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <img src="./assets/담요.png" alt="" />
+              <div class="goods-details">
+                <h3>딥러닝 개발자 무릎 담요</h3>
+                <p>구매수량 : <span>370</span> 개</p>
+              </div>
+              <p class="price">17,500원</p>
+              <div>
+                <button>상세보기</button>
+                <button class="deleteBtn">삭제</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul class="about-wrap">
+          <li><a href="#">호두샵 소개</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li>
+            <span>
+              <a href="#">개인정보처리방침</a>
+            </span>
+          </li>
+          <li><a href="#">전자금융거래약관</a></li>
+          <li><a href="#">청소년보호정책</a></li>
+          <li><a href="#">제휴문의</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="#"
+              ><img
+                src="./assets/icon-insta.svg"
+                alt="인스타그램 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-fb.svg" alt="페이스북 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-yt.svg" alt="유튜브 페이지 바로가기"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <address>
+        <span>(주)HODU SHOP</span> <br />
+        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
+        사업자 번호 : 000-0000-0000 | 통신판매업 <br />
+        대표 : 김호두
+      </address>
+    </footer>
+    <script src="./js/common.js"></script>
+    <script src="./js/orderList.js"></script>
+  </body>
+</html>
