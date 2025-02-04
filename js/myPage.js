@@ -3,3 +3,22 @@ if (!localStorage.getItem("type")) {
   location.href = "index.html";
 }
 
+const user = JSON.parse(decodeURIComponent(localStorage.user));
+const main = document.querySelector("main");
+const data = main.querySelectorAll("main ul li span");
+
+if (!!user.user_type) {
+  main.querySelector("h2 span").textContent = user.name;
+  data[0].textContent = user.user_type;
+  data[1].textContent = user.username;
+  data[2].textContent = user.name;
+  data[3].textContent = user.phone_number.replace(
+    /(\d{3})(\d{4})(\d{4})/,
+    "$1-$2-$3"
+  );
+
+  if (user.user_type === "SELLER") {
+    const orderListBtn = main.querySelector(".order-list-btn");
+    orderListBtn.style.display = "none";
+  }
+}
