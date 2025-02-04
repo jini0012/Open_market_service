@@ -96,43 +96,41 @@ section:last-of-type {
       background-color: var(--main-color);
       padding: 1.6rem 0;
       display: grid;
-      grid-template-areas: "img info price buttons";
-      grid-template-columns: 11rem 1.7fr 1fr 1fr;
+      grid-template-areas: " info price detail delete";
+      grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
       align-items: center;
       border-bottom: solid 0.1rem var(--border-color);
       font-size: 1.8rem;
 
-      img {
-        grid-area: img;
-        margin: auto;
-        max-width: 7rem;
-        border-radius: 50%;
-      }
-      div:first-of-type {
+      div {
+        padding: 0 3rem;
         grid-area: info;
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
         h3 {
           font-weight: 500;
         }
         p {
           font-size: 1.6rem;
           color: var(--font-color);
-          span {
-            color: var(--point-color);
-          }
         }
       }
       p:not(div p) {
         grid-area: price;
         text-align: center;
+        color: var(--error-color);
+        font-weight: bold;
       }
-      div:last-of-type {
-        grid-area: buttons;
-        display: flex;
-        justify-content: space-around;
+
+      button:first-of-type {
+        grid-area: detail;
       }
+      button:last-of-type {
+        grid-area: delete;
+      }
+
       button {
         width: 100%;
         max-width: 8rem;
@@ -170,11 +168,6 @@ section:last-of-type {
     }
   }
   section:last-of-type .goods article {
-    /* grid-template-areas:
-      "img  price buttons"
-      "info price buttons"; */
-    /* grid-template-columns: 2fr 1fr 1fr; */
-
     h3,
     p:not(div p) {
       font-size: 1.4rem;
@@ -191,11 +184,5 @@ section:last-of-type {
 @media screen and (max-width: 600px) {
   main {
     padding: 0 2rem;
-  }
-  section:last-of-type .goods article {
-    grid-template-areas:
-      "img  price buttons"
-      "info price buttons";
-    grid-template-columns: 2fr 1fr 1fr;
   }
 }
