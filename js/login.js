@@ -76,7 +76,7 @@ loginForm.addEventListener("submit", (e) => {
             location.href = "index.html";
           } else {
             // 로그인 완료 시 페이지 이전 페이지로 이동
-            location.href = `${document.referrer}`;
+            location.href = document.referrer;
           }
         } else {
           msg.innerText = `아이디 또는 비밀번호가 일치하지 않습니다.`;
