@@ -16,11 +16,14 @@
       <p>판매자 센터</p>
     </header>
     <main>
-      <h2>대시보드 <span>백엔드글로벌</span></h2>
-      <button class="uploadBtn">
-        <img src="./assets/icon-plus.svg" alt="" />상품 업로드
-      </button>
       <section>
+        <h2>대시보드 <span>백엔드글로벌</span></h2>
+        <button class="uploadBtn">
+          <img src="./assets/icon-plus.svg" alt="" />상품 업로드
+        </button>
+      </section>
+      <section>
+        <h2 class="sr-only">대시보드 메뉴바</h2>
         <nav>
           <ul>
             <li>
@@ -36,31 +39,46 @@
             <li><button>스토어 설정</button></li>
           </ul>
         </nav>
+      </section>
 
-        <section>
-          <h3 class="sr-only">판매중인 상품</h3>
-
-          <ul class="goods-info-list">
-            <li>상품정보</li>
-            <li>판매가격</li>
-            <li>수정</li>
-            <li>삭제</li>
-          </ul>
-          <ul class="goods">
-            <li>
-              <article>
-                <img src="./assets/담요.png" alt="" />
-                <div class="order-details">
-                  <h4>딥러닝 개발자 무릎 담요</h4>
-                  <p>재고 : <span>370</span>개</p>
-                </div>
-                <p class="price">17,500원</p>
+      <section>
+        <h2 class="sr-only">판매중인 상품</h2>
+        <ul class="goods-info-list">
+          <li>상품정보</li>
+          <li>판매가격</li>
+          <li>수정</li>
+          <li>삭제</li>
+        </ul>
+        <ul class="goods">
+          <li>
+            <article>
+              <img src="./assets/담요.png" alt="" />
+              <div class="goods-details">
+                <h3>딥러닝 개발자 무릎 담요</h3>
+                <p>재고 : <span>370</span>개</p>
+              </div>
+              <p class="price">17,500원</p>
+              <div>
                 <button>수정</button>
                 <button class="deleteBtn">삭제</button>
-              </article>
-            </li>
-          </ul>
-        </section>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <img src="./assets/담요.png" alt="" />
+              <div class="goods-details">
+                <h3>딥러닝 개발자 무릎 담요</h3>
+                <p>재고 : <span>370</span>개</p>
+              </div>
+              <p class="price">17,500원</p>
+              <div>
+                <button>수정</button>
+                <button class="deleteBtn">삭제</button>
+              </div>
+            </article>
+          </li>
+        </ul>
       </section>
     </main>
     <footer>
