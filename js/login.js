@@ -67,6 +67,10 @@ loginForm.addEventListener("submit", (e) => {
         if (loginType() === localStorage.type) {
           localStorage.setItem("accessToken", `${json.access}`);
           localStorage.setItem("refreshToken", `${json.refresh}`);
+          localStorage.setItem(
+            "user",
+            encodeURIComponent(JSON.stringify(json.user))
+          );
           if (
             // 이전페이지가 없거나 회원가입페이지에서 로그인페이지로 이동한 경우
             document.referrer === "" ||
