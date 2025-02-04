@@ -6,7 +6,8 @@
   font-style: normal;
 }
 
-html {
+html,
+* {
   font-size: 10px;
   font-family: "SpoqaHanSansNeo-Regular";
 }
