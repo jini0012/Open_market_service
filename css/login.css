@@ -7,19 +7,16 @@ body {
   gap: 7rem;
 }
 
-/* header */
 h1 {
   width: 23.8rem;
   height: 7.4rem;
   margin: auto;
 }
 
-/* main */
 article {
   max-width: 55rem;
   margin: auto;
 }
-/* ------main 태그 공통------ */
 article ul {
   display: flex;
   justify-content: center;
@@ -29,8 +26,6 @@ button {
   line-height: 2.2rem;
   cursor: pointer;
 }
-
-/* -------------------------- */
 
 .login-btns li {
   width: 100%;

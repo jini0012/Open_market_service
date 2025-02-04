@@ -18,7 +18,6 @@ main {
   gap: 14rem;
 }
 
-/* 이미지, 상세내용 레이아웃 적용 */
 .buy-wrap {
   display: flex;
   gap: 5rem;
@@ -202,7 +201,6 @@ input:disabled {
   }
 }
 
-/* 메뉴바 */
 .menubar {
   width: 100%;
   max-width: 128rem;

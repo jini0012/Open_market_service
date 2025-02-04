@@ -21,7 +21,6 @@ html {
   --input-border: var(--border-color) 0.1rem solid;
 }
 
-/* 공통속성 */
 a {
   text-decoration: none;
   color: #000;
@@ -46,7 +45,6 @@ input[type="checkbox"] + label {
   overflow: hidden;
 }
 
-/* GNB */
 .GNB {
   height: 9rem;
   padding: 2rem;
