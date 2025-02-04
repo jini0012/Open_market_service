@@ -102,12 +102,46 @@ deliveryForm.addEventListener("input", () => {
   }
 });
 
+const receiverData = deliveryForm.querySelector(".address-info");
+const receiverAddress = receiverData.querySelectorAll(".address input");
+const postCodeBtn = receiverData.querySelector("button");
+
+postCodeBtn.addEventListener("click", () => {
+  new daum.Postcode({
+    oncomplete: function (data) {
+      let roadAddr = data.roadAddress;
+      let extraRoadAddr = "";
+
+      if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+        extraRoadAddr += data.bname;
+      }
+
+      if (data.buildingName !== "" && data.apartment === "Y") {
+        extraRoadAddr +=
+          extraRoadAddr !== "" ? ", " + data.buildingName : data.buildingName;
+      }
+
+      if (extraRoadAddr !== "") {
+        extraRoadAddr = " (" + extraRoadAddr + ")";
+      }
+
+      receiverAddress[0].value = data.zonecode;
+      receiverAddress[1].value = roadAddr;
+      receiverAddress[2].value = data.jibunAddress;
+
+      if (roadAddr !== "") {
+        receiverAddress[2].value = extraRoadAddr;
+      } else {
+        receiverAddress[2].value = "";
+      }
+    },
+  }).open();
+});
+
 deliveryForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const receiverData = deliveryForm.querySelector(".address-info");
   const receiver = receiverData.querySelector("#addressee");
   const receiverPhoneNum = receiverData.querySelectorAll("#phone2");
-  const receiverAddress = receiverData.querySelectorAll(".address input");
   const receiverMsg = receiverData.querySelector("#msg");
   const selectedPayment = deliveryForm.querySelector(
     `input[type="radio"]:checked`
