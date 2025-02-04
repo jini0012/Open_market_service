@@ -1,6 +1,6 @@
 const buy = document.querySelector(".buy-wrap");
 const goodsImg = buy.querySelector("img");
-const goodsInfo = document.querySelector(".goodsInfo");
+const goodsInfo = buy.querySelector(".goodsInfo");
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
@@ -16,10 +16,10 @@ if (!!productId) {
     })
     .then((json) => {
       document.title = "HODU : " + json.name;
-      goodsImg.src = `${json.image}`;
-      goodsImg.alt = `${json.info}`;
-      goodsInfo.querySelector("h3").textContent = `${json.name}`;
-      goodsInfo.querySelector("p").textContent = `${json.seller.store_name}`;
+      goodsImg.src = json.image;
+      goodsImg.alt = json.info;
+      goodsInfo.querySelector("h3").textContent = json.name;
+      goodsInfo.querySelector("p").textContent = json.seller.store_name;
       goodsInfo.querySelector("span").textContent = new Intl.NumberFormat(
         "ko-KR"
       ).format(json.price); // 천 단위 쉼표 포함
@@ -42,10 +42,10 @@ if (!!productId) {
     .catch((error) => console.error(error));
 }
 
-const form = document.querySelector(".countForm");
+const form = buy.querySelector(".countForm");
 const Btns = form.querySelectorAll("button");
 
-const loginModal = document.querySelector(".loginModal");
+const loginModal = buy.querySelector(".loginModal");
 const closeLoginModal = loginModal.querySelector(".closeModal");
 const yesBtn = loginModal.querySelector(".yesBtn");
 const noBtn = loginModal.querySelector(".noBtn");
