@@ -137,6 +137,7 @@ section:last-of-type {
         min-width: 6.5rem;
         height: 4rem;
         font-size: 1.6rem;
+        justify-self: center;
       }
       .deleteBtn {
         background-color: var(--main-color);
