@@ -5,11 +5,11 @@
   font-weight: normal;
   font-style: normal;
 }
-
-html,
 * {
-  font-size: 10px;
   font-family: "SpoqaHanSansNeo-Regular";
+}
+html {
+  font-size: 10px;
 }
 
 :root {
