@@ -22,6 +22,7 @@ function logout() {
   localStorage.removeItem("refreshToken");
   localStorage.removeItem("orderItem");
   localStorage.removeItem("type");
+  localStorage.removeItem("user");
   location.reload(true);
 }
 
