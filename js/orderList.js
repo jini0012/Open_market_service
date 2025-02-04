@@ -73,7 +73,7 @@ function loadOrderList() {
                 "ko-KR"
               )}원</p>
                 <button>상세보기</button>
-                <button class="deleteBtn">삭제</button>
+                <button class="deleteBtn">주문취소</button>
              
             </article>
           </li>`;
