@@ -224,7 +224,10 @@ input:disabled {
       color: var(--font-color);
       white-space: nowrap;
     }
-    button:focus {
+
+    button:focus,
+    button:active,
+    button.active {
       border-bottom: 0.6rem solid var(--point-color);
     }
   }

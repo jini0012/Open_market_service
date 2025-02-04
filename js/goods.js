@@ -6,6 +6,16 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 const product = JSON.parse(localStorage.product_info);
 
+const menuBar = document.querySelector(".menubar");
+const menuBarBtn = menuBar.querySelectorAll("ul li button");
+
+menuBarBtn.forEach((button, idx) => {
+  button.addEventListener("click", () => {
+    menuBarBtn.forEach((btn) => btn.classList.remove("active"));
+    menuBarBtn[idx].classList.add("active");
+  });
+});
+
 if (!!productId) {
   fetch(`${fetchUrl}/products/${productId}`)
     .then((response) => {
