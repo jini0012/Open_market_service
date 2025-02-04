@@ -6,6 +6,7 @@ const gnbLoginBtn = gnb.querySelector(".login");
 const gnbMyPageBtn = gnb.querySelector(".myPage");
 const gnbSellerCenterBtn = gnb.querySelector(".sellerCenter");
 const myPageModal = gnb.querySelector(".myPageModal");
+const goMyPageBtn = myPageModal.querySelector(".goMyPage");
 const logoutBtn = myPageModal.querySelector(".logout");
 
 gnbMyPageBtn.addEventListener("click", () => {
@@ -76,4 +77,8 @@ if (localStorage.accessToken) {
 
 logoutBtn.addEventListener("click", () => {
   logout();
+});
+
+goMyPageBtn.addEventListener("click", () => {
+  location.href = "myPage.html";
 });
