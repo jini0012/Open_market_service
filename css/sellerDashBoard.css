@@ -70,6 +70,11 @@ section:nth-of-type(2) {
         color: var(--main-color);
       }
     }
+    li:has(button.active) button:hover,
+    button:not(li:first-of-type button):hover {
+      background-color: #effff3;
+      color: #000;
+    }
     button:not(li:first-of-type button) {
       background-color: var(--main-color);
       justify-content: space-between;
