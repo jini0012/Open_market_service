@@ -9,7 +9,8 @@ const data = main.querySelectorAll("main ul li span");
 
 if (!!user.user_type) {
   main.querySelector("h2 span").textContent = user.name;
-  data[0].textContent = user.user_type;
+
+  data[0].textContent = user.user_type === "BUYER" ? "구매회원" : "판매회원";
   data[1].textContent = user.username;
   data[2].textContent = user.name;
   data[3].textContent = user.phone_number.replace(
