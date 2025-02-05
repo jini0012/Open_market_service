@@ -169,8 +169,11 @@ section:last-of-type {
     }
   }
   section:last-of-type .goods article {
+    button {
+      min-width: auto;
+    }
     h3,
-    p:not(div p) {
+    .price {
       font-size: 1.4rem;
     }
     div:first-of-type {
@@ -184,6 +187,9 @@ section:last-of-type {
 }
 @media screen and (max-width: 600px) {
   main {
-    padding: 0 2rem;
+    padding: 0 1rem;
+  }
+  section:last-of-type .goods article .price {
+    font-size: 1.2rem;
   }
 }
