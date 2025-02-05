@@ -65,10 +65,27 @@ function loadOrderList() {
     })
     .then((json) => {
       const orderLists = json.results;
-
       main.querySelector(".order-quantity span").textContent = json.count;
       main.querySelector(".goods").innerHTML = orderLists
         .map((result) => {
+          if (result.order_items.length === 0) {
+            return `<li>
+            <article>
+              <div class="goods-details">
+                <h3>판매자가 상품 판매를 취소한 상품입니다.</h3>
+                <p>주문을 취소해주세요</span></p>
+              </div>
+              <p class="price">${result.total_price.toLocaleString(
+                "ko-KR"
+              )}원</p>
+                <button>상세보기</button>
+                <button class="deleteBtn" onClick ="orderCancel(
+                 ${result.id}
+                )">주문취소</button>
+            </article>
+          </li>`;
+          }
+
           return `<li>
             <article>
               <div class="goods-details">
