@@ -3,6 +3,21 @@ const user = JSON.parse(decodeURIComponent(localStorage.user)).name;
 const main = document.querySelector("main");
 main.querySelector("h2 span").textContent = user;
 
+function deleteProduct(productId) {
+  fetch(`${fetchUrl}/products/${productId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error", error);
+      loadOrderList();
+    }
+  });
+}
+
 function loadOrderList() {
   const goodsList = main.querySelector(".goods");
   fetch(`${fetchUrl}/${user}/products`, {
@@ -32,7 +47,9 @@ function loadOrderList() {
               <p class="price">${result.price.toLocaleString("ko-KR")}원</p>
               <div>
                 <button>수정</button>
-                <button class="deleteBtn">삭제</button>
+                <button class="deleteBtn" onclick="deleteProduct(${
+                  result.id
+                })">삭제</button>
               </div>
             </article>
           </li>`;
