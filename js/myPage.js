@@ -1,4 +1,4 @@
-if (!localStorage.getItem("type")) {
+if (!localStorage.getItem("type") || !localStorage.getItem("user")) {
   alert("비정상적인 접속 경로 입니다. 메인페이지로 이동합니다.");
   location.href = "index.html";
 }
