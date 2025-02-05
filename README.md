@@ -22,6 +22,12 @@
 - 모바일 화면 구현 (반응형 UI 적용)
 - 장바구니 기능 구현
 - 주문하기 기능 구현
+- 메인페이지 상품 더보기 기능 구현
+- 상품 검색 기능 구현
+- 마이페이지 구현
+- 주문목록 및 주문취소 기능 구현
+- 판매자 대시보드 구현 중
+- 판매자 상품 등록 및 수정 기능 구현 중
 
 ## 배포 URL
 
@@ -51,6 +57,8 @@
   |           장바구니           |     GET     |             |    ✅     |
   | 장바구니<br>개별 및 전체삭제 |   DELETE    |             |    ✅     |
   |           주문하기           |    POST     |             |    ✅     |
+  |           주문목록           |     GET     |             |    ✅     |
+  |           주문취소           |   DELETE    |             |    ✅     |
 
 ## 프로젝트
 
@@ -58,9 +66,14 @@
 
 - MPA 사용
 
-  |  🖥️  |   로그인   |  회원가입   | 상품 목록  | 상품 상세  | 서버 에러  | 장바구니  | 주문하기   |
-  | :--: | :--------: | :---------: | :--------: | :--------: | :--------: | --------- | ---------- |
-  | Page | login.html | signup.html | index.html | goods.html | error.html | cart.html | order.html |
+  |  🖥️  |   로그인   |  회원가입   | 상품 목록  | 상품 상세  | 서버 에러  |
+  | :--: | :--------: | :---------: | :--------: | :--------: | :--------: |
+  | Page | login.html | signup.html | index.html | goods.html | error.html |
+
+- 추가 기능
+  | 🖥️ | 장바구니 | 주문하기 | 마이페이지 | 주문 목록 | 판매자 대시보드 | 판매자 상품 등록 |
+  | :--: | :--------: | :---------: | :--------: | :--------: | :--------: | :--------: |
+  | Page | cart.html | order.html | myPage.html | orderList.html | sellerDashBoard.html | sellerGoods.html |
 
 ```bash
 📦 Open_market_service
@@ -72,8 +85,12 @@
 ┃ ┣ 📜goods.css
 ┃ ┣ 📜login.css
 ┃ ┣ 📜main.css
+┃ ┣ 📜myPage.css
 ┃ ┣ 📜order.css
+┃ ┣ 📜orderList.css
 ┃ ┣ 📜reset.css
+┃ ┣ 📜sellerDashBoard.css
+┃ ┣ 📜sellerGoods.css
 ┃ ┗ 📜signup.css
 ┣ 📂js
 ┃ ┣ 📜cart.js
@@ -81,15 +98,23 @@
 ┃ ┣ 📜goods.js
 ┃ ┣ 📜login.js
 ┃ ┣ 📜main.js
+┃ ┣ 📜myPage.js
 ┃ ┣ 📜order.js
+┃ ┣ 📜orderList.js
+┃ ┣ 📜sellerDashBoard.js
+┃ ┣ 📜sellerGoods.js
 ┃ ┗ 📜signup.js
 ┣ 📜cart.html
 ┣ 📜error.html
 ┣ 📜goods.html
 ┣ 📜index.html
 ┣ 📜login.html
+┣ 📜myPage.html
 ┣ 📜order.html
+┣ 📜orderList.html
 ┣ 📜README.md
+┣ 📜sellerDashBoard.html
+┣ 📜sellerGoods.html
 ┗ 📜signup.html
 ```
 
@@ -192,7 +217,7 @@ section HTML/CSS
   | 2 | 드롭박스 내 마이페이지 | UI로만 존재 |✅|
   | 3 | 드롭박스 내 로그아웃 클릭 | 로그아웃 기능 실행 |✅|
 
-> 2025.01 추가 구현 사항
+> 2025 추가 구현 사항
 
 - 장바구니 페이지 (추가)
 
