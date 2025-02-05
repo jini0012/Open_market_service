@@ -49,6 +49,19 @@ body {
   justify-content: center;
 }
 
+.more-btn {
+  position: relative;
+  transform: translate(-50%, -50%);
+  bottom: 8rem;
+  left: 50%;
+  border: var(--point-color) 0.2rem solid;
+  border-radius: 5rem;
+  font-size: 1.6rem;
+  height: 4.6rem;
+  width: 100%;
+  max-width: 16rem;
+}
+
 article a {
   display: flex;
   flex-direction: column;
