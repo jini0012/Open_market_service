@@ -10,6 +10,14 @@ body {
   }
 }
 
+.search {
+  display: flex;
+  font-size: 3rem;
+  align-items: center;
+  margin: 5rem 0;
+  justify-content: center;
+}
+
 .banner {
   position: relative;
   overflow: hidden;

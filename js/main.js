@@ -18,6 +18,27 @@ function saveData(json) {
   );
 }
 
+const banner = document.querySelector(".banner ul");
+const slides = banner.querySelectorAll("ul li");
+const leftBtn = banner.parentElement.querySelector(".leftBtn");
+const rightBtn = banner.parentElement.querySelector(".rightBtn");
+const slideWidth = slides[0].offsetWidth;
+let currentIndex = 0;
+
+function moveSlide(index) {
+  banner.style.transform = `translateX(${-index * slideWidth}px)`;
+}
+
+leftBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  moveSlide(currentIndex);
+});
+
+rightBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  moveSlide(currentIndex);
+});
+
 const moreBtn = document.querySelector(".more-btn");
 moreBtn.addEventListener("click", () => {
   loadGoodsList(true);
@@ -48,9 +69,9 @@ function loadGoodsList(isMoreBtn = false, isSearch = false) {
       })
       .then((json) => {
         const products = json.results;
+        banner.parentElement.innerHTML = `<h2 class="search">검색 결과 ${json.count}건</h2>`;
         productList.innerHTML = products
           .map((product) => {
-            console.log(product);
             return `  
          <article>
           <a href="goods.html?id=${
@@ -122,24 +143,3 @@ function loadGoodsList(isMoreBtn = false, isSearch = false) {
       .catch((error) => console.error(error));
   }
 }
-
-const banner = document.querySelector(".banner ul");
-const slides = banner.querySelectorAll("ul li");
-const leftBtn = banner.parentElement.querySelector(".leftBtn");
-const rightBtn = banner.parentElement.querySelector(".rightBtn");
-const slideWidth = slides[0].offsetWidth;
-let currentIndex = 0;
-
-function moveSlide(index) {
-  banner.style.transform = `translateX(${-index * slideWidth}px)`;
-}
-
-leftBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  moveSlide(currentIndex);
-});
-
-rightBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  moveSlide(currentIndex);
-});
