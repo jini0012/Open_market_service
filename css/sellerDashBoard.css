@@ -177,6 +177,11 @@ section:last-of-type {
         border: 0.1rem solid var(--border-color);
         color: var(--font-color);
       }
+      .deleteBtn:hover,
+      .deleteBtn:active {
+        border: 0.1rem solid var(--font-color);
+        color: #000;
+      }
     }
   }
 }

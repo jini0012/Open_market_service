@@ -40,6 +40,11 @@ main {
       object-fit: contain;
     }
   }
+  .order-list-btn:hover,
+  .order-list-btn:active {
+    border: solid 0.1rem var(--font-color);
+    color: #000;
+  }
 
   ul {
     grid-area: ul;

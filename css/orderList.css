@@ -144,6 +144,11 @@ section:last-of-type {
         border: 0.1rem solid var(--border-color);
         color: var(--font-color);
       }
+      .deleteBtn:hover,
+      .deleteBtn:active {
+        border: solid 0.1rem var(--font-color);
+        color: #000;
+      }
     }
   }
 }
