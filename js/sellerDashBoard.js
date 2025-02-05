@@ -2,6 +2,11 @@ const user = JSON.parse(decodeURIComponent(localStorage.user)).name;
 
 const main = document.querySelector("main");
 main.querySelector("h2 span").textContent = user;
+const upLoadBtn = main.querySelector(".uploadBtn");
+
+upLoadBtn.addEventListener("click", () => {
+  location.href = "sellerGoods.html";
+});
 
 function deleteProduct(productId) {
   fetch(`${fetchUrl}/products/${productId}`, {
