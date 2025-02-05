@@ -18,9 +18,16 @@ function saveData(json) {
   );
 }
 
+const moreBtn = document.querySelector(".more-btn");
+moreBtn.addEventListener("click", () => {
+  loadGoodsList(true);
+  moreBtn.style.display = "none";
+});
+
 // 상품 전체 불러오기
-function loadGoodsList() {
+function loadGoodsList(isMoreBtn = false) {
   const productList = document.querySelector(".goodsList");
+
   fetch(`${fetchUrl}/products/`)
     .then((response) => {
       if (!response.ok) {
@@ -31,7 +38,16 @@ function loadGoodsList() {
     .then((json) => {
       const products = json.results;
       let productCount = 6;
-      json.count >= 6 ? (productCount = 6) : json.count;
+
+      if (json.count < 6) {
+        moreBtn.style.display = "none";
+      }
+
+      isMoreBtn
+        ? (productCount = json.count)
+        : json.count >= 6
+        ? (productCount = 6)
+        : (productCount = json.count);
 
       productList.innerHTML = products
         .slice(0, productCount)
