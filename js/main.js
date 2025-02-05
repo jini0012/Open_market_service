@@ -1,9 +1,26 @@
 // 상품 목록창 실행 시 로컬스토리지 초기화
 localStorage.removeItem("product_info");
 
+function saveData(json) {
+  const product = JSON.parse(json);
+  localStorage.setItem(
+    "product_info",
+    JSON.stringify({
+      id: product.id,
+      name: product.name,
+      seller: product.seller.store_name,
+      price: product.price,
+      shipping_fee: product.shipping_fee,
+      image: product.image,
+      info: product.info,
+      stock: product.stock,
+    })
+  );
+}
+
 // 상품 전체 불러오기
 function loadGoodsList() {
-  const products = document.querySelectorAll("article");
+  const productList = document.querySelector(".goodsList");
   fetch(`${fetchUrl}/products/`)
     .then((response) => {
       if (!response.ok) {
@@ -12,36 +29,29 @@ function loadGoodsList() {
       return response.json();
     })
     .then((json) => {
-      products.forEach((product, index) => {
-        product.querySelector("img").src = `${json.results[index].image}`;
-        product.querySelector("img").alt = `${json.results[index].info}`;
-        product.querySelector(
-          "p"
-        ).textContent = `${json.results[index].seller.store_name}`;
-        product.querySelector("h3").textContent = `${json.results[index].name}`;
-        product.querySelector("span").textContent = new Intl.NumberFormat(
-          "ko-KR"
-        ).format(json.results[index].price);
-
-        // 상세페이지로 이동
-        product.addEventListener("click", (e) => {
-          localStorage.setItem(
-            "product_info",
-            `${JSON.stringify({
-              id: json.results[index].id,
-              name: json.results[index].name,
-              seller: json.results[index].seller.store_name,
-              price: json.results[index].price,
-              shipping_fee: json.results[index].shipping_fee,
-              image: json.results[index].image,
-              info: json.results[index].info,
-              stock: json.results[index].stock,
-            })}`
-          );
-
-          location.href = `goods.html?id=${json.results[index].id}`;
-        });
-      });
+      const products = json.results;
+      productList.innerHTML = products
+        .map((product) => {
+          return `  
+         <article>
+          <a href="goods.html?id=${
+            product.id
+          }" onclick="saveData('${JSON.stringify(product)
+            .replace(/'/g, "\\'")
+            .replace(/"/g, "&quot;")}')">
+            <img src="${product.image}" alt="${product.info}" />
+            <p>${product.seller.store_name}</p>
+            <h3>${product.name}</h3>
+            <p class="price">
+              <span>${new Intl.NumberFormat("ko-KR").format(
+                product.price
+              )}</span>원
+            </p>
+          </a>
+        </article>
+`;
+        })
+        .join("");
     })
     .catch((error) => console.error(error));
 }
