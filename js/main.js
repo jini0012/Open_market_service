@@ -36,7 +36,6 @@ if (urlParams.size > 0) {
 // 상품 전체 불러오기
 function loadGoodsList(isMoreBtn = false, isSearch = false) {
   const productList = document.querySelector(".goodsList");
-  console.log(isSearch);
 
   if (isSearch) {
     const searchLists = urlParams.get("search");
@@ -125,9 +124,9 @@ function loadGoodsList(isMoreBtn = false, isSearch = false) {
 }
 
 const banner = document.querySelector(".banner ul");
-const slides = document.querySelectorAll(".banner ul li");
-const leftBtn = document.querySelector(".leftBtn");
-const rightBtn = document.querySelector(".rightBtn");
+const slides = banner.querySelectorAll("ul li");
+const leftBtn = banner.parentElement.querySelector(".leftBtn");
+const rightBtn = banner.parentElement.querySelector(".rightBtn");
 const slideWidth = slides[0].offsetWidth;
 let currentIndex = 0;
 
