@@ -83,3 +83,11 @@ logoutBtn.addEventListener("click", () => {
 goMyPageBtn.addEventListener("click", () => {
   location.href = "myPage.html";
 });
+
+const searchForm = gnb.querySelector("form");
+const searchValue = searchForm.querySelector("input");
+
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  location.href = `index.html?search=${searchValue.value}`;
+});

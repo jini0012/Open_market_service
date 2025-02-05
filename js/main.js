@@ -24,41 +24,41 @@ moreBtn.addEventListener("click", () => {
   moreBtn.style.display = "none";
 });
 
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.size > 0) {
+  loadGoodsList(false, true);
+  moreBtn.style.display = "none";
+} else {
+  loadGoodsList();
+}
+
 // 상품 전체 불러오기
-function loadGoodsList(isMoreBtn = false) {
+function loadGoodsList(isMoreBtn = false, isSearch = false) {
   const productList = document.querySelector(".goodsList");
+  console.log(isSearch);
 
-  fetch(`${fetchUrl}/products/`)
-    .then((response) => {
-      if (!response.ok) {
-        location.href = "error.html";
-      }
-      return response.json();
-    })
-    .then((json) => {
-      const products = json.results;
-      let productCount = 6;
-
-      if (json.count < 6) {
-        moreBtn.style.display = "none";
-      }
-
-      isMoreBtn
-        ? (productCount = json.count)
-        : json.count >= 6
-        ? (productCount = 6)
-        : (productCount = json.count);
-
-      productList.innerHTML = products
-        .slice(0, productCount)
-        .map((product) => {
-          return `  
+  if (isSearch) {
+    const searchLists = urlParams.get("search");
+    fetch(`${fetchUrl}/products/?search=${searchLists}`)
+      .then((response) => {
+        if (!response.ok) {
+          console.error("Error :", error);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        const products = json.results;
+        productList.innerHTML = products
+          .map((product) => {
+            console.log(product);
+            return `  
          <article>
           <a href="goods.html?id=${
             product.id
           }" onclick="saveData('${JSON.stringify(product)
-            .replace(/'/g, "\\'")
-            .replace(/"/g, "&quot;")}')">
+              .replace(/'/g, "\\'")
+              .replace(/"/g, "&quot;")}')">
             <img src="${product.image}" alt="${product.info}" />
             <p>${product.seller.store_name}</p>
             <h3>${product.name}</h3>
@@ -70,12 +70,59 @@ function loadGoodsList(isMoreBtn = false) {
           </a>
         </article>
 `;
-        })
-        .join("");
-    })
-    .catch((error) => console.error(error));
+          })
+          .join("");
+      })
+      .catch((error) => console.error(error));
+  } else {
+    fetch(`${fetchUrl}/products/`)
+      .then((response) => {
+        if (!response.ok) {
+          location.href = "error.html";
+        }
+        return response.json();
+      })
+      .then((json) => {
+        const products = json.results;
+        let productCount = 6;
+
+        if (json.count < 6) {
+          moreBtn.style.display = "none";
+        }
+
+        isMoreBtn
+          ? (productCount = json.count)
+          : json.count >= 6
+          ? (productCount = 6)
+          : (productCount = json.count);
+
+        productList.innerHTML = products
+          .slice(0, productCount)
+          .map((product) => {
+            return `  
+         <article>
+          <a href="goods.html?id=${
+            product.id
+          }" onclick="saveData('${JSON.stringify(product)
+              .replace(/'/g, "\\'")
+              .replace(/"/g, "&quot;")}')">
+            <img src="${product.image}" alt="${product.info}" />
+            <p>${product.seller.store_name}</p>
+            <h3>${product.name}</h3>
+            <p class="price">
+              <span>${new Intl.NumberFormat("ko-KR").format(
+                product.price
+              )}</span>원
+            </p>
+          </a>
+        </article>
+`;
+          })
+          .join("");
+      })
+      .catch((error) => console.error(error));
+  }
 }
-loadGoodsList();
 
 const banner = document.querySelector(".banner ul");
 const slides = document.querySelectorAll(".banner ul li");
