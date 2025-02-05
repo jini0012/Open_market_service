@@ -30,7 +30,11 @@ function loadGoodsList() {
     })
     .then((json) => {
       const products = json.results;
+      let productCount = 6;
+      json.count >= 6 ? (productCount = 6) : json.count;
+
       productList.innerHTML = products
+        .slice(0, productCount)
         .map((product) => {
           return `  
          <article>
