@@ -91,12 +91,6 @@ const num = form.num;
 let total = form.querySelector(".count");
 let totalPrice = form.querySelector(".totalPrice");
 
-// 판매자회원 버튼 예외처리
-if (localStorage.type === "SELLER") {
-  buyBtn.disabled = true;
-  cartBtn.disabled = true;
-}
-
 const defaultPrice = product.price;
 // 가격 초기 값 설정
 totalPrice.textContent = new Intl.NumberFormat("ko-KR").format(
@@ -124,6 +118,14 @@ function minusBtnDisabled() {
   minusBtn.disabled = true;
   minusBtn.classList.add("countBtnDisabled");
   minusBtn.querySelector("img").src = "./assets/icon-minus-line-disabled.svg";
+}
+
+// 판매자회원 버튼 예외처리
+if (localStorage.type === "SELLER") {
+  minusBtnDisabled();
+  plusBtnDisabled();
+  buyBtn.disabled = true;
+  cartBtn.disabled = true;
 }
 
 if (product.stock === 0) {
