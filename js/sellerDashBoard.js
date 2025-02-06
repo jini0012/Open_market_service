@@ -18,8 +18,8 @@ function deleteProduct(productId) {
   }).then((response) => {
     if (!response.ok) {
       console.error("Error", error);
-      loadOrderList();
     }
+    loadOrderList();
   });
 }
 
@@ -39,6 +39,8 @@ function loadOrderList() {
       return response.json();
     })
     .then((json) => {
+      main.querySelector("nav ul li span").textContent = `(${json.count})`;
+
       const sellerProducts = json.results;
       goodsList.innerHTML = sellerProducts
         .map((result) => {
