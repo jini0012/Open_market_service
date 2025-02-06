@@ -14,3 +14,34 @@ imageFile.addEventListener("input", function (e) {
     reader.readAsDataURL(file);
   }
 });
+
+const inputs = uploadForm.querySelectorAll("div input");
+const productName = inputs[0];
+const productPrice = inputs[1];
+const productFee = inputs[4];
+const productStock = inputs[5];
+
+function numberToString(e) {
+  let value = e.target.value.replace(/[^\d]/g, ""); // 모든 문자 제거
+  if (value) {
+    value = Number(value).toLocaleString("ko-KR");
+  }
+  e.target.value = value;
+}
+
+productName.addEventListener("input", (e) => {
+  const lengthText = e.target.parentElement.querySelector("span");
+  lengthText.innerHTML =
+    productName.value.length > 20 ? `20/20` : `${productName.value.length}/20`;
+});
+
+productPrice.addEventListener("input", (e) => {
+  numberToString(e);
+});
+productFee.addEventListener("input", (e) => {
+  numberToString(e);
+});
+productStock.addEventListener("input", (e) => {
+  numberToString(e);
+});
+
