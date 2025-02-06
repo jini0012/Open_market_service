@@ -189,6 +189,11 @@ h2 {
       background-color: var(--point-color);
       color: var(--main-color);
     }
+    button:disabled {
+      background-color: var(--font-color);
+      color: var(--main-color);
+      cursor: not-allowed;
+    }
   }
 }
 
