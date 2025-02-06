@@ -1,4 +1,6 @@
 const uploadForm = document.querySelector("form");
+const radioButtons = uploadForm.querySelectorAll('input[name="delivery"]');
+let radioSelected = "PARCEL";
 
 uploadForm.addEventListener("input", () => {
   let count = 0;
@@ -12,6 +14,13 @@ uploadForm.addEventListener("input", () => {
     uploadForm.querySelectorAll("button")[1].disabled = false;
   } else {
     uploadForm.querySelectorAll("button")[1].disabled = true;
+  }
+
+  const selectedRadio = uploadForm.querySelector(
+    'input[name="delivery"]:checked'
+  );
+  if (selectedRadio) {
+    radioSelected = selectedRadio.value;
   }
 });
 
