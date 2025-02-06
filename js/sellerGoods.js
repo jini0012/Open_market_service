@@ -3,6 +3,37 @@ if (localStorage.getItem("type") !== "SELLER") {
   location.href = "index.html";
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+function viewUpdateProduct() {
+  fetch(`${fetchUrl}/products/${productId}`)
+    .then((response) => {
+      if (!response.ok) {
+        console.error("Error:", response);
+      }
+      return response.json();
+    })
+    .then((json) => {
+      productName.value = json.name;
+      detailInfo.value = json.info;
+      imageFile.files[0] = json.image;
+      preview.style.background = `url("${json.image}") no-repeat center`;
+      preview.style.backgroundSize = "contain";
+      radioSelected = json.shipping_method;
+      json.shipping_method === "PARCEL"
+        ? (radioButtons[0].checked = true)
+        : (radioButtons[1].checked = true);
+      productPrice.value = Number(json.price).toLocaleString("ko-KR");
+      productFee.value = Number(json.shipping_fee).toLocaleString("ko-KR");
+      productStock.value = Number(json.stock).toLocaleString("ko-KR");
+    });
+}
+
+if (!!productId) {
+  viewUpdateProduct();
+}
+
 const uploadForm = document.querySelector("form");
 const radioButtons = uploadForm.querySelectorAll('input[name="delivery"]');
 let radioSelected = "PARCEL";
