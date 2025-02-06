@@ -44,7 +44,7 @@
         <form action="">
           <fieldset class="image">
             <legend>상품 이미지</legend>
-            <label for="image"> </label>
+            <label for="image"></label>
             <input
               type="file"
               id="image"
@@ -52,33 +52,32 @@
               accept=".jpg, .png, .gif"
             />
           </fieldset>
-
           <div>
-            <label for="product-name" class="product-name">
+            <label class="product-name">
               상품명
-              <input type="text" id="product-name" maxlength="20" />
+              <input type="text" maxlength="20" />
               <span>0/20</span>
             </label>
-            <label for="price" class="price">
+            <label class="price">
               판매가
-              <input type="text" id="price" />
+              <input type="text" />
             </label>
             <fieldset>
               <legend>배송방법</legend>
-              <label for="delivery">
+              <label>
                 택배,소포,등기
-                <input type="radio" name="delivery" id="delivery" />
+                <input type="radio" name="delivery" value="delivery" />
               </label>
-              <label for="parcel">
+              <label>
                 직접배송(화물배달)
-                <input type="radio" name="delivery" id="parcel" />
+                <input type="radio" name="delivery" value="parcel" />
               </label>
             </fieldset>
-            <label for="fee" class="fee">
+            <label class="fee">
               기본 배송비
               <input type="text" />
             </label>
-            <label for="stock" class="stock">
+            <label class="stock">
               재고
               <input type="text" />
             </label>
