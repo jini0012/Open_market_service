@@ -1,11 +1,11 @@
 const uploadForm = document.querySelector("form");
 
 const imageFile = uploadForm.querySelector('input[type="file"]');
+const preview = uploadForm.querySelector(".image label");
 imageFile.addEventListener("input", function (e) {
   const file = e.target.files[0];
   const reader = new FileReader();
   reader.onload = function () {
-    const preview = uploadForm.querySelector(".image label");
     preview.style.background = `url("${reader.result}") no-repeat center`;
     preview.style.backgroundSize = "contain";
   };
@@ -45,3 +45,18 @@ productStock.addEventListener("input", (e) => {
   numberToString(e);
 });
 
+const radioButtons = uploadForm.querySelectorAll('input[name="delivery"]');
+const cancelBtn = uploadForm.querySelector("button");
+const detailInfo = uploadForm.querySelector("textarea");
+
+cancelBtn.addEventListener("click", () => {
+  radioButtons.forEach((radio) => {
+    radio.checked = false;
+  });
+  imageFile.value = "";
+  preview.style.background = "revert-layer";
+  inputs.forEach((input) => {
+    input.value = "";
+  });
+  detailInfo.value = "";
+});
