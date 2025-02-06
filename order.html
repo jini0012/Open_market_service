@@ -83,36 +83,69 @@
           <section class="buyer-info">
             <h4>주문자 정보</h4>
             <label for="name"
-              ><span>이름</span><input type="text" id="name"
+              ><span>이름</span><input type="text" id="name" required
             /></label>
             <label for="phone" class="phone"
-              ><span>휴대폰</span><input type="text" id="phone" />-<input
+              ><span>휴대폰</span
+              ><input
                 type="text"
                 id="phone"
+                pattern="^0[0-9]{2}$"
+                maxlength="3"
+                required
+              />-<input
+                type="text"
+                id="phone"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                required
               />-
-              <input type="text" id="phone" />
+              <input
+                type="text"
+                id="phone"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                required
+              />
             </label>
             <label for="email"
-              ><span>이메일</span><input type="email" id="email"
+              ><span>이메일</span><input type="email" id="email" required
             /></label>
           </section>
           <section class="address-info">
             <h4>배송지 정보</h4>
             <label for="addressee"
-              ><span>수령인</span><input type="text" id="addressee"
+              ><span>수령인</span><input type="text" id="addressee" required
             /></label>
 
             <label for="phone2" class="phone"
-              ><span>휴대폰</span><input type="text" id="phone2" />-
-              <input type="text" id="phone2" />- <input type="text" id="phone2"
+              ><span>휴대폰</span
+              ><input
+                type="text"
+                id="phone2"
+                pattern="^0[0-9]{2}$"
+                maxlength="3"
+                required />-
+              <input
+                type="text"
+                id="phone2"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                required />-
+              <input
+                type="text"
+                id="phone2"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                required
             /></label>
 
             <label for="address" class="address"
               ><span>배송주소</span>
               <div>
-                <input type="address" id="address" />
+                <input type="address" id="address" required />
                 <button type="button">우편번호 조회</button>
-                <input type="text" id="detail-address1" />
+                <input type="text" id="detail-address1" required />
                 <input type="text" id="detail-address2" />
               </div>
             </label>
@@ -228,6 +261,8 @@
       </address>
     </footer>
     <script src="./js/common.js"></script>
+    <script src="./js/gnb.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="./js/order.js"></script>
   </body>
 </html>
