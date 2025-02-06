@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HODU</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/sellerGoods.css" />
+  </head>
+  <body>
+    <header class="GNB seller">
+      <h1>
+        <a href="index.html"><img src="./assets/Logo-hodu.png" alt="HODU" /></a>
+      </h1>
+      <p>판매자 센터</p>
+    </header>
+    <main>
+      <h2>상품 등록</h2>
+      <section class="notice">
+        <h3>*상품 등록 주의사항</h3>
+        <ul>
+          <li>너무 귀여운 사진은 심장이 아파올 수 있습니다.</li>
+          <li>
+            유소년에게서 천자만홍이 피고 이상이 온갖 들어 약동하다. 이상의
+            가지에 사랑의 있는가? 주며, 끓는 힘차게 얼음이 얼음 가치를
+            황금시대의 있음으로써 사라지지 것이다. 이 뜨거운지라, 이상의 속에서
+            이것은 피가 보배를 황금시대의 싹이 사막이다.
+          </li>
+          <li>
+            자신과 우는 옷을 지혜는 아니다. 더운지라 설레는 기쁘며, 위하여서,
+            평화스러운 광야에서 그리하였는가? 소담스러운 위하여 인도하겠다는
+            어디 무엇을 이상을 같지 따뜻한 청춘 칼이다.
+          </li>
+          <li>
+            가치를 그들을 예수는 찬미를 가슴이 과실이 이것이다. 희망의
+            것이다.보라, 풍부하게 이것은 황금시대를 얼마나 인간에 돋고,
+            이것이다.
+          </li>
+        </ul>
+      </section>
+      <section class="upload-form">
+        <h3 class="sr-only">상품 등록 폼</h3>
+        <form action="">
+          <fieldset class="image">
+            <legend>상품 이미지</legend>
+            <label for="image"></label>
+            <input
+              type="file"
+              id="image"
+              class="sr-only"
+              accept=".jpg, .png, .gif"
+            />
+          </fieldset>
+          <div>
+            <label class="product-name">
+              상품명
+              <input type="text" maxlength="20" />
+              <span>0/20</span>
+            </label>
+            <label class="price">
+              판매가
+              <input type="text" />
+            </label>
+            <fieldset>
+              <legend>배송방법</legend>
+              <label>
+                택배,소포,등기
+                <input type="radio" name="delivery" value="PARCEL" checked />
+              </label>
+              <label>
+                직접배송(화물배달)
+                <input type="radio" name="delivery" value="DELIVERY" />
+              </label>
+            </fieldset>
+            <label class="fee">
+              기본 배송비
+              <input type="text" />
+            </label>
+            <label class="stock">
+              재고
+              <input type="text" />
+            </label>
+          </div>
+          <label for="detail" class="detail">
+            상품 상세 정보
+            <textarea name="detail" id="detail"></textarea>
+          </label>
+          <button type="button">취소</button>
+          <button type="submit" disabled>수정하기</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul class="about-wrap">
+          <li><a href="#">호두샵 소개</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li>
+            <span>
+              <a href="#">개인정보처리방침</a>
+            </span>
+          </li>
+          <li><a href="#">전자금융거래약관</a></li>
+          <li><a href="#">청소년보호정책</a></li>
+          <li><a href="#">제휴문의</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="#"
+              ><img
+                src="./assets/icon-insta.svg"
+                alt="인스타그램 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-fb.svg" alt="페이스북 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-yt.svg" alt="유튜브 페이지 바로가기"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <address>
+        <span>(주)HODU SHOP</span> <br />
+        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
+        사업자 번호 : 000-0000-0000 | 통신판매업 <br />
+        대표 : 김호두
+      </address>
+    </footer>
+    <script src="./js/common.js"></script>
+    <script src="./js/sellerGoods.js"></script>
+  </body>
+</html>
