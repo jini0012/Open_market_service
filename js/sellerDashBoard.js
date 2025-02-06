@@ -23,6 +23,10 @@ function deleteProduct(productId) {
   });
 }
 
+function updateProduct(id) {
+  location.href = `sellerGoodsUpdate.html?id=${id}`;
+}
+
 function loadOrderList() {
   const goodsList = main.querySelector(".goods");
   fetch(`${fetchUrl}/${user}/products`, {
@@ -53,7 +57,7 @@ function loadOrderList() {
               </div>
               <p class="price">${result.price.toLocaleString("ko-KR")}원</p>
               <div>
-                <button>수정</button>
+                <button onclick="updateProduct(${result.id})">수정</button>
                 <button class="deleteBtn" onclick="deleteProduct(${
                   result.id
                 })">삭제</button>
