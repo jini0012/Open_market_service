@@ -147,7 +147,39 @@ function uploadProduct() {
   });
 }
 
+function updateProduct() {
+  const formData = new FormData();
+  if (!!imageFile.files[0]) {
+    formData.append("image", imageFile.files[0]);
+  }
+  formData.append("name", productName.value);
+  formData.append("info", detailInfo.value);
+  formData.append("price", parseInt(productPrice.value.replace(/,/g, "")));
+  formData.append("shipping_method", radioSelected);
+  formData.append("shipping_fee", parseInt(productFee.value.replace(/,/g, "")));
+  formData.append("stock", parseInt(productStock.value.replace(/,/g, "")));
+
+  fetch(`${fetchUrl}/products/${productId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+    body: formData,
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error:", response);
+    }
+    alert("상품 수정이 완료되었습니다.");
+    location.href = "sellerDashBoard.html";
+  });
+}
+
 uploadForm.addEventListener("submit", (e) => {
+  const submitBtn = e.submitter.textContent;
   e.preventDefault();
-  uploadProduct();
+  if (submitBtn === "저장하기") {
+    uploadProduct();
+  } else if (submitBtn === "수정하기") {
+    updateProduct();
+  }
 });
