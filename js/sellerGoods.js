@@ -1,5 +1,20 @@
 const uploadForm = document.querySelector("form");
 
+uploadForm.addEventListener("input", () => {
+  let count = 0;
+  inputs.forEach((input) => {
+    if (input.value !== "") {
+      count += 1;
+    }
+  });
+
+  if (count >= 6) {
+    uploadForm.querySelectorAll("button")[1].disabled = false;
+  } else {
+    uploadForm.querySelectorAll("button")[1].disabled = true;
+  }
+});
+
 const imageFile = uploadForm.querySelector('input[type="file"]');
 const preview = uploadForm.querySelector(".image label");
 imageFile.addEventListener("input", function (e) {
