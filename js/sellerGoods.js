@@ -26,6 +26,7 @@ uploadForm.addEventListener("input", () => {
 
 const imageFile = uploadForm.querySelector('input[type="file"]');
 const preview = uploadForm.querySelector(".image label");
+
 imageFile.addEventListener("input", function (e) {
   const file = e.target.files[0];
   const reader = new FileReader();
@@ -69,7 +70,6 @@ productStock.addEventListener("input", (e) => {
   numberToString(e);
 });
 
-const radioButtons = uploadForm.querySelectorAll('input[name="delivery"]');
 const cancelBtn = uploadForm.querySelector("button");
 const detailInfo = uploadForm.querySelector("textarea");
 
@@ -83,4 +83,35 @@ cancelBtn.addEventListener("click", () => {
     input.value = "";
   });
   detailInfo.value = "";
+});
+
+function uploadProduct() {
+  const formData = new FormData();
+
+  formData.append("name", productName.value);
+  formData.append("info", detailInfo.value);
+  formData.append("image", imageFile.files[0]);
+  formData.append("price", parseInt(productPrice.value.replace(/,/g, "")));
+  formData.append("shipping_method", radioSelected);
+  formData.append("shipping_fee", parseInt(productFee.value.replace(/,/g, "")));
+  formData.append("stock", parseInt(productStock.value.replace(/,/g, "")));
+
+  fetch(`${fetchUrl}/products/`, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+    body: formData,
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error:", response);
+    }
+    alert("상품 등록이 완료되었습니다.");
+    location.href = "sellerDashBoard.html";
+  });
+}
+
+uploadForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  uploadProduct();
 });
