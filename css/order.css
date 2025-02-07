@@ -327,11 +327,11 @@ main {
       background-color: var(--point-color);
       color: var(--main-color);
     }
-    /* .cancelBtn:disabled {
+    .cancelBtn:disabled {
       cursor: not-allowed;
       color: var(--main-color);
       background-color: var(--font-color);
-    } */
+    }
 
     div {
       margin: auto;
