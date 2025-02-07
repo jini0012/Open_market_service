@@ -47,6 +47,9 @@ function orderCancel(orderNum) {
     loadOrderList();
   });
 }
+function orderDetail(id) {
+  location.href = `orderDetail.html?id=${id}`;
+}
 
 function loadOrderList() {
   fetch(`${fetchUrl}/order/`, {
@@ -68,6 +71,8 @@ function loadOrderList() {
       main.querySelector(".order-quantity span").textContent = json.count;
       main.querySelector(".goods").innerHTML = orderLists
         .map((result) => {
+          console.log(result);
+
           if (result.order_items.length === 0) {
             return `<li>
             <article>
@@ -78,14 +83,15 @@ function loadOrderList() {
               <p class="price">${result.total_price.toLocaleString(
                 "ko-KR"
               )}원</p>
-                <button>상세보기</button>
+                <button onClick ="orderDetail(
+                 ${result.id}
+                )">상세보기</button>
                 <button class="deleteBtn" onClick ="orderCancel(
                  ${result.id}
                 )">주문취소</button>
             </article>
           </li>`;
           }
-
           return `<li>
             <article>
               <div class="goods-details">
@@ -105,7 +111,9 @@ function loadOrderList() {
               <p class="price">${result.total_price.toLocaleString(
                 "ko-KR"
               )}원</p>
-                <button>상세보기</button>
+                <button onClick ="orderDetail(
+                 ${result.id}
+                )">상세보기</button>
                 <button class="deleteBtn" onClick ="orderCancel(
                  ${result.id}
                 )">주문취소</button>
