@@ -68,9 +68,6 @@ function viewOrderDetail() {
       return response.json();
     })
     .then((json) => {
-      console.log(inputs);
-      console.log(json);
-
       const orderData = json.order_items;
       // 판매자가 상품을 취소한경우 예외 처리 필요
 
@@ -138,3 +135,24 @@ function viewOrderDetail() {
 if (!!productId) {
   viewOrderDetail();
 }
+
+function orderCancel() {
+  fetch(`${fetchUrl}/order/${productId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      console.error("Error", error);
+    }
+    alert(`주문 취소가 완료되었습니다.`);
+    viewOrderDetail();
+  });
+}
+
+deliveryForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  orderCancel();
+});
