@@ -71,8 +71,6 @@ function loadOrderList() {
       main.querySelector(".order-quantity span").textContent = json.count;
       main.querySelector(".goods").innerHTML = orderLists
         .map((result) => {
-          console.log(result);
-
           if (result.order_items.length === 0) {
             return `<li>
             <article>
