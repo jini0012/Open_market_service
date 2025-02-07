@@ -9,9 +9,10 @@ if (
 }
 
 const orderData = JSON.parse(localStorage.getItem("orderItem"));
-const orderList = document.querySelector(".order-list ul");
-const totalPrice = document.querySelector(".total-price");
-const paymentInfo = document.querySelectorAll(".total-payment-info li span");
+const main = document.querySelector("main");
+const orderList = main.querySelector(".order-list ul");
+const totalPrice = main.querySelector(".total-price");
+const paymentInfo = main.querySelectorAll(".total-payment-info li span");
 
 if (orderData.order_kind === "direct_order") {
   orderList.innerHTML = `<li>
@@ -83,7 +84,7 @@ if (orderData.order_kind === "direct_order") {
     orderData.totalPaymentPrice.toLocaleString("ko-KR");
 }
 
-const deliveryForm = document.querySelector(".delivery-info form");
+const deliveryForm = main.querySelector(".delivery-info form");
 
 deliveryForm.addEventListener("input", () => {
   const requiredInputs = deliveryForm.querySelectorAll(
