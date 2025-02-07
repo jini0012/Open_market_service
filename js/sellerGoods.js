@@ -119,6 +119,7 @@ cancelBtn.addEventListener("click", () => {
     input.value = "";
   });
   detailInfo.value = "";
+  location.href = "sellerDashBoard.html";
 });
 
 function uploadProduct() {
