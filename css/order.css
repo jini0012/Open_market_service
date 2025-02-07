@@ -18,6 +18,7 @@ main {
     align-items: center;
   }
 }
+
 .order-info {
   height: 6rem;
   position: relative;
@@ -146,6 +147,20 @@ main {
     height: 4rem;
     border: solid 0.1rem var(--border-color);
   }
+  input:focus,
+  input:active {
+    outline: none;
+    border: solid 0.1rem var(--point-color);
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+    background-color: #f2f2f2;
+  }
+  input:disabled:focus,
+  input:disabled:active {
+    border: solid 0.1rem var(--border-color);
+  }
   .phone {
     input:first-of-type {
       max-width: 8rem;
@@ -179,6 +194,12 @@ main {
       background-color: var(--point-color);
       position: absolute;
       left: 18rem;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      color: var(--main-color);
+      background-color: var(--font-color);
     }
     #address {
       width: 100%;
@@ -226,6 +247,10 @@ main {
     }
     input[type="radio"]:checked {
       background-image: url(../assets/circle-check--fill-box.svg);
+    }
+    input[type="radio"]:disabled {
+      cursor: not-allowed;
+      background-color: #f2f2f2;
     }
   }
 }
@@ -288,6 +313,26 @@ main {
       height: 18.2rem;
       border-radius: 0 0 1rem 1rem;
     }
+    li:has(.cancelBtn) {
+      justify-content: center;
+      align-items: center;
+    }
+    .cancelBtn {
+      width: 100%;
+      max-width: 22rem;
+      height: 6.8rem;
+      border-radius: 0.5rem;
+      font-size: 2.4rem;
+      font-weight: bold;
+      background-color: var(--point-color);
+      color: var(--main-color);
+    }
+    /* .cancelBtn:disabled {
+      cursor: not-allowed;
+      color: var(--main-color);
+      background-color: var(--font-color);
+    } */
+
     div {
       margin: auto;
       text-align: center;
