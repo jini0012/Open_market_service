@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HODU</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/order.css" />
+  </head>
+  <body>
+    <header class="GNB">
+      <div class="search-wrap">
+        <h1>
+          <a href="index.html"
+            ><img src="./assets/Logo-hodu.png" alt="HODU"
+          /></a>
+        </h1>
+        <form action="#" method="get">
+          <label for="search"></label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="상품을 검색해보세요!"
+          />
+          <button class="searchBtn">
+            <img src="./assets/search.svg" alt="검색" />
+          </button>
+        </form>
+      </div>
+      <div class="btn-wrap">
+        <ul>
+          <li class="cart">
+            <a href="./cart.html" class="cartBtn"> 장바구니 </a>
+          </li>
+          <li class="login">
+            <a href="./login.html" class="loginBtn"> 로그인 </a>
+          </li>
+          <!-- myPage : 회원에게만 보이는 UI -->
+          <li class="myPage" hidden>
+            <button class="myPageBtn">마이페이지</button>
+            <dialog class="myPageModal">
+              <button class="goMyPage">마이페이지</button>
+              <button class="logout">로그아웃</button>
+            </dialog>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h2>주문/결제하기</h2>
+      <ul class="order-info">
+        <li>상품정보</li>
+        <li>할인</li>
+        <li>배송비</li>
+        <li>주문금액</li>
+      </ul>
+      <section class="order-list">
+        <h3 class="sr-only">주문 품목 리스트</h3>
+        <ul>
+          <!-- <li>
+            <article>
+              <img src="./assets/담요.png" alt="" />
+              <div class="order-details">
+                <p>백엔드 글로벌</p>
+                <h3>딥러닝 개발자 무릎 담요</h3>
+                <p>수량 : <span>1</span>개</p>
+              </div>
+              <p class="discount">-</p>
+              <p class="fee">무료배송</p>
+              <p class="price">17,500원</p>
+            </article>
+          </li> -->
+        </ul>
+      </section>
+      <section class="total-price">
+        <h3>총 주문금액 <span>46,500원</span></h3>
+      </section>
+      <section class="delivery-info">
+        <h3>배송 정보</h3>
+        <form action="#">
+          <section class="buyer-info">
+            <h4>주문자 정보</h4>
+            <label for="name"
+              ><span>이름</span><input type="text" id="name" disabled
+            /></label>
+            <label for="phone" class="phone"
+              ><span>휴대폰</span
+              ><input
+                type="text"
+                id="phone"
+                pattern="^0[0-9]{2}$"
+                maxlength="3"
+                disabled
+              />-<input
+                type="text"
+                id="phone"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                disabled
+              />-
+              <input
+                type="text"
+                id="phone"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                disabled
+              />
+            </label>
+            <label for="email"
+              ><span>이메일</span><input type="email" id="email" disabled
+            /></label>
+          </section>
+          <section class="address-info">
+            <h4>배송지 정보</h4>
+            <label for="addressee"
+              ><span>수령인</span><input type="text" id="addressee" disabled
+            /></label>
+
+            <label for="phone2" class="phone"
+              ><span>휴대폰</span
+              ><input
+                type="text"
+                id="phone2"
+                pattern="^0[0-9]{2}$"
+                maxlength="3"
+                disabled />-
+              <input
+                type="text"
+                id="phone2"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                disabled />-
+              <input
+                type="text"
+                id="phone2"
+                pattern="^[0-9]{4}$"
+                maxlength="4"
+                disabled
+            /></label>
+
+            <label for="address" class="address"
+              ><span>배송주소</span>
+              <div>
+                <input type="address" id="address" disabled />
+                <button type="button" disabled>우편번호 조회</button>
+                <input type="text" id="detail-address1" disabled />
+                <input type="text" id="detail-address2" disabled />
+              </div>
+            </label>
+
+            <label for="msg"
+              ><span>배송 메시지</span><input type="text" id="msg" disabled
+            /></label>
+          </section>
+          <section class="payment">
+            <h3>결제 수단</h3>
+            <div>
+              <input
+                type="radio"
+                id="card"
+                name="payment"
+                value="card"
+                disabled
+              />
+              <label for="card">신용/체크카드</label>
+              <input
+                type="radio"
+                id="deposit"
+                name="payment"
+                value="deposit"
+                disabled
+              />
+              <label for="deposit">무통장 입금</label>
+              <input
+                type="radio"
+                id="phone"
+                name="payment"
+                value="phone"
+                disabled
+              />
+              <label for="phone">휴대폰 결제</label>
+              <input
+                type="radio"
+                id="naverpay"
+                name="payment"
+                value="naverpay"
+                disabled
+              />
+              <label for="naverpay">네이버페이</label>
+              <input
+                type="radio"
+                id="kakaopay"
+                name="payment"
+                value="kakaopay"
+                disabled
+              />
+              <label for="kakaopay">카카오페이</label>
+            </div>
+          </section>
+          <section class="total-payment-info">
+            <h3>최종 결제 정보</h3>
+            <ul>
+              <li>
+                <p>상품금액</p>
+                <span>46,500</span>
+              </li>
+              <li>
+                <p>할인금액</p>
+                <span>0</span>
+              </li>
+              <li>
+                <p>배송비</p>
+                <span>0</span>
+              </li>
+              <li>
+                <p>결제금액</p>
+                <span>46,500</span>
+              </li>
+              <li>
+                <button type="submit" class="cancelBtn">주문취소하기</button>
+              </li>
+            </ul>
+          </section>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul class="about-wrap">
+          <li><a href="#">호두샵 소개</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li>
+            <span>
+              <a href="#">개인정보처리방침</a>
+            </span>
+          </li>
+          <li><a href="#">전자금융거래약관</a></li>
+          <li><a href="#">청소년보호정책</a></li>
+          <li><a href="#">제휴문의</a></li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#"
+              ><img
+                src="./assets/icon-insta.svg"
+                alt="인스타그램 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-fb.svg" alt="페이스북 페이지 바로가기"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/icon-yt.svg" alt="유튜브 페이지 바로가기"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <address>
+        <span>(주)HODU SHOP</span> <br />
+        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프 <br />
+        사업자 번호 : 000-0000-0000 | 통신판매업 <br />
+        대표 : 김호두
+      </address>
+    </footer>
+    <script src="./js/common.js"></script>
+    <script src="./js/gnb.js"></script>
+    <script src="./js/orderDetail.js"></script>
+  </body>
+</html>
