@@ -1,4 +1,4 @@
-const fetchUrl = "https://estapi.openmarket.weniv.co.kr";
+const fetchUrl = "https://api.wenivops.co.kr/services/open-market";
 
 function logout() {
   localStorage.removeItem("accessToken");
