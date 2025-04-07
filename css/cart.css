@@ -117,6 +117,8 @@ main {
         height: 16rem;
         border-radius: 1rem;
         grid-area: img;
+        border: var(--border-color) solid 0.1rem;
+        border-radius: 1rem;
       }
       p {
         font-size: 1.4rem;
