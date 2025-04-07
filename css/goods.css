@@ -11,6 +11,7 @@ body {
 }
 
 main {
+  width: 100%;
   padding: 8rem 1rem;
   display: flex;
   flex-direction: column;
@@ -24,12 +25,14 @@ main {
   width: 100%;
   justify-content: center;
 
-  img {
+  img:not(button img) {
     width: 50%;
     height: auto;
     max-width: 60rem;
     object-fit: contain;
     aspect-ratio: 1 / 1;
+    border: var(--border-color) solid 0.1rem;
+    border-radius: 1rem;
   }
 }
 
